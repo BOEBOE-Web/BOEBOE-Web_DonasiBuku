@@ -1,4 +1,4 @@
-# <a href="boeboe-web.github.io/web-pt1"><p>Open</p></a>
+# <a href="https://boeboe-web.github.io/web-pt1/"><p>Open</p></a>
 
 BoeBoe adalah sebuah web yang berperan penting sebagai sarana untuk mendonasikan berbagai macam buku yang sudah tidak terpakai untuk dialokasikan kepada perpustakaan yang lebih membutuhkan.
 
