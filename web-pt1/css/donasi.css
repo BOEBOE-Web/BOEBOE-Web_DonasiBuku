@@ -1,0 +1,110 @@
+/** donasi index css **/
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+p, a, button {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  height: 4rem;
+  width: 100%;
+  background-color: #BBE1FA;
+  color: #0F4C75;
+  position :fixed;
+  top: 0;
+  z-index: 10;
+  border-radius: 0 0 16px 16px;
+}
+
+.header img {
+  margin: 10px 0 10px 25px;
+  padding: 0 25px;
+  display: block;
+  float: left;
+  height: 2.5rem;
+}
+
+.nav {
+  float: right;
+}
+
+.nav a {
+  line-height: 4rem;
+  padding: 0 15px;
+  display: block;
+  float: left;
+  color: #0F4C75;  
+  transition: all 0.5s;
+}
+
+.nav a:hover {
+  background-color: #0F4C75;
+  color: #BBE1FA;
+}
+
+.masuk {
+  margin-right: 35px;
+}
+
+#donasi-container {
+  margin-top: 4rem;
+  width: 100%;
+  height: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3F3F3;
+}
+
+.donasi-flex {
+  height: 380px;
+  width: 380px;
+  margin: 0 50px;
+  border-radius: 12px;
+  background-color: #BBE1FA;
+  color: #3282B8;
+  text-align: center;
+  box-shadow: 15px 15px #3282B8;
+}
+
+.donasi-flex p {
+  margin-top: 20px;
+}
+
+.donasi-flex:hover {
+  cursor: pointer;
+}
+
+footer {
+  background-color: #0F4C75;
+  color: #BBE1FA;
+  text-align: center;
+  padding: 25px 0;
+}
