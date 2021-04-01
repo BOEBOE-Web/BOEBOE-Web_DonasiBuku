@@ -213,7 +213,7 @@ footer {
 }
 }
 /* mobilesize */
-@media screen and (max-width:411px){
+@media screen and (max-width:670px){
   .header img {
     margin: 15px 0 10px 2px;
     height: 2em;
@@ -232,6 +232,7 @@ footer {
   .main-flex{
     width: auto;
     margin: 50px 50px;
+    height: 348px;
   }
   
   #tentang-kami{
@@ -239,14 +240,13 @@ footer {
     display: block;
   }
   .tentangs{
-    padding-left: 25%;
-    padding-top: 15px;
+    text-align: center;
   }
   #tentang-kami p {
     margin:0px 25px ;
   }
   .mobs{
-    margin-left: 37px;
+    margin:auto;
   }
   .deskipad{
     display: none;
@@ -328,7 +328,7 @@ footer {
   .burgermenu input ~ nav > ul > li > a {
     text-decoration: none;
     text-transform: uppercase;
-    color: #020304;
+    color: #0F4C75;
     font-weight: 700;
     
     display: block;
@@ -338,7 +338,7 @@ footer {
    margin-right: 0;
  }
   .burgermenu input:checked ~ nav {
-    height: 40%;
+    height: 45%;
     transition-delay: 0s;
  }
   .burgermenu input:checked ~ nav > ul > li {
