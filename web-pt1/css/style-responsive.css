@@ -55,13 +55,18 @@
   .main-flex {
     width: auto;
     margin: 50px 50px;
-    height: 390px;
+    height: 325px;
+  }
+
+  .main-flex ul {
+    font-size: 1rem;
   }
 
   #tentang-kami {
-    height: 830px;
+    height: 865px;
     display: block;
   }
+  
   .teks-tentang h1 {
     text-align: center;
     padding-top: 25px;
