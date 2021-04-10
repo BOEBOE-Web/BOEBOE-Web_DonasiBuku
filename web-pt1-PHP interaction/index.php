@@ -1,3 +1,10 @@
+<?php  
+    require "action/db.php";
+
+    $query = "SELECT * FROM pt1_boeboe";
+    $result = mysqli_query($koneksi, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -15,8 +22,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
@@ -90,23 +97,6 @@
                                 </label>
                             </div>
                         </div>
-
-                        <!-- Fiturnya Kelebihan, Karena -->
-
-                        <!-- <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    Setuju dengan syarat dan ketentuan
-                                </label>
-                                <div class="invalid-feedback">
-                                    Anda harus setuju sebelum mengirimkan.
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- Batas -->
-
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary col-12">Masuk</button>
                         </div>
@@ -114,8 +104,10 @@
                     <!-- END FORM -->
                 </div>
                 <div class="modal-footer">
-                    <div>Belum punya akun? <span class="klik"><a href="assets/register.html">Daftar disini</a></span></div>
-                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="assets/registerPerpus.html">Klik disini</a></span></div>
+                    <div>Belum punya akun? <span class="klik"><a href="assets/register.php">Daftar disini</a></span>
+                    </div>
+                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="assets/registerPerpus.html">Klik
+                                disini</a></span></div>
                 </div>
             </div>
         </div>

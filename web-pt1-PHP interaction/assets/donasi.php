@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoeBoe - Web Donasi Buku Bekas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style-responsive.css">
-    <link rel="icon" href="image/icon-b.png">
+    <link rel="stylesheet" href="../css/donasi.css">
+    <link rel="stylesheet" href="../css/donasi-responsive.css">
+    <link rel="icon" href="../image/icon-b.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 <body>
     <header>
         <div class="header">
-            <a href="#"><img src="image/logo-boeboe.png" alt="logo-boeboe"></a>
+            <a href="../index.html"><img src="../image/logo-boeboe.png" alt="logo-boeboe"></a>
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -33,12 +33,12 @@
             </label>
             <nav>
                 <div class="header">
-                    <img src="image/logo-boeboe.png" alt="logo-boeboe">
+                    <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
-                <ul style="padding: 0px !important;">
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="assets/donasi.html">Donasi</a></li>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="../index.html#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="donasi.html">Donasi</a></li>
                     <li><a href="#">Perpustakaan</a></li>
                     <li><a href="#" class="masuk">Masuk</a></li>
                 </ul>
@@ -46,12 +46,12 @@
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#tentang-kami">Tentang Kami</a></li>
-                <li><a href="assets/donasi.html">Donasi</a></li>
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="../index.html#tentang-kami">Tentang Kami</a></li>
+                <li><a href="donasi.html">Donasi</a></li>
                 <li><a href="#">Perpustakaan</a></li>
                 <li><a href="#" class="masuk" type="button" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">Masuk</a></li>
+                    data-bs-target="#exampleModal">Masuk</a></li>
             </ul>
         </div>
     </header>
@@ -90,10 +90,7 @@
                                 </label>
                             </div>
                         </div>
-
-                        <!-- Fiturnya Kelebihan, Karena -->
-
-                        <!-- <div class="col-12">
+                        <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                                 <label class="form-check-label" for="invalidCheck">
@@ -103,10 +100,7 @@
                                     Anda harus setuju sebelum mengirimkan.
                                 </div>
                             </div>
-                        </div> -->
-
-                        <!-- Batas -->
-
+                        </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary col-12">Masuk</button>
                         </div>
@@ -114,64 +108,24 @@
                     <!-- END FORM -->
                 </div>
                 <div class="modal-footer">
-                    <div>Belum punya akun? <span class="klik"><a href="assets/register.html">Daftar disini</a></span></div>
-                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="assets/registerPerpus.html">Klik disini</a></span></div>
+                    <div>Belum punya akun? <span class="klik"><a href="register.html">Daftar disini</a></span></div>
+                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="registerPerpus.html">Klik disini</a></span></div>
                 </div>
             </div>
         </div>
     </div>
     <!-- END Modal -->
-    <div id="home">
-        <img src="image/boeboe.png" alt="boeboe">
-        <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
-        <a href="assets/donasi.html">DONASI BUKU</a>
-    </div>
-    <div id="main-container">
-        <div class="main-flex display1">
-            <h1 data-aos="fade-right" data-aos-delay="200">What You Do ?</h1>
-            <ul>
-                <li>
-                    <p>Mengisi form donasi</p>
-                </li>
-                <li>
-                    <p>Menyediakan buku kemudian dikemas</p>
-                </li>
-                <li>
-                    <p>Mengirim buku ke alamat tujuan</p>
-                </li>
-            </ul>
+    <div id="donasi-container">
+        <div class="donasi-flex">
+            <img src="../image/Reading-a-book_Monochromatic.png" alt="Reading a book">
+            <p>Pilih kategori buku yang didonasikan</p>
         </div>
-        <div class="main-flex display2">
-            <h1 data-aos="fade-right" data-aos-delay="400">What We Do ?</h1>
-            <ul>
-                <li>
-                    <p>BoeBoe menyediakan website untuk mendonasikan buku</p>
-                </li>
-                <li>
-                    <p>BoeBoe menjalin kerjasama dengan perpustakaan yang membutuhkan buku</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="tentang-kami">
-        <div class="teks-tentang">
-            <h1 data-aos="fade-right" data-aos-delay="200">Tentang Kami</h1>
-            <div>
-                <img class="mobs" src="image/Web-development-_Two-Color.png" alt="Web development">
-            </div>
-            <p>BoeBoe adalah sebuah web yang berperan penting sebagai sarana untuk mendonasikan berbagai macam buku yang
-                sudah tidak terpakai untuk dialokasikan kepada perpustakaan yang lebih membutuhkan.</p>
-            <p>BoeBoe menyediakan program donasi buku bekas berbasis web, serta akses mendapatkan buku dengan lebih
-                mudah kepada mereka yang tinggal di daerah terpencil. Dalam web ini terdapat berbagai macam fitur
-                seperti kategori buku yang dibutuhkan perpustakaan dan daftar perpustakaan yang menjalin kerjasama
-                dengan BoeBoe.</p>
-        </div>
-        <div>
-            <img class="deskipad" src="image/Web-development-_Two-Color.png" alt="Web development">
+        <div class="donasi-flex">
+            <img src="../image/Book-Lover_Two-Color.png" alt="Book Lover">
+            <p>Pilih perpustakaan untuk berdonasi</p>
         </div>
     </div>
     <footer>
-
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
 
         <!-- Kayaknya lebih banget -->
@@ -179,11 +133,7 @@
         <!-- Batas akhir -->
 
     </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
