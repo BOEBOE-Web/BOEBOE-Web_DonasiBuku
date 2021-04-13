@@ -1,0 +1,118 @@
+/** ubah profile perpus css **/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html, body, ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+p, a, button, label, button, input,
+optgroup, select, textarea, div {
+  font-family: "Poppins", sans-serif !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.navi ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  height: 4rem;
+  width: 100%;
+  background-color: #bbe1fa;
+  color: #0f4c75;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  border-radius: 0 0 16px 16px;
+}
+
+.header img {
+  margin: 10px 0 10px 25px;
+  padding: 0 25px;
+  display: block;
+  float: left;
+  height: 2.5rem;
+}
+
+.navi {
+  float: right;
+}
+
+.navi a {
+  line-height: 4rem;
+  padding: 0 15px;
+  display: block;
+  float: left;
+  color: #0f4c75;
+  transition: all 0.5s;
+}
+
+.navi a:hover {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+}
+
+.masuk {
+  margin-right: 35px;
+}
+
+.burgermenu {
+  display: none;
+}
+
+.change-profile {
+  margin-top: 3rem;
+  background-color: #f3f3f3;
+  padding: 100px 300px;
+  color: #0f4c75 !important;
+}
+
+.change-profile h1 {
+  font-family: "Pacifico", cursive;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.form-check {
+  width: 200px;
+}
+
+.form-check-input:checked {
+  background-color: #0f4c75 !important;
+  border-color: #0f4c75 !important;
+}
+
+.btn-primary {
+  color: #bbe1fa !important;
+  background-color: #0f4c75 !important;
+  border-color: #0f4c75 !important;
+}
+
+footer {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+  text-align: center;
+  padding: 25px 0;
+}
