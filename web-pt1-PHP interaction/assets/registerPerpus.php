@@ -25,7 +25,7 @@
 <body>
     <header>
         <div class="header">
-            <a href="../index.html"><img src="../image/logo-boeboe.png" alt="logo-boeboe"></a>
+            <img src="../image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -39,9 +39,9 @@
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul>
-                    <li><a href="../index.html">Beranda</a></li>
-                    <li><a href="../index.html#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="donasi.html">Donasi</a></li>
+                    <li><a href="../index.php">Beranda</a></li>
+                    <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="#">Perpustakaan</a></li>
                     <li><a href="#" class="masuk">Masuk</a></li>
                 </ul>
@@ -49,9 +49,9 @@
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="../index.html">Beranda</a></li>
-                <li><a href="../index.html#tentang-kami">Tentang Kami</a></li>
-                <li><a href="donasi.html">Donasi</a></li>
+                <li><a href="../index.php">Beranda</a></li>
+                <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="donasi.php">Donasi</a></li>
                 <li><a href="#">Perpustakaan</a></li>
                 <li><a href="#" class="masuk" type="button" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Masuk</a></li>
@@ -100,8 +100,8 @@
                     <!-- END FORM -->
                 </div>
                 <div class="modal-footer">
-                    <div>Belum punya akun? <span class="klik"><a href="register.html">Daftar disini</a></span></div>
-                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="registerPerpus.html">Klik
+                    <div>Belum punya akun? <span class="klik"><a href="register.php">Daftar disini</a></span></div>
+                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="registerPerpus.php">Klik
                                 disini</a></span></div>
                 </div>
             </div>
@@ -113,17 +113,17 @@
             Daftar Sebagai Perpustakaan
         </h3>
         <!-- FORM -->
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation" novalidate  action="../action/regPerpus.php" method="POST">
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" required>
+                <input type="email" class="form-control" name="email_mitra" id="inputEmail4" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" name="password" onkeyup='check();'
+                <input type="password" class="form-control" id="inputPassword4" name="password_mitra" onkeyup='check();'
                     required>
                 <div class="invalid-feedback">
                     Harus diisi
@@ -142,45 +142,55 @@
             </div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama Lembaga</label>
-                <input type="text" class="form-control" id="inputNama" value="" required>
+                <input type="text" class="form-control" id="inputNama" name="namaLembaga_mitra" value="" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="datepicker" class="form-label">Tahun Berdiri</label>
-                <input type="text" class="form-control" id="datepicker" required>
+                <input type="text" class="form-control" name="tahunBerdiri_mitra" id="datepicker" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formNoIzin" class="form-label">No. Izin Operasional</label>
-                <input type="text" class="form-control" id="formNoIzin" required>
+                <input type="text" class="form-control" name="noIzin_mitra" id="formNoIzin" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="provinsi" class="form-label">Provinsi</label>
+                <input type="text" class="form-control" name="provinsi" id="pronvisi" required>
+
+                <!-- Fiturnya dimatikan sementara
                 <select class="form-select" id="provinsi" required>
                     <option selected disabled value="">Pilih Provinsi</option>
-                    <option>. . .</option>
-                </select>
+                    <option></option>
+                </select> -->
+
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
+
             <div class="col-md-6">
                 <label for="kabkota" class="form-label">Kab/Kota</label>
+                <input type="text" class="form-control" name="kabupate_kota" id="pronvisi" required>
+
+                <!-- Fiturnya dimatikan sementara
                 <select class="form-select" id="kabkota" required>
                     <option selected disabled value="">Pilih Kab/Kota</option>
-                    <option>. . .</option>
-                </select>
+                    <option></option>
+                </select> -->
+
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
+
             <div class="col-md-4">
                 <label for="kecamatan" class="form-label">Kecamatan</label>
                 <input type="text" class="form-control" id="kecamatan" required>
@@ -188,44 +198,47 @@
                     Harus dipilih.
                 </div>
             </div>
+
             <div class="col-md-4">
                 <label for="desa-kelurahan" class="form-label">Desa/Kelurahan</label>
-                <input type="text" class="form-control" id="desa-kelurahan" required>
+                <input type="text" class="form-control" name="desa_kelurahan" id="desa-kelurahan" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
+
             <div class="col-md-2">
                 <label for="form-rt" class="form-label">RT</label>
-                <input type="text" class="form-control" id="form-rt" required>
+                <input type="text" class="form-control" name="rt" id="form-rt" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
+
             <div class="col-md-2">
                 <label for="form-rw" class="form-label">RW</label>
-                <input type="text" class="form-control" id="form-rw" required>
+                <input type="text" class="form-control" name="rw" id="form-rw" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="form-jalan" class="form-label">Jalan</label>
-                <textarea class="form-control" id="form-jalan" rows="2" required></textarea>
+                <input class="form-control" name="jalan" id="form-jalan" rows="2" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="form-kodepos" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" id="form-kodepos" required>
+                <input type="text" class="form-control" name="kodePos" id="form-kodepos" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formNomorHp" class="form-label">Nomor Hp</label>
-                <input type="text" class="form-control" id="formNomorHp" required>
+                <input type="text" class="form-control" name="nomorHP_mitra" id="formNomorHp" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
@@ -249,13 +262,7 @@
         <!-- END FORM -->
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-
-
-        <!-- Kayaknya lebih banget -->
-        <!-- <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p> -->
-        <!-- Batas akhir -->
-
+        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p> 
 
     </footer>
     <script src="../js/script.js"></script>

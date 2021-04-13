@@ -1,5 +1,12 @@
 <?php  
+    session_start();
+    
     require "action/db.php";
+
+    // if (!isset($_SESSION['login'])) {
+    //     header("Location : salah.html");
+    //     exit;
+    // }
 
     $query = "SELECT * FROM pt1_boeboe";
     $result = mysqli_query($koneksi, $query);
@@ -27,9 +34,9 @@
 </head>
 
 <body>
-    <header>
+    <header>    
         <div class="header">
-            <a href="#"><img src="image/logo-boeboe.png" alt="logo-boeboe"></a>
+            <img src="image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -45,7 +52,7 @@
                 <ul style="padding: 0px !important;">
                     <li><a href="#">Beranda</a></li>
                     <li><a href="#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="assets/donasi.html">Donasi</a></li>
+                    <li><a href="assets/donasi.php">Donasi</a></li>
                     <li><a href="#">Perpustakaan</a></li>
                     <li><a href="#" class="masuk">Masuk</a></li>
                 </ul>
@@ -55,7 +62,7 @@
             <ul>
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#tentang-kami">Tentang Kami</a></li>
-                <li><a href="assets/donasi.html">Donasi</a></li>
+                <li><a href="assets/donasi.php">Donasi</a></li>
                 <li><a href="#">Perpustakaan</a></li>
                 <li><a href="#" class="masuk" type="button" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Masuk</a></li>
@@ -106,7 +113,7 @@
                 <div class="modal-footer">
                     <div>Belum punya akun? <span class="klik"><a href="assets/register.php">Daftar disini</a></span>
                     </div>
-                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="assets/registerPerpus.html">Klik
+                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="assets/registerPerpus.php">Klik
                                 disini</a></span></div>
                 </div>
             </div>
@@ -116,7 +123,7 @@
     <div id="home">
         <img src="image/boeboe.png" alt="boeboe">
         <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
-        <a href="assets/donasi.html">DONASI BUKU</a>
+        <a href="assets/donasi.php">DONASI BUKU</a>
     </div>
     <div id="main-container">
         <div class="main-flex display1">

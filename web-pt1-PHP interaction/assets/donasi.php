@@ -22,7 +22,7 @@
 <body>
     <header>
         <div class="header">
-            <a href="../index.html"><img src="../image/logo-boeboe.png" alt="logo-boeboe"></a>
+            <img src="../image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -36,9 +36,9 @@
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul>
-                    <li><a href="../index.html">Beranda</a></li>
-                    <li><a href="../index.html#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="donasi.html">Donasi</a></li>
+                    <li><a href="../index.php">Beranda</a></li>
+                    <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="#">Perpustakaan</a></li>
                     <li><a href="#" class="masuk">Masuk</a></li>
                 </ul>
@@ -46,9 +46,9 @@
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="../index.html">Beranda</a></li>
-                <li><a href="../index.html#tentang-kami">Tentang Kami</a></li>
-                <li><a href="donasi.html">Donasi</a></li>
+                <li><a href="../index.php">Beranda</a></li>
+                <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="donasi.php">Donasi</a></li>
                 <li><a href="#">Perpustakaan</a></li>
                 <li><a href="#" class="masuk" type="button" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">Masuk</a></li>
@@ -108,8 +108,8 @@
                     <!-- END FORM -->
                 </div>
                 <div class="modal-footer">
-                    <div>Belum punya akun? <span class="klik"><a href="register.html">Daftar disini</a></span></div>
-                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="registerPerpus.html">Klik disini</a></span></div>
+                    <div>Belum punya akun? <span class="klik"><a href="register.php">Daftar disini</a></span></div>
+                    <div>Mendaftar Sebagai perpustakaan? <span class="klik"><a href="registerPerpus.php">Klik disini</a></span></div>
                 </div>
             </div>
         </div>
@@ -127,11 +127,6 @@
     </div>
     <footer>
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-
-        <!-- Kayaknya lebih banget -->
-        <!-- <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p> -->
-        <!-- Batas akhir -->
-
     </footer>
     <script src="../js/script.js"></script>
 </body>
