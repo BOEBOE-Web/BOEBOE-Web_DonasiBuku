@@ -30,7 +30,9 @@ a {
 p {
   margin-bottom: 0 !important;
 }
-
+.responsive {
+  display: none;
+}
 .navi ul {
   list-style: none;
   display: flex;
