@@ -7,7 +7,9 @@
   .masuk {
     margin-right: 20px;
   }
-
+  .main{
+    padding: 100px 50px;
+  }
   .teks-tentang {
     width: 50%;
     padding-right: 5px;
@@ -42,7 +44,9 @@
   .navi {
     display: none;
   }
-
+  .main{
+    padding: 100px 41px;
+  }
   .burgermenu {
     display: block;
   }
