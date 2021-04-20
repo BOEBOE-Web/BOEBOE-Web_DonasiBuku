@@ -158,6 +158,8 @@
                         <h5>Tentang Perpustakaan:</h5>
                         <p>...</p>
                     </div>
+                    
+                    <a href="donasi.php" class="btn btn-primary responsive" type="button" style="height: 38px">Donasi Sekarang</a>
                 </div>
             </div>
         </div>
