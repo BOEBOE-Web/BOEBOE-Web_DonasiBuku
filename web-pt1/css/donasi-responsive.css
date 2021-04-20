@@ -12,6 +12,7 @@
   }
 
   #donasi-container {
+    padding: 100px;
     height: 880px;
     margin-top: 4rem;
   }
@@ -120,6 +121,6 @@
   #donasi-container {
     display: block;
     height: 100%;
-    padding-top: 1px;
+    padding: 42px;
   }
 }
