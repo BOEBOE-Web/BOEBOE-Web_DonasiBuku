@@ -6,7 +6,9 @@
     .header img {
       margin: 10px 0;
     }
-  
+    .change-profile{
+      padding: 100px 50px;
+    }
     .masuk {
       margin-right: 20px;
     }
@@ -24,7 +26,9 @@
     .navi {
       display: none;
     }
-  
+    .change-profile{
+      padding: 100px 41px;
+    }
     .burgermenu {
       display: block;
     }
