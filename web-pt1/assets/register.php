@@ -39,7 +39,7 @@
                     <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
                     <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="perpustakaan.php">Perpustakaan</a></li>
-                    <li><a href="#" class="masuk">Masuk</a></li>
+                    <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
                 </ul>
             </nav>
         </nav>
