@@ -3,7 +3,9 @@
   .header img {
     margin: 10px 0;
   }
-
+  .main{
+    padding: 100px 50px;
+  }
   .masuk {
     margin-right: 20px;
   }
@@ -38,6 +40,9 @@
   .header img {
     margin: 15px 0 10px 2px;
     height: 2em;
+  }
+  .main{
+    padding: 100px 41px;
   }
   .navi {
     display: none;
