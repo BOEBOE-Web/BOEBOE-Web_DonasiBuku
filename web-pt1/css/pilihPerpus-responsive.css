@@ -14,12 +14,57 @@
     .burgermenu {
       display: none;
     }
+    
+    .col-10{
+      width: 68.333333%;
+    }
+    .col-2{
+      width: 29.666667%;
+    }
+    .responsive{
+      display: none;
+    }
   }
   
 @media all and (max-width: 670px) {
     .header img {
       margin: 15px 0;
       height: 2rem;
+    }
+    .col-2{
+      display: none;
+    }
+    .col-10{
+      width: 100%;
+    }
+    .content{
+      flex-direction: column;
+      margin-top: 30px;
+    }
+    .content img {
+      width: 250%;
+      margin-left: 42%;
+    }
+    .responsive{
+      display: inline;;
+      margin-top: 15%;
+    margin-left: 24%;
+    }
+    .display-one {
+      margin-top: 35px;
+      width: 100%;
+      padding-left: 0;
+    }
+    .display-two {
+      margin-top: 35px;
+      width: 100%;
+      padding-left: 0;
+    }
+    .main-content{
+      padding: 42px;
+    }
+    .main-content h1 {
+      text-align: center;
     }
     .navi {
       display: none;
