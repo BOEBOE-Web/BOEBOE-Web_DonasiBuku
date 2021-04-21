@@ -1,5 +1,6 @@
 # BoeBoe - Web Donasi Buku Bekas
-#### <a href="https://boeboe-web.github.io/web-pt1/index.php"><p>Live Demo</p></a>
+
+#### <a href="#"><p>Live Demo</p></a>
 
 BoeBoe adalah sebuah web yang berperan penting sebagai sarana untuk mendonasikan berbagai macam buku yang sudah tidak terpakai untuk dialokasikan kepada perpustakaan yang lebih membutuhkan.
 
