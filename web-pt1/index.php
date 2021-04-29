@@ -1,3 +1,16 @@
+<?php  
+    require "action/config.php";
+    session_start();
+
+    if (isset($_SESSION['masuk'])) {
+        header("Location: alert/salah.php");
+        exit;
+    }
+
+    $query = "SELECT * FROM otakuboeboe";
+    $result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -40,7 +53,7 @@
                     <li><a href="#tentang-kami">Tentang Kami</a></li>
                     <li><a href="assets/donasi.php">Donasi</a></li>
                     <li><a href="assets/perpustakaan.php">Perpustakaan</a></li>
-                    <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
+                    <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" name="masuk" data-bs-target="#exampleModal">Masuk</a></li>
                 </ul>
             </nav>
         </nav>

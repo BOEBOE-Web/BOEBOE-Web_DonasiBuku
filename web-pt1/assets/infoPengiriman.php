@@ -17,6 +17,15 @@
   <?php include "../css/infoPengiriman.css" ?><?php include "../css/infoPengiriman-responsive.css" ?>
 </style>
 
+<script type="text/javascript">
+    function print_page() {
+        var ButtonControl = document.getElementById("btnprint");
+        ButtonControl.style.visibility = "hidden";
+        alert('Silahkan ditempelkan pada paket anda, Terimakasih.. !');
+        window.print();
+    }
+  </script>
+
 <body>
   <header>
     <div class="header">
@@ -115,7 +124,7 @@
       <h5>081234567890</h5>
       <p>Alamat Penerima</p>
       <h5>Jln. Trans Sulawesi, RT 01, RW 01, Kelurahan Panau, Kecamatan Tawaeli, Kota Palu, Provinsi Sulawesi Tengah</h5>
-      <button class="btn btn-primary col-3">Print Alamat</button>
+      <button class="btn btn-primary col-3" id="btnprint" onclick="print_page()">Print Alamat</button>
     </div>
     <div style="border-bottom: 1px solid #bbe1fa; padding-top: 20px"></div>
     <p style="padding-top: 20px; color: #dc3545">Print / catat informasi pengiriman di atas untuk di tempel pada paket pengiriman</p>

@@ -1,3 +1,16 @@
+<?php 
+	session_start();
+	include '../action/regDonatur.php';
+
+	if ($_POST["submit"]) {
+		if ($_POST['submit'] > 0) {
+			echo "<script>alert('Data Disimpan!');</script>";
+		} else {
+			echo mysqli_error($conn);
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -109,21 +122,21 @@
         <form class="row g-3 needs-validation" novalidate>
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" required>
+                <input type="email" class="form-control" id="inputEmail4" name="email" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" required>
+                <input type="password" class="form-control" id="inputPassword4" name="password" required>
                 <div class="invalid-feedback">
                     Harus diisi
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputConfirmPassword" class="form-label">Ulangi Password</label>
-                <input type="password" class="form-control" id="inputConfirmPassword" required>
+                <input type="password" class="form-control" id="inputConfirmPassword" name="cpassword" required>
                 <div style="margin-top: 4px; font-size: .875em;">
                     <span id="message"></span>
                 </div>
@@ -133,35 +146,35 @@
             </div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="inputNama" value="" required>
+                <input type="text" class="form-control" id="inputNama" name="nama" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" id="formNomorTelepon" required>
+                <input type="text" class="form-control" id="formNomorTelepon" name="noTelepon" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formDate" class="form-label">Tanggal Lahir</label>
-                <input type="date" class="form-control" id="formDate" required>
+                <input type="date" class="form-control" id="formDate" name="tglLahir" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="formAlamat" class="form-label">Alamat</label>
-                <textarea class="form-control" id="formAlamat" rows="3" required></textarea>
+                <textarea class="form-control" id="formAlamat" rows="3" name="alamat" required></textarea>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputInstansi" class="form-label">Instansi</label>
-                <select class="form-select" id="inputInstansi" required>
+                <select class="form-select" id="inputInstansi" name="instansi" required>
                     <option selected disabled value="">Pilih Instansi</option>
                     <option>Perusahaan</option>
                     <option>Lembaga</option>
@@ -184,7 +197,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary col-12" onclick="document.location='dasborDonatur.php'">Daftar</button>
+                <button type="submit" class="btn btn-primary col-12" name="daftar" onclick="document.location='../index.php'">Daftar</button>
             </div>
         </form>
         <!-- END FORM -->
