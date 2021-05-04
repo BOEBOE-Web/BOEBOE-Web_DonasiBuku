@@ -46,7 +46,6 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
               <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-              <li><a class="dropdown-item" href="notifikasi.php">Notifikasi</a></li>
               <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
                         </ul>
                     </div></li>
@@ -67,7 +66,6 @@
             <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
               <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
               <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-              <li><a class="dropdown-item" href="notifikasi.php">Notifikasi</a></li>
               <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
             </ul>
           </div>
