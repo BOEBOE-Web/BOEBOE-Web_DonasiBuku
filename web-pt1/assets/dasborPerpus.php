@@ -45,7 +45,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
-                            <li><a class="dropdown-item" href="#">Konfirmasi Donasi</a></li>
+                            <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
                             <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
                         </ul>
                     </div></li>
@@ -65,7 +65,7 @@
                         </a>
                         <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
-                            <li><a class="dropdown-item" href="#">Konfirmasi Donasi</a></li>
+                            <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
                             <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
                         </ul>
                     </div>
