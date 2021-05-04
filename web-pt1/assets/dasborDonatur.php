@@ -39,7 +39,17 @@
           <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
           <li><a href="donasi.php">Donasi</a></li>
           <li><a href="perpustakaan.php">Perpustakaan</a></li>
-          <li><a href="#" class="masuk">Masuk</a></li>
+          <li><div class="dropdown">
+                        <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
+              <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
+              <li><a class="dropdown-item" href="notifikasi.php">Notifikasi</a></li>
+              <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
+                        </ul>
+                    </div></li>
         </ul>
       </nav>
     </nav>
@@ -97,6 +107,9 @@
         <div>
           <h5>Email</h5>
           <p>MamanPanci69@gmail.com</p>
+        </div>
+        <div>
+          <a href="ubahProfileDonatur.php" class="btn btn-responsive col-4">Ubah Profile</a>
         </div>
       </div>
     </div>
