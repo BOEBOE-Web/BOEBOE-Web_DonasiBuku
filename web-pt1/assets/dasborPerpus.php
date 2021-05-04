@@ -29,6 +29,7 @@
                 <span></span>
                 <span></span>
             </label>
+            
             <nav>
                 <div class="header">
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
@@ -38,7 +39,16 @@
                     <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
                     <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="perpustakaan.php">Perpustakaan</a></li>
-                    <li><a href="#" class="masuk">Masuk</a></li>
+                    <li><div class="dropdown">
+                        <a class="masuk dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
+                            <li><a class="dropdown-item" href="#">Konfirmasi Donasi</a></li>
+                            <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
+                        </ul>
+                    </div></li>
                 </ul>
             </nav>
         </nav>
@@ -66,7 +76,7 @@
     <div class="dasbor-content">
         <h1>Dasbor</h1>
         <div class="content">
-            <div style="width: 30%;">
+            <div class="das" style="width: 30%;">
                 <img src="../image/retro-library.jpg" alt="Perpustakaan">
                 <h5 style="margin: 15px 0; text-align: center;">Perpustakaan Retro</h5>
                 <a href="ubahProfilePerpus.php" class="btn btn-primary col-12">Ubah Profile</a>
