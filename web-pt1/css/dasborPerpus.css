@@ -100,6 +100,7 @@ header {
 }
 
 .dasbor-content p {
+  padding: 7px 0;
   margin-bottom: 15px !important;
 }
 
@@ -123,6 +124,7 @@ header {
   width: 35%;
   padding-left: 50px;
 }
+
 
 footer {
   background-color: #0F4C75;
