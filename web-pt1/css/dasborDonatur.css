@@ -112,7 +112,9 @@ header {
   width: 100%;
   border-radius: 10px;
 }
-
+.btn-responsive {
+  display: none;
+}
 .btn-primary {
   color: #bbe1fa !important;
   background-color: #0f4c75 !important;
