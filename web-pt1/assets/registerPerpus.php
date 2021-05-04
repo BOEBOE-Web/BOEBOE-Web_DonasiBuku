@@ -109,18 +109,19 @@
     <!-- END Modal -->
     <div class="main">
         <h1>Daftar Sebagai Perpustakaan</h1>
+
         <!-- FORM -->
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation" action="../action/regPerpus.php" method="POST" novalidate>
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" required>
+                <input type="email" class="form-control" name="email_perpus" id="inputEmail4" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" required>
+                <input type="password_perpus" class="form-control" name="password_perpus" id="inputPassword4" required>
                 <div class="invalid-feedback">
                     Harus diisi
                 </div>
@@ -137,91 +138,91 @@
             </div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama Pengelola</label>
-                <input type="text" class="form-control" id="inputNama" value="" required>
+                <input type="text" class="form-control" name="namaPengelola_perpus" id="inputNama" value="" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama Perpustakaan</label>
-                <input type="text" class="form-control" id="inputNama" value="" required>
+                <input type="text" class="form-control" name="namaPerpus" id="inputNama" value="" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="datepicker" class="form-label">Tahun Berdiri</label>
-                <input type="text" class="form-control" id="datepicker" required>
+                <input type="text" class="form-control" name="tahunBerdiri_perpus" id="datepicker" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formNoIzin" class="form-label">No. Izin Operasional</label>
-                <input type="text" class="form-control" id="formNoIzin" required>
+                <input type="text" class="form-control" name="noIzin_perpus" id="formNoIzin" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="provinsi" class="form-label">Provinsi</label>
-                <input type="text" class="form-control" id="provinsi" required>
+                <input type="text" class="form-control" name="provinsi_perpus" id="provinsi" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="kabkota" class="form-label">Kab/Kota</label>
-                <input type="text" class="form-control" id="kabkota" required>
+                <input type="text" class="form-control" name="kab_kota_perpus" id="kabkota" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-4">
                 <label for="kecamatan" class="form-label">Kecamatan</label>
-                <input type="text" class="form-control" id="kecamatan" required>
+                <input type="text" class="form-control" name="kec_perpus" id="kecamatan" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-4">
                 <label for="desa-kelurahan" class="form-label">Desa/Kelurahan</label>
-                <input type="text" class="form-control" id="desa-kelurahan" required>
+                <input type="text" class="form-control" name="desa_kelurahan_perpus" id="desa-kelurahan" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-2">
                 <label for="form-rt" class="form-label">RT</label>
-                <input type="text" class="form-control" id="form-rt" required>
+                <input type="text" class="form-control" name="rt_perpus" id="form-rt" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-2">
                 <label for="form-rw" class="form-label">RW</label>
-                <input type="text" class="form-control" id="form-rw" required>
+                <input type="text" class="form-control" name="rw_perpus" id="form-rw" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="form-jalan" class="form-label">Jalan</label>
-                <textarea class="form-control" id="form-jalan" rows="2" required></textarea>
+                <textarea class="form-control" id="form-jalan" name="jalan_perpus" rows="2" required></textarea>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="form-kodepos" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" id="form-kodepos" required>
+                <input type="text" class="form-control" name="kodePos_perpus" id="form-kodepos" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" id="formNomorTelepon" required>
+                <input type="text" class="form-control" name="noTelepon_perpus" id="formNomorTelepon" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
@@ -230,7 +231,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                     <label class="form-check-label" for="invalidCheck">
-                        <a href="#" style="color: #0f4c75 !important;">Setuju dengan syarat dan ketentuan<span style="color: #dc3545 !important;">*</span></a>
+                        <a style="color: #0f4c75 !important;">Setuju dengan syarat dan ketentuan<span style="color: #dc3545 !important;">*</span></a>
                     </label>
                     <div class="invalid-feedback">
                         Anda harus setuju sebelum mengirimkan.
@@ -238,7 +239,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary col-12" onclick="document.location='dasborPerpus.php'">Daftar</button>
+                <button type="submit" class="btn btn-primary col-12" ">Daftar</button>
             </div>
         </form>
         <!-- END FORM -->

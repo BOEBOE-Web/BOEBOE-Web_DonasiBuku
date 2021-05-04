@@ -1,14 +1,14 @@
 <?php 
 	session_start();
-	include '../action/regDonatur.php';
+	// include ("../action/regDonatur.php");
 
-	if ($_POST["submit"]) {
-		if ($_POST['submit'] > 0) {
-			echo "<script>alert('Data Disimpan!');</script>";
-		} else {
-			echo mysqli_error($conn);
-		}
-	}
+	// if ($_POST["daftar"]) {
+	// 	if ($_POST['daftar'] > 0) {
+	// 		echo "<script>alert('Data Disimpan!');</script>";
+	// 	} else {
+	// 		echo mysqli_error($conn);
+	// 	}
+	// }
 ?>
 
 <!DOCTYPE html>
@@ -116,27 +116,28 @@
         </div>
     </div>
     <!-- END Modal -->
+
     <div class="main">
         <h1>Daftar Sebagai Donatur</h1>
         <!-- FORM -->
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation" novalidate action="../action/regDonatur.php" method="POST">
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="email" required>
+                <input type="email" class="form-control" id="inputEmail4" name="email_donatur" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" name="password" required>
+                <input type="password" class="form-control" id="inputPassword4" name="password_donatur" required>
                 <div class="invalid-feedback">
                     Harus diisi
                 </div>
             </div>
             <div class="col-12">
                 <label for="inputConfirmPassword" class="form-label">Ulangi Password</label>
-                <input type="password" class="form-control" id="inputConfirmPassword" name="cpassword" required>
+                <input type="password" class="form-control" id="inputConfirmPassword" name="cpassword_donatur" required>
                 <div style="margin-top: 4px; font-size: .875em;">
                     <span id="message"></span>
                 </div>
@@ -146,35 +147,44 @@
             </div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="inputNama" name="nama" required>
+                <input type="text" class="form-control" id="inputNama" name="nama_donatur" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" id="formNomorTelepon" name="noTelepon" required>
+                <input type="text" class="form-control" id="formNomorTelepon" name="noTelepon_donatur" required>
                 <div class="invalid-feedback">
-                    Harus dipilih.
+                    Harus diisi.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formDate" class="form-label">Tanggal Lahir</label>
-                <input type="date" class="form-control" id="formDate" name="tglLahir" required>
+                <input type="date" class="form-control" id="formDate" name="tglLahir_donatur" required>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="formAlamat" class="form-label">Alamat</label>
-                <textarea class="form-control" id="formAlamat" rows="3" name="alamat" required></textarea>
+                <textarea class="form-control" id="formAlamat" rows="3" name="alamat_donatur" required></textarea>
                 <div class="invalid-feedback">
                     Harus dipilih.
                 </div>
             </div>
-            <div class="col-12">
+
+            <div class="col-md-6">
+                <label for="formNomorTelepon" class="form-label">Kode Pos</label>
+                <input type="text" class="form-control" id="formNomorTelepon" name="kodePos_donatur" required>
+                <div class="invalid-feedback">
+                    Harus dipilih.
+                </div>
+            </div>
+
+            <div class="col-6">
                 <label for="inputInstansi" class="form-label">Instansi</label>
-                <select class="form-select" id="inputInstansi" name="instansi" required>
+                <select class="form-select" id="inputInstansi" name="instansi_donatur" required>
                     <option selected disabled value="">Pilih Instansi</option>
                     <option>Perusahaan</option>
                     <option>Lembaga</option>
@@ -185,11 +195,12 @@
                     Harus dipilih.
                 </div>
             </div>
+
             <div class="col-12">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                     <label class="form-check-label" for="invalidCheck">
-                        <a href="#" style="color: #0f4c75 !important;">Setuju dengan syarat dan ketentuan<span style="color: #dc3545 !important;">*</span></a>
+                        <a style="color: #0f4c75 !important;">Setuju dengan syarat dan ketentuan<span style="color: #dc3545 !important;">*</span></a>
                     </label>
                     <div class="invalid-feedback">
                         Anda harus setuju sebelum mengirimkan.
@@ -197,7 +208,8 @@
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary col-12" name="daftar" onclick="document.location='../index.php'">Daftar</button>
+                <button type="submit" class="btn btn-primary col-12" name="daftar">Daftar</button>
+
             </div>
         </form>
         <!-- END FORM -->

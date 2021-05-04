@@ -1,59 +1,56 @@
 <?php 
 
-      require_once "db.php";
+      require_once "config.php";
       
-      // Alamat mitra
-      $provinsi = $_POST['provinsi'];
-      $kota_kabupaten = $_POST['kota_kabupaten'];
-      $kecamatan = $_POST['kecamatan'];
-      $desa_kelurahan = $_POST['desa_kelurahan'];
-      $rt = $_POST['rt'];
-      $rw = $_POST['rw'];
-      $jalan = ['jalan'];
-      $kodePos = $_POST['kodePos'];
+      // Alamat perpus
+      $provinsi = htmlspecialchars($_POST['provinsi_perpus']);
+      $kota_kabupaten = htmlspecialchars($_POST['kab_kota_perpus']);
+      $kecamatan = htmlspecialchars($_POST['kec_perpus']);
+      $desa_kelurahan = htmlspecialchars($_POST['desa_kelurahan_perpus']);
+      $rt = htmlspecialchars($_POST['rt_perpus']);
+      $rw = htmlspecialchars($_POST['rw_perpus']);
+      $jalan = htmlspecialchars($_POST['jalan_perpus']);
+      $kodePos = htmlspecialchars($_POST['kodePos_perpus']);
 
-      $queryAlamatMitra = "INSERT INTO `alamat_mitra` (`id_alamatMitraAktif`, `provinsi`, `kabupaten_kota`, `kecamatan`, `desa_kelurahan`, `rt`, `rw`, `jalan`, `kodePos`)
-      VALUES (NULL, '$provinsi', '$kota_kabupaten', '$kecamatan', '$desa_kelurahan', '$rt', '$rw', '$jalan', '$kodePos')";
+      $queryAlamat = "INSERT INTO `perpus_alamat`(`id_alamatPurpusAktif`, `provinsi`, `kabupaten_kota`, `kecamatan`, `desa_kelurahan`, `rt`, `rw`, `jalan`, `kodePos`) 
+      VALUES (NULL,'$provinsi','$kota_kabupaten','$kecamatan','$desa_kelurahan','$rt','$rw','$jalan','$kodePos')";
 
-      mysqli_query($koneksi, $queryAlamatMitra);
-      $id_alamatMitra = mysqli_insert_id($koneksi);
+      mysqli_query($conn, $queryAlamat);
+      $id_alamatPerpus = mysqli_insert_id($conn);
       
       // Akun Aktif
-      $email_mitra = $_POST['email_mitra'];
-      $password_mitra = $_POST['password_mitra'];
+      $email_perpus = htmlspecialchars($_POST['email_perpus']);
+      $password_perpus = mysqli_real_escape_string($conn, $_POST['password_perpus']);
+      
+      // Hash Password
+      $password_perpus = password_hash($password_perpus, PASSWORD_DEFAULT);
 
-      $queryAkunMitra = "INSERT INTO `mitra_aktif` (`id_akunMitra`, `email_mitra`, `password_mitra`)  
-      VALUES (NULL, '$email_mitra', '$password_mitra')";
+      $queryAkun = "INSERT INTO `perpus_aktif`(`id_akunPerpus`, `email_perpus`, `password_perpus`, `isActive`) 
+      VALUES (NULL,'$email_perpus','$password_perpus','0')";
 
-// INSERT INTO `mitra_aktif` (`id_akunMitra`, `email_mitra`, `password_mitra`) 
-// VALUES (NULL, 'rief@gmail.com', '1234')
+      mysqli_query($conn, $queryAkun);
+      $id_akunPerpus = mysqli_insert_id($conn);
 
-// INSERT INTO `alamat_mitra` (`id_alamatMitraAktif`, `provinsi`, `kabupaten_kota`, `kecamatan`, `desa_kelurahan`, `rt`, `rw`, `jalan`, `kodePos`) 
-// VALUES (NULL, 'fdsf', 'fsadfsa', 'fdsfsad', 'fsadfas', '11', '11', 'fsdfsadfsadfas', '33333');
+      // Daftar perpus
+      $email_perpus = htmlspecialchars($_POST['email_perpus']);
+      $password_perpus = mysqli_real_escape_string($conn, $_POST['password_perpus']);
+      $namaPengelola_perpus = htmlspecialchars($_POST['namaPengelola_perpus']);
+      $namaPerpus = htmlspecialchars($_POST['namaPerpus']);
+      $tahunBerdiri_perpus = htmlspecialchars($_POST['tahunBerdiri_perpus']);
+      $noIzin_perpus = htmlspecialchars($_POST['noIzin_perpus']);
+      $noTelepon_perpus =  htmlspecialchars($_POST['noTelepon_perpus']);
 
-// INSERT INTO `daftar_mitra` (`id_Mitra`, `id__loginMitra`, `email_mitra`, `password_mitra`, `namaLembaga_mitra`, `tahunBerdiri_mitra`, 
-// `noIzin_mitra`, `id_alamatMitra`, `nomorHP_mitra`) 
-// VALUES (NULL, '1', 'rief@gmail.com', '1234', 'apapun bisa', '2004', '111111', '1', '123123123');
+      // Hash Password
+      $password_perpus = password_hash($password_perpus, PASSWORD_DEFAULT);
 
-      mysqli_query($koneksi, $queryAkunMitra);
-      $id_loginMitra = mysqli_insert_id($koneksi);
+      $queryPerpus = "INSERT INTO `perpus_daftar` (`id_Perpus`, `id_loginPerpus`, `email_perpus`, `password_perpus`, `namaPengelola_perpus`, `nama_perpus`, `tahunBerdiri_perpus`, `noIzin_perpus`, `id_alamatPerpus`, `noTelepon_perpus`) 
+      VALUES (NULL,'$id_akunPerpus','$email_perpus','$password_perpus','$namaPengelola_perpus','$namaPerpus','$tahunBerdiri_perpus','$noIzin_perpus','$id_alamatPerpus','$noTelepon_perpus')";
 
-      // Daftar mitra
-      $email_mitra = $_POST['email_mitra'];
-      $password_mitra = $_POST['password_mitra'];
-      $namaLembaga_mitra = $_POST['namaLembaga_mitra'];
-      $tahunBerdiri_mitra = $_POST['tahunBerdiri_mitra'];
-      $noIzin_mitra = $_POST['noIzin_mitra'];
-      $nomorHP_mitra =  $_POST['nomorHP_mitra'];
-
-      $queryMitra = 
-      "INSERT INTO daftar_mitra (`id_Mitra`, `id_loginMitra`, `email_mitra`, `password_mitra`, `namaLembaga_mitra`, `tahunBerdiri_mitra`, `noIzin_mitra`, `id_alamatMitra`, `nomorHP_mitra`) 
-      VALUES (NULL, '$id_loginMitra', '$email_mitra', '$password_mitra', '$namaLembaga_mitra', '$tahunBerdiri_mitra', '$noIzin_mitra', '$id_alamatMitra', '$nomorHP_mitra')";
-
-      if (mysqli_query($koneksi, $queryMitra)) {
+      if (mysqli_query($conn, $queryPerpus)) {
             header("Location: ../index.php");
             exit;
       }
-
+      
+      var_dump($queryPerpus);
       echo "gagal";
 ?>
