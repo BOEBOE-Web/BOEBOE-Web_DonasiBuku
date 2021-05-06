@@ -14,8 +14,9 @@
 
 		if(password_verify($password_donatur, $hasil["password_donatur"])) {
 			$_SESSION["login"] = true;
-			$_SESSION["users"] = $username;
-				
+			$_SESSION["email_donatur"] = $hasil['email_donatur'];
+			$_SESSION['id_loginDonatur'] = $hasil['id_akunDonaturAktif'];
+
 			if (isset($_POST["rememberme"])) {
 				setcookie("login", "tetap_ingat", time()+30);
 			} else {

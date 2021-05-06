@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    require "../action/config.php";
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -75,21 +80,30 @@
       </ul>
     </div>
   </header>
+
+  <?php
+    $email_donatur = $_SESSION['email_donatur'];
+    
+    $query = "SELECT * FROM `donatur_daftar` JOIN `donatur_alamat` ON id_alamatDonatur = id_alamatDonaturAktif WHERE email_donatur = '$email_donatur' ";
+    $result = mysqli_query($conn, $query);
+    $result = mysqli_fetch_assoc ($result);
+  ?>
+
   <div class="dasbor-content">
     <h1>Dasbor</h1>
     <div class="content">
       <div class="display-one">
         <div>
           <h5>Nama</h5>
-          <p>Maman Panci</p>
+          <p> <?php echo $result['nama_donatur']; ?> </p>
         </div>
         <div>
           <h5>Instansi</h5>
-          <p>Komunitas</p>
+          <p> <?php echo $result['instansi_donatur']; ?> </p>
         </div>
         <div>
           <h5>Alamat</h5>
-          <p>Bumi sejahtera</p>
+          <p><?php echo $result['alamat']; ?></p>
         </div>
         <div>
           <a href="ubahProfileDonatur.php" class="btn btn-primary col-4">Ubah Profile</a>
@@ -98,15 +112,19 @@
       <div class="display-two">
         <div>
           <h5>Tanggal Lahir</h5>
-          <p>27 Desember 2001</p>
+          <p><?php echo $result['tglLahir_donatur']; ?></p>
         </div>
         <div>
           <h5>No. Telepon</h5>
-          <p>087723xxxx</p>
+          <p><?php echo $result['noTelepon_donatur']; ?></p>
         </div>
         <div>
           <h5>Email</h5>
-          <p>MamanPanci69@gmail.com</p>
+          <p><?php echo $result['email_donatur']; ?></p>
+        </div>
+        <div>
+          <h5>Kode POS</h5>
+          <p><?php echo $result['kodePos']; ?></p>
         </div>
         <div>
         </div>

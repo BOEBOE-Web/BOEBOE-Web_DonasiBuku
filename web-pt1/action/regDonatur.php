@@ -28,18 +28,14 @@
 
       // Daftar Donatur
       $email_donatur = htmlspecialchars($_POST['email_donatur']);
-      $password_donatur = mysqli_real_escape_string($conn ,$_POST["password_donatur"]);
       $nama_donatur = htmlspecialchars($_POST['nama_donatur']);
       $noTelepon_donatur =  htmlspecialchars($_POST['noTelepon_donatur']);
       $tglLahir_donatur = htmlspecialchars($_POST['tglLahir_donatur']);
       $instansi_donatur = htmlspecialchars($_POST['instansi_donatur']);
 
-      // Hash Password
-      $password_donatur = password_hash($password_donatur, PASSWORD_DEFAULT);
-
       $queryDonatur = 
-      "INSERT INTO `donatur_daftar`(`id_donatur`, `id_loginDonatur`, `email_donatur`, `password_donatur`, `nama_donatur`, `noTelepon_donatur`, `tglLahir_donatur`, `id_alamatDonatur`, `instansi_donatur`)
-      VALUES (NULL, '$id_loginDonatur', '$email_donatur', '$password_donatur', '$nama_donatur', '$noTelepon_donatur', '$tglLahir_donatur', '$id_alamatDonatur', '$instansi_donatur' )";
+      "INSERT INTO `donatur_daftar`(`id_donatur`, `id_loginDonatur`, `email_donatur`,  `nama_donatur`, `noTelepon_donatur`, `tglLahir_donatur`, `id_alamatDonatur`, `instansi_donatur`)
+      VALUES (NULL, '$id_loginDonatur', '$email_donatur', '$nama_donatur', '$noTelepon_donatur', '$tglLahir_donatur', '$id_alamatDonatur', '$instansi_donatur' )";
 
       if (mysqli_query($conn, $queryDonatur)) {
             header("Location: ../index.php");

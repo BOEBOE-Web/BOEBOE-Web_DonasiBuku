@@ -14,7 +14,14 @@
 </head>
 
 <style>
-  <?php include "../css/infoPengiriman.css" ?><?php include "../css/infoPengiriman-responsive.css" ?>
+  <?php include "../css/infoPengiriman.css" ?>
+  <?php include "../css/infoPengiriman-responsive.css" ?>
+
+  @media print {
+    footer {
+      display: none;
+    }
+  }
 </style>
 
 <script type="text/javascript">
