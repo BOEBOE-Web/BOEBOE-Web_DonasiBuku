@@ -18,7 +18,7 @@
 </style>
 
 <body>
-    <header>
+<header>
         <div class="header">
             <img src="../image/logo-boeboe.png" alt="logo-boeboe">
         </div>
@@ -34,29 +34,38 @@
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                    <li><a href="../index.php">Beranda</a></li>
-                    <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="donasi.php">Donasi</a></li>
-                    <li><a href="perpustakaan.php">Perpustakaan</a></li>
-                    <li><a href="#" class="masuk">Masuk</a></li>
+                <li><a href="berandaPerpus.php#">Beranda</a></li>
+                <li><a href="berandaPerpus.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="listPerpustakaan.php">Perpustakaan</a></li>
+                    <li>
+                    <div class="dropdown">
+                            <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Profile
+                            </a>
+                            <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
+                                <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
+                                <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="../index.php">Beranda</a></li>
-                <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
-                <li><a href="donasi.php">Donasi</a></li>
-                <li><a href="perpustakaan.php">Perpustakaan</a></li>
+                <li><a href="berandaPerpus.php#">Beranda</a></li>
+                <li><a href="berandaPerpus.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="listPerpustakaan.php">Perpustakaan</a></li>
                 <li>
-                    <div class="dropdown">
+                <div class="dropdown">
                         <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
                         <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
                             <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
-                            <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
+                            <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
                         </ul>
                     </div>
                 </li>

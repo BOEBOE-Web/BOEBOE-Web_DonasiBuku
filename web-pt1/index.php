@@ -119,7 +119,7 @@
     <div id="home">
         <img src="image/boeboe.png" alt="boeboe">
         <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
-        <a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">DONASI BUKU</a>
+        <a href="#" onclick="alert('Silahkan login, agar kamu dapat melakukan donasi 😊')" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">DONASI BUKU</a>
     </div>
     <div id="main-container">
         <div class="main-flex display1">

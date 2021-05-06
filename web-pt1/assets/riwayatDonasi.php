@@ -34,11 +34,10 @@
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                    <li><a href="../index.php">Beranda</a></li>
-                    <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="berandaDonatur.php">Beranda</a></li>
+                    <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                     <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="perpustakaan.php">Perpustakaan</a></li>
-                    <li><a href="#" class="masuk">Masuk</a></li>
                 </ul>
             </nav>
         </nav>
@@ -56,7 +55,7 @@
                         <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
                             <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-                            <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
+                            <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
                         </ul>
                     </div>
                 </li>

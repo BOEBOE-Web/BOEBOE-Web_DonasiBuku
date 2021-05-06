@@ -24,8 +24,10 @@
 				
 			echo "<script>alert('Anda Berhasil Login!')</script>";
 			header('Location: ../assets/dasborDonatur.php');
+			} else {
+				echo "<script>alert('Anda Gagal Login!'); document.location=('../index.php')</script>";
 			}
 		} else {
-			print "<p style=\"color:red;\">Username atau Password Salah!</p>";
+			echo"<p style=\"color:red;\">Username atau Password Salah!</p>";
 		}
 ?>
