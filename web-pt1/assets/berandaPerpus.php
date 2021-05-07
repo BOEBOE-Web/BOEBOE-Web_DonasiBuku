@@ -20,7 +20,7 @@
 </head>
 
 <style>
-    <?php include "../css/style.css" ?>
+    <?php include "../css/beranda.css" ?>
     <?php include "../css/style-responsive.css" ?>
 </style>
 

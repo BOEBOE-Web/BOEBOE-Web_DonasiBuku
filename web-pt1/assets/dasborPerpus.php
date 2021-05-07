@@ -76,7 +76,7 @@
         <h1>Dasbor</h1>
         <div class="content">
             <div class="das" style="width: 30%;">
-                <img src="../image/retro-library.jpg" alt="Perpustakaan">
+                <img src="../image/gambar.png" alt="gambar erpustakaan">
                 <h5 style="margin: 15px 0; text-align: center;">Perpustakaan Retro</h5>
                 <a href="ubahProfilePerpus.php" class="btn btn-primary col-12">Ubah Profile</a>
             </div>

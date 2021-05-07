@@ -17,12 +17,11 @@
 </head>
 
 <style>
-    <?php include "../css/ubahProfile.css" ?>
-    <?php include "../css/ubahProfile-responsive.css" ?>
+    <?php include "../css/ubahProfile.css" ?><?php include "../css/ubahProfile-responsive.css" ?>
 </style>
 
 <body>
-<header>
+    <header>
         <div class="header">
             <img src="../image/logo-boeboe.png" alt="logo-boeboe">
         </div>
@@ -38,11 +37,11 @@
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                <li><a href="berandaPerpus.php#">Beranda</a></li>
-                <li><a href="berandaPerpus.php#tentang-kami">Tentang Kami</a></li>
-                <li><a href="listPerpustakaan.php">Perpustakaan</a></li>
+                    <li><a href="berandaPerpus.php#">Beranda</a></li>
+                    <li><a href="berandaPerpus.php#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="listPerpustakaan.php">Perpustakaan</a></li>
                     <li>
-                    <div class="dropdown">
+                        <div class="dropdown">
                             <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Profile
                             </a>
@@ -62,7 +61,7 @@
                 <li><a href="berandaPerpus.php#tentang-kami">Tentang Kami</a></li>
                 <li><a href="listPerpustakaan.php">Perpustakaan</a></li>
                 <li>
-                <div class="dropdown">
+                    <div class="dropdown">
                         <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
@@ -80,6 +79,11 @@
         <h1>Ubah Profile</h1>
         <!-- FORM -->
         <form class="row g-3 needs-validation" novalidate>
+
+            <div class="col-12">
+                <label for="formFile" class="form-label">Foto Perpustakaan</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label class="form-label">Daftar Kebutuhan Buku</label><br>
                 <div class="form-check form-check-inline">
@@ -201,7 +205,7 @@
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
         <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
     </footer>
-    <script src="../js/script.js"></script>
+    <script src=" ../js/script.js"></script>
 </body>
 
 </html>
