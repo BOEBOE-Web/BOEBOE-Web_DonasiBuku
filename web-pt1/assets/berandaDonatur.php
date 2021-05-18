@@ -54,8 +54,8 @@
                 <ul style="padding: 0px !important;">
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="assets/donasi.php">Donasi</a></li>
-                    <li><a href="assets/perpustakaan.php">Perpustakaan</a></li>
+                    <li><a href="donasi.php">Donasi</a></li>
+                    <li><a href="perpustakaan.php">Perpustakaan</a></li>
                     <li>
                         <div class="dropdown">
                             <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
