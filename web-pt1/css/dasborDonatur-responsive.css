@@ -172,4 +172,7 @@ a{
 .dropdown{
   margin-top: 5px;
 }
+  .dropdown a{
+  color: #0f4c75;
+}
 }
