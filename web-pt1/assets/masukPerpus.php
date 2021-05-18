@@ -42,7 +42,7 @@
                 <ul style="padding: 0px !important;">
                     <li><a href="../index.php">Beranda</a></li>
                     <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="../daftarPerpustakaan.php">Perpustakaan</a></li>
+                    <li><a href="../welcome/daftarPerpustakaan.php">Perpustakaan</a></li>
                     <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
                 </ul>
             </nav>
