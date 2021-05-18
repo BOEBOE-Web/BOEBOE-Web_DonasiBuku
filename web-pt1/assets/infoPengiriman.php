@@ -50,8 +50,8 @@
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="berandaDonatur.php">Beranda</a></li>
+                    <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                     <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="perpustakaan.php">Perpustakaan</a></li>
                     <li>
@@ -59,9 +59,9 @@
                             <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Profile
                             </a>
-                            <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
-                                <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
+                                <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
                                 <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
                             </ul>
                         </div>
