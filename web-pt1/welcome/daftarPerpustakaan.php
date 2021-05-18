@@ -1,3 +1,13 @@
+<?php  
+    session_start();
+    require "../action/config.php";
+
+    $query = "SELECT perpus_daftar.nama_perpus, 
+    perpus_alamat.provinsi, perpus_alamat.kabupaten_kota, perpus_daftar.id_perpus 
+    FROM `perpus_daftar` JOIN `perpus_alamat` ON perpus_alamat.id_alamatPerpusAktif = perpus_daftar.id_alamatPerpus";
+    $result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -9,13 +19,16 @@
     <link rel="icon" href="../image/icon-b.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
 </head>
 
 <style>
-    <?php include "../css/perpustakaan.css" ?>
-    <?php include "../css/perpustakaan-responsive.css" ?>
+    <?php include "../css/perpustakaan.css"?>
+    <?php include "../css/perpustakaan-responsive.css"?>
 </style>
 
 <body>
@@ -38,7 +51,8 @@
                     <li><a href="../index.php">Beranda</a></li>
                     <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
                     <li><a href="#">Perpustakaan</a></li>
-                    <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
+                    <li><a href="#" class="masuk" type="button" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Masuk</a></li>
                 </ul>
             </nav>
         </nav>
@@ -47,7 +61,8 @@
                 <li><a href="../index.php">Beranda</a></li>
                 <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
                 <li><a href="#">Perpustakaan</a></li>
-                <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
+                <li><a href="#" class="masuk" type="button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Masuk</a></li>
             </ul>
         </div>
     </header>
@@ -55,7 +70,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-            <div class="modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Masuk Donatur</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -71,7 +86,8 @@
                         </div>
                         <div class="col-12">
                             <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password_donatur" id="inputPassword4" required>
+                            <input type="password" class="form-control" name="password_donatur" id="inputPassword4"
+                                required>
                             <div class="invalid-feedback">
                                 Password belum diisi
                             </div>
@@ -87,7 +103,8 @@
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary col-12">Masuk</button>
                         </div>
-                        <div>Belum punya akun donatur? <span class="klik"><a href="../assets/registerDonatur.php">Daftar disini</a></span></div>
+                        <div>Belum punya akun donatur? <span class="klik"><a href="../assets/registerDonatur.php">Daftar
+                                    disini</a></span></div>
                     </form>
                     <!-- END FORM -->
                 </div>
@@ -95,8 +112,10 @@
                     <div style="width: 100%;">
                         <h5 class="modal-title">Perpustakaan</h5>
                     </div>
-                    <div>Masuk perpustakaan <span class="klik"><a href="../assets/masukPerpus.php">disini</a></span></div>
-                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="../assets/registerPerpus.php">Klik disini</a></span></div>
+                    <div>Masuk perpustakaan <span class="klik"><a href="../assets/masukPerpus.php">disini</a></span>
+                    </div>
+                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="../assets/registerPerpus.php">Klik
+                                disini</a></span></div>
                 </div>
             </div>
         </div>
@@ -105,66 +124,13 @@
     <div class="main-perpus">
         <h1>Perpustakaan</h1>
         <div class="perpus-content">
-            <a class="content" href="lihatPerpus.php">
-                <h5>Perpustakaan Retro</h5>
-                <p>Sulawesi Tengah</p>
-                <p>Kota Palu</p>
+        <?php while($data = mysqli_fetch_assoc($result)):?>
+            <a class="content" href="lihatPerpus.php?id=<?php echo $data['id_perpus'];?>">
+                <h5><?php echo $data['nama_perpus']?></h5>
+                <p><?php echo $data['provinsi']?></p>
+                <p><?php echo $data['kabupaten_kota']?></p>
             </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
+        <?php endwhile; ?>
         </div>
     </div>
     <footer>

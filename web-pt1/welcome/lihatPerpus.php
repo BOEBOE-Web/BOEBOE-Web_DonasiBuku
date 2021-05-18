@@ -1,3 +1,18 @@
+<?php  
+    session_start();
+    require "../action/config.php";
+
+    $id = $_GET['id'];
+    $query = "SELECT * FROM `perpus_daftar` 
+    JOIN `perpus_alamat` ON `perpus_alamat`.id_alamatPerpusAktif = `perpus_daftar`.id_alamatPerpus
+    JOIN `perpus_aktif` ON `perpus_aktif`.id_akunPerpus = `perpus_daftar`.id_loginPerpus
+    JOIN `kategori_kebutuhan` ON `kategori_kebutuhan`.id_kategori = `perpus_daftar`.id_kategoriPerpus
+    WHERE id_perpus = '$id' ";
+
+    $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -104,58 +119,58 @@
     <div class="main">
         <div class="main-content">
             <div class="row">
-                <h1 class="col-10">Perpustakaan Retro</h1>
+                <h1 class="col-10">Perpustasakaan <?php echo $data['nama_perpus'];?></h1>
             </div>
             <div class="content">
                 <div style="width: 30%;">
-                    <img src="../image/retro-library.jpg" alt="Perpustakaan">
+                    <img src="../<?php echo $data['gambar_perpus'];?>" alt="Perpustakaan">
                 </div>
                 <div class="display-one">
                     <div>
                         <h5>Nama Pengelola:</h5>
-                        <p>Nona</p>
+                        <p><?php echo $data['namaPengelola_perpus'];?></p>
                     </div>
                     <div>
                         <h5>Nomor Telepon:</h5>
-                        <p>081234567890</p>
+                        <p><?php echo $data['noTelepon_perpus'];?></p>
                     </div>
                     <div>
                         <h5>Provinsi:</h5>
-                        <p>Sulawesi Tengah</p>
+                        <p><?php echo $data['provinsi'];?></p>
                     </div>
                     <div>
                         <h5>Kab/Kota:</h5>
-                        <p>Kota Palu</p>
+                        <p><?php echo $data['kabupaten_kota'];?></p>
                     </div>
                     <div>
                         <h5>Alamat:</h5>
-                        <p>Kecamatan Tawaeli, Kelurahan Panau, RT 01, RW 01, Jln. Trans Sulawesi</p>
+                        <p><?php echo $data['jalan'];?></p>
                     </div>
                     <div>
                         <h5>Kode Pos:</h5>
-                        <p>987</p>
+                        <p><?php echo $data['kodePos'];?></p>
                     </div>
                 </div>
                 <div class="display-two">
                     <div>
                         <h5>Email:</h5>
-                        <p>email@contoh.com</p>
+                        <p><?php echo $data['email_perpus'];?></p>
                     </div>
                     <div>
                         <h5>Tahun Berdiri:</h5>
-                        <p>2013</p>
+                        <p><?php echo $data['tahunBerdiri_perpus'];?></p>
                     </div>
                     <div>
                         <h5>No. Izin Operasional:</h5>
-                        <p>123</p>
+                        <p><?php echo $data['noIzin_perpus'];?></p>
                     </div>
                     <div>
-                        <h5>Daftar Kebutuhan Buku:</h5>
-                        <p>Pendidikan, Komputer & Teknologi, Kamus, Sejarah, Anak-anak.</p>
+                        <h5>Kategori Kebutuhan Buku:</h5>
+                        <p><?php echo $data['jenis_kategori'];?></p>
                     </div>
                     <div>
                         <h5>Tentang Perpustakaan:</h5>
-                        <p>...</p>
+                        <p><?php echo $data['tentang_perpus'];?></p>
                     </div>
                 </div>
             </div>

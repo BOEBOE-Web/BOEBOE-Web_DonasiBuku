@@ -1,14 +1,5 @@
 <?php 
 	session_start();
-	// include ("../action/regDonatur.php");
-
-	// if ($_POST["daftar"]) {
-	// 	if ($_POST['daftar'] > 0) {
-	// 		echo "<script>alert('Data Disimpan!');</script>";
-	// 	} else {
-	// 		echo mysqli_error($conn);
-	// 	}
-	// }
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +40,7 @@
                 <ul style="padding: 0px !important;">
                     <li><a href="../index.php">Beranda</a></li>
                     <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="../daftarPerpustakaan.php">Perpustakaan</a></li>
+                    <li><a href="../welcome/daftarPerpustakaan.php">Perpustakaan</a></li>
                     <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
                 </ul>
             </nav>
@@ -58,39 +49,40 @@
             <ul>
                 <li><a href="../index.php">Beranda</a></li>
                 <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
-                <li><a href="../daftarPerpustakaan.php">Perpustakaan</a></li>
+                <li><a href="../welcome/daftarPerpustakaan.php">Perpustakaan</a></li>
                 <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
             </ul>
         </div>
     </header>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Masuk Donatur</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Masuk Donatur
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- FORM -->
-                    <form class="row g-3 needs-validation" novalidate>
+                    <form class="row g-3 needs-validation" method="POST" action="../action/logDonatur.php" novalidate>
                         <div class="col-12">
                             <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" required>
+                            <input type="email" class="form-control" name="email_donatur" id="inputEmail4" required>
                             <div class="invalid-feedback">
                                 Email belum diisi.
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" required>
+                            <input type="password" class="form-control" name="password_donatur" id="inputPassword4" required>
                             <div class="invalid-feedback">
                                 Password belum diisi
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <input class="form-check-input" name="rememberme" type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
                                     Remember Me
                                 </label>
@@ -99,14 +91,11 @@
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary col-12">Masuk</button>
                         </div>
-                        <div>Belum punya akun donatur? <span class="klik"><a href="register.php">Daftar disini</a></span></div>
                     </form>
                     <!-- END FORM -->
                 </div>
                 <div class="modal-footer">
-                    <div style="width: 100%;">
-                        <h5 class="modal-title">Perpustakaan</h5>
-                    </div>
+                    <div style="width: 100%;"><h5 class="modal-title">Perpustakaan</h5></div>
                     <div>Masuk perpustakaan <span class="klik"><a href="masukPerpus.php">disini</a></span></div>
                     <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="registerPerpus.php">Klik disini</a></span></div>
                 </div>
@@ -114,7 +103,6 @@
         </div>
     </div>
     <!-- END Modal -->
-
     <div class="main">
         <h1>Daftar Sebagai Donatur</h1>
         <!-- FORM -->
@@ -152,7 +140,7 @@
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" id="formNomorTelepon" name="noTelepon_donatur" required>
+                <input type="number" class="form-control" id="formNomorTelepon" name="noTelepon_donatur" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
@@ -168,7 +156,7 @@
                 <label for="formAlamat" class="form-label">Alamat</label>
                 <textarea class="form-control" id="formAlamat" rows="3" name="alamat_donatur" required></textarea>
                 <div class="invalid-feedback">
-                    Harus dipilih.
+                    Harus diisi.
                 </div>
             </div>
 
@@ -176,7 +164,7 @@
                 <label for="formNomorTelepon" class="form-label">Kode Pos</label>
                 <input type="text" class="form-control" id="formNomorTelepon" name="kodePos_donatur" required>
                 <div class="invalid-feedback">
-                    Harus dipilih.
+                    Harus diisi.
                 </div>
             </div>
 
@@ -201,7 +189,7 @@
                         <a style="color: #0f4c75 !important;">Setuju dengan syarat dan ketentuan<span style="color: #dc3545 !important;">*</span></a>
                     </label>
                     <div class="invalid-feedback">
-                        Anda harus setuju sebelum mengirimkan.
+                        Anda harus setuju sebelum dapat melakukan pengiriman.
                     </div>
                 </div>
             </div>
@@ -211,6 +199,7 @@
             </div>
         </form>
         <!-- END FORM -->
+
     </div>
     <footer>
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>

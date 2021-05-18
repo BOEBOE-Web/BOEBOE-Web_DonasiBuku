@@ -73,7 +73,7 @@
             <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
               <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
               <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-              <li><a class="dropdown-item" href="../action/logout.php" onclick="alert('Anda Yakin ?')">Log Out</a></li>
+              <li><a class="dropdown-item" href="../action/logout.php" onclick="confirm('Anda Yakin ?')">Log Out</a></li>
             </ul>
           </div>
         </li>
@@ -84,9 +84,11 @@
   <?php
     $email_donatur = $_SESSION['email_donatur'];
     
-    $query = "SELECT * FROM `donatur_daftar` JOIN `donatur_alamat` ON id_alamatDonatur = id_alamatDonaturAktif WHERE email_donatur = '$email_donatur' ";
+    $query = "SELECT * FROM `donatur_daftar` JOIN `donatur_alamat` ON id_alamatDonatur = id_alamatDonaturAktif 
+    WHERE email_donatur = '$email_donatur' ";
+    
     $result = mysqli_query($conn, $query);
-    $result = mysqli_fetch_assoc ($result);
+    $result = mysqli_fetch_assoc($result);
   ?>
 
   <div class="dasbor-content">
@@ -106,7 +108,7 @@
           <p><?php echo $result['alamat']; ?></p>
         </div>
         <div>
-          <a href="ubahProfileDonatur.php" class="btn btn-primary col-4">Ubah Profile</a>
+          <a href="ubahProfileDonatur.php?id=<?php echo $result['id_donatur']; ?>" class="btn btn-primary col-4">Ubah Profile</a>
         </div>
       </div>
       <div class="display-two">

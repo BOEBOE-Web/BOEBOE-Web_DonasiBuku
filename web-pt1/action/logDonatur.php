@@ -29,6 +29,6 @@
 				echo "<script>alert('Anda Gagal Login!'); document.location=('../index.php')</script>";
 			}
 		} else {
-			echo"<p style=\"color:red;\">Username atau Password Salah!</p>";
+			echo "<script>alert('Email atau Password Anda Salah!'); document.location=('../index.php')</script>";
 		}
 ?>

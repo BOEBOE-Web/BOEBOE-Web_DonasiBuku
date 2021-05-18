@@ -1,15 +1,6 @@
 <?php 
     session_start();
-
     require "../action/config.php";
-
-    if (isset($_SESSION['masuk'])) {
-        header("Location: alert/salah.php");
-        exit;
-    }
-
-    $query = "SELECT * FROM otakuboeboe";
-    $result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -70,28 +61,30 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Masuk Donatur</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Masuk Donatur
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3 needs-validation" method="POST" novalidate>
+                    <!-- FORM -->
+                    <form class="row g-3 needs-validation" method="POST" action="../action/logDonatur.php" novalidate>
                         <div class="col-12">
                             <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email_perpus" id="inputEmail4" required>
+                            <input type="email" class="form-control" name="email_donatur" id="inputEmail4" required>
                             <div class="invalid-feedback">
                                 Email belum diisi.
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password_perpus" id="inputPassword4" required>
+                            <input type="password" class="form-control" name="password_donatur" id="inputPassword4" required>
                             <div class="invalid-feedback">
                                 Password belum diisi
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <input class="form-check-input" name="rememberme" type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
                                     Remember Me
                                 </label>
@@ -100,26 +93,20 @@
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary col-12">Masuk</button>
                         </div>
-                        <div>Belum punya akun donatur? <span class="klik"><a href="register.php">Daftar disini</a></span></div>
+                        <div>Belum punya akun donatur? <span class="klik"><a href="registerDonatur.php">Daftar disini</a></span></div>
                     </form>
                     <!-- END FORM -->
                 </div>
                 <div class="modal-footer">
-                    <div style="width: 100%;">
-                        <h5 class="modal-title">Perpustakaan</h5>
-                    </div>
-                    <div>Masuk perpustakaan <span class="klik"><a href="masukPerpus.php">disini</a></span></div>
+                    <div style="width: 100%;"><h5 class="modal-title">Perpustakaan</h5></div>
                     <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="registerPerpus.php">Klik disini</a></span></div>
                 </div>
             </div>
         </div>
     </div>
     <!-- END Modal -->
-
     <div class="main">
         <h1>Masuk Perpustakaan</h1>
-
-
         <!-- FORM MAIN LOGIN -->
         <form class="row g-3 needs-validation" action="../action/logPerpus.php"  method="POST" novalidate>
             <div class="col-12">

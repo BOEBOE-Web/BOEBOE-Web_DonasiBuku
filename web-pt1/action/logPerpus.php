@@ -14,19 +14,20 @@
 
             if(password_verify($password_perpus, $hasil["password_perpus"])) {
                   $_SESSION["login"] = true;
-                  $_SESSION["users"] = $email_perpus;
+                  $_SESSION["id_akunPerpus"] = $hasil['id_akunPerpus'];
                         
                   if (isset($_POST["rememberme"])) {
                         setcookie("login", "tetap_ingat", time()+30);
                   } else {
                         echo "Cookie belum ada";
                   }
-
-                  echo "<script>alert('Anda Berhasil Login!');</script>";
-                  header('Location: ../assets/dasborPerpus.php');
-                  }
+                  echo "<script>alert('Anda Berhasil Login!')</script>";
+			header('Location: ../assets/dasborPerpus.php');
+			} else {
+				echo "<script>alert('Anda Gagal Login!'); document.location=('../index.php')</script>";
+			}
             } else {
-                  print "<p style=\"color:red;\">email_perpus atau password_perpus Salah!</p>";
+                  echo "<script>alert('Email atau Password Anda Salah!'); document.location=('../index.php')</script>";
             }
 
 ?>

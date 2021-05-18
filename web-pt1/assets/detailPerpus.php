@@ -1,3 +1,7 @@
+<?php
+    
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -84,7 +88,6 @@
         <div class="main-content">
             <div class="row">
                 <h1 class="col-10">Perpustakaan Retro</h1>
-                <a href="ubahProfilePerpus.php" class="btn btn-primary col-2" type="button" style="height: 38px">Ubah Profile</a>
             </div>
             <div class="content">
                 <div style="width: 30%;">

@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+    require "../action/config.php";
+
+    $id = $_GET['id'];
+    $query = "SELECT * FROM `perpus_daftar` JOIN `perpus_alamat` ON id_perpus = '$id' ";
+    $result = mysqli_query($conn, $query);
+    $result = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -17,7 +27,8 @@
 </head>
 
 <style>
-    <?php include "../css/ubahProfile.css" ?><?php include "../css/ubahProfile-responsive.css" ?>
+    <?php include "../css/ubahProfile.css" ?>
+    <?php include "../css/ubahProfile-responsive.css" ?>
 </style>
 
 <body>
@@ -78,8 +89,7 @@
     <div class="change-profile">
         <h1>Ubah Profile</h1>
         <!-- FORM -->
-        <form class="row g-3 needs-validation" novalidate>
-
+        <form class="row g-3 needs-validation" method="POST" novalidate>
             <div class="col-12">
                 <label for="formFile" class="form-label">Foto Perpustakaan</label>
                 <input class="form-control" type="file" id="formFile">
@@ -137,69 +147,88 @@
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="aboutLibrary" class="form-label">Tentang Perpustakaan</label>
-                <textarea class="form-control" id="aboutLibrary" rows="3"></textarea>
+                <textarea class="form-control" id="aboutLibrary" rows="3"><?php echo $result['tentang_perpus']; ?></textarea>
             </div>
             <div style="border-bottom: 1px solid #0F4C75;"></div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama Pengelola</label>
-                <input type="text" class="form-control" id="inputNama" value="">
+                <input type="text" class="form-control" name="namaPengelola_perpus" id="inputNama" value="<?php echo $result['namaPengelola_perpus']; ?>">
             </div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama Perpustakaan</label>
-                <input type="text" class="form-control" id="inputNama" value="">
+                <input type="text" class="form-control" name="nama_perpus" id="inputNama" value="<?php echo $result['nama_perpus']; ?>">
             </div>
             <div class="col-md-6">
                 <label for="datepicker" class="form-label">Tahun Berdiri</label>
-                <input type="text" class="form-control" id="datepicker">
+                <input type="text" class="form-control" name="tahunBerdiri_perpus" id="datepicker" value="<?php echo $result['tahunBerdiri_perpus']; ?>">
             </div>
             <div class="col-md-6">
                 <label for="formNoIzin" class="form-label">No. Izin Operasional</label>
-                <input type="text" class="form-control" id="formNoIzin">
+                <input type="text" class="form-control" name="noIzin_perpus" id="formNoIzin" value="<?php echo $result['noIzin_perpus']; ?>">
             </div>
             <div class="col-md-6">
                 <label for="provinsi" class="form-label">Provinsi</label>
-                <input type="text" class="form-control" id="provinsi">
+                <input type="text" class="form-control" name="provinsi" id="provinsi" value="<?php echo $result['provinsi']; ?>">
             </div>
             <div class="col-md-6">
                 <label for="kabkota" class="form-label">Kab/Kota</label>
-                <input type="text" class="form-control" id="kabkota">
+                <input type="text" class="form-control" name="kabupaten_kota" id="kabkota" value="<?php echo $result['kabupaten_kota']; ?>">
             </div>
             <div class="col-md-4">
                 <label for="kecamatan" class="form-label">Kecamatan</label>
-                <input type="text" class="form-control" id="kecamatan">
+                <input type="text" class="form-control" name="kecamatan" id="kecamatan" value="<?php echo $result['kecamatan']; ?>">
             </div>
             <div class="col-md-4">
                 <label for="desa-kelurahan" class="form-label">Desa/Kelurahan</label>
-                <input type="text" class="form-control" id="desa-kelurahan">
+                <input type="text" class="form-control" name="desa_kelurahan" id="desa-kelurahan" value="<?php echo $result['desa_kelurahan']; ?>">
             </div>
             <div class="col-md-2">
                 <label for="form-rt" class="form-label">RT</label>
-                <input type="text" class="form-control" id="form-rt">
+                <input type="text" class="form-control" name="rt" id="form-rt" value="<?php echo $result['rt']; ?>">
             </div>
             <div class="col-md-2">
                 <label for="form-rw" class="form-label">RW</label>
-                <input type="text" class="form-control" id="form-rw">
+                <input type="text" class="form-control" name="rw" id="form-rw" value="<?php echo $result['rw']; ?>">
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="form-jalan" class="form-label">Jalan</label>
-                <textarea class="form-control" id="form-jalan" rows="2"></textarea>
+                <textarea class="form-control" id="form-jalan" rows="2"><?php echo $result['jalan']; ?></textarea>
             </div>
             <div class="col-md-6">
                 <label for="form-kodepos" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" id="form-kodepos">
+                <input type="text" class="form-control" name="kodePos" id="form-kodepos" value="<?php echo $result['kodePos']; ?>">
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" id="formNomorTelepon">
+                <input type="text" class="form-control" name="noTelepon_perpus" id="formNomorTelepon" value="<?php echo $result['noTelepon_perpus']; ?>">
             </div>
             <div class="col-md-6">
                 <a class="btn btn-secondary col-12" href="dasborPerpus.php">Batal</a>
             </div>
             <div class="col-md-6">
-                <button type="submit" name="simpan" class="btn btn-primary col-12" ">Simpan Perubahan</button>
+                <button type="submit" name="simpan" class="btn btn-primary col-12" onclick="confirm('Yakin dengan perubahan ?')">Simpan Perubahan</button>
             </div>
         </form>
         <!-- END FORM -->
+        <?php
+            if(isset($_POST['simpan'])) {
+
+            $id_perpus = $id;
+            $id_alamatPerpus = $result['id_alamatPerpus'];
+            $nama_perpus = $_POST['nama_perpus'];
+            $nomorTelepon = $_POST['noTelepon_perpus'];
+            $alamat = $_POST['alamat_perpus'];
+            $kodePos = $_POST['kodePos'];
+            
+            $queryUpdate = "UPDATE `donatur_daftar`, `donatur_alamat`
+            SET nama_donatur = '$nama_donatur', noTelepon_donatur = '$nomorTelepon',  tglLahir_donatur = '$tglLahir', alamat = '$alamat', instansi_donatur = '$instansi', kodePos = '$kodePos' 
+            WHERE id_donatur = '$id_donatur' AND id_alamatDonatur = '$id_alamatDonatur' ";
+
+            mysqli_query($conn, $queryUpdate);
+
+            echo "<script>alert('Data Berhasil Diubah'); window.location.href = 'dasborDonatur.php';	</script>";
+            }
+        ?>
     </div>
     <footer>
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>

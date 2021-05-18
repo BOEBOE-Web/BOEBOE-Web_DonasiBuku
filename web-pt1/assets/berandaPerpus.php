@@ -82,7 +82,6 @@
     <div id="home">
         <img src="../image/boeboe.png" alt="boeboe">
         <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
-        <a href="assets/donasi.php">DONASI BUKU</a>
     </div>
     <div id="main-container">
         <div class="main-flex display1">

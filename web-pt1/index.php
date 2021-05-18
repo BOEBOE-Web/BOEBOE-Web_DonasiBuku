@@ -2,13 +2,13 @@
     session_start();
     require "action/config.php";
 
-    if (isset($_SESSION['masuk'])) {
-        header("Location: alert/salah.php");
-        exit;
-    }
+    // if (isset($_SESSION['masuk'])) {
+    //     header("Location: alert/salah.php");
+    //     exit;
+    // }
 
-    $query = "SELECT * FROM otakuboeboe";
-    $result = mysqli_query($conn, $query);
+    // $query = "SELECT * FROM otakuboeboe";
+    // $result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +75,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     <!-- FORM -->
                     <form class="row g-3 needs-validation" method="POST" action="action/logDonatur.php" novalidate>
                         <div class="col-12">
