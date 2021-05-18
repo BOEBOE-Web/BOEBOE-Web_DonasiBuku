@@ -135,6 +135,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px !important;
 }
 
 .content {
