@@ -22,7 +22,7 @@
 
 <style>
     <?php include "../css/pilihPerpus.css"?>
-    <?php include "../css/pilihPerpus-responsive.css"?>
+    <?php include "../css/detailPerpus-responsive.css"?>
 </style>
 
 <body>
@@ -51,7 +51,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Profile
                             </a>
-                            <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu"
+                            <ul class="dropdown-menu"
                                 aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
                                 <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
