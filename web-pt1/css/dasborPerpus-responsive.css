@@ -105,7 +105,7 @@
       margin-right: 0;
     }
     .burgermenu input:checked ~ nav {
-      height: 300px;
+      height: 250px;
       transition-delay: 0s;
     }
     .burgermenu input:checked ~ nav > ul > li {
@@ -154,7 +154,7 @@
       display: block !important;
       flex-wrap: unset !important;
       position: fixed !important;
-      transform: translate3d(-1px, 285px, 0px) !important;
+      transform: translate3d(-1px, 228px, 0px) !important;
       inset: 0px auto auto 0px !important;
     margin: 0px !important;
     background-color: #bbe1fa !important;
