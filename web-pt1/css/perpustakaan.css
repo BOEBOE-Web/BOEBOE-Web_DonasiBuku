@@ -120,6 +120,8 @@ header {
 .main-perpus {
   margin-top: 3rem;
   padding: 100px 50px;
+  padding-bottom: 450px;
+  height:100%;
   color: #0f4c75;
   background-color: #f3f3f3;
 }
