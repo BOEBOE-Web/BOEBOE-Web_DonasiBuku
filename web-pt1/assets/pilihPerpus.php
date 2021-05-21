@@ -3,7 +3,12 @@
     require "../action/config.php";
 
     $id = $_GET['id'];
-    $query = "SELECT * FROM `perpus_daftar` JOIN `perpus_alamat` ON perpus_alamat.id_alamatPerpusAktif = '$id' WHERE id_perpus = '$id' ";
+    $query = "SELECT * FROM `perpus_daftar` 
+    JOIN `perpus_alamat` ON `perpus_alamat`.id_alamatPerpusAktif = `perpus_daftar`.id_alamatPerpus
+    JOIN `perpus_aktif` ON `perpus_aktif`.id_akunPerpus = `perpus_daftar`.id_loginPerpus
+    JOIN `kategori_kebutuhan` ON `kategori_kebutuhan`.id_kategori = `perpus_daftar`.id_kategoriPerpus
+    WHERE id_perpus = '$id' ";
+
     $result = mysqli_query($conn, $query);
     $data = mysqli_fetch_assoc($result);
 ?>
@@ -89,11 +94,11 @@
         <div class="main-content">
             <div class="row">
                 <h1 class="col-10">Perpustakaan <?php echo $data['nama_perpus'];?></h1>
-                <a href="donasi.php" class="btn btn-primary col-2" type="button" style="height: 38px">Donasi Sekarang</a>
+                <a href="donasi.php?id=<?php echo $data['id_perpus'];?>" class="btn btn-primary col-2" type="button" style="height: 38px">Donasi Sekarang</a>
             </div>
             <div class="content">
                 <div style="width: 30%;">
-                    <img src="../image/retro-library.jpg" alt="Perpustakaan">
+                    <img src="../<?php echo $data['gambar_perpus'];?>" alt="Perpustakaan">
                 </div>
                 <div class="display-one">
                     <div>

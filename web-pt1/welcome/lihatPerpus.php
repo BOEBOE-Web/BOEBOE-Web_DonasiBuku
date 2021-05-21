@@ -29,7 +29,8 @@
 </head>
 
 <style>
-    <?php include "../css/pilihPerpus.css" ?><?php include "../css/pilihPerpus-responsive.css" ?>
+    <?php include "../css/pilihPerpus.css" ?>
+    <?php include "../css/pilihPerpus-responsive.css" ?>
 </style>
 
 <body>

@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    require "../action/config.php";
+
+    $id = $_GET['id'];
+    $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus`, `perpus_daftar`.`id_kategoriPerpus`, `kategori_kebutuhan`.`jenis_kategori` FROM `perpus_daftar` 
+    JOIN `kategori_kebutuhan` ON `kategori_kebutuhan`.`id_kategori` = `perpus_daftar`.`id_kategoriPerpus` ";
+    $result = mysqli_query($conn, $queryPerpus);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -82,123 +92,77 @@
             </ul>
         </div>
     </header>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Masuk Donatur</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- FORM -->
-                    <form class="row g-3 needs-validation" novalidate>
-                        <div class="col-12">
-                            <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" required>
-                            <div class="invalid-feedback">
-                                Email belum diisi.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" required>
-                            <div class="invalid-feedback">
-                                Password belum diisi
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary col-12">Masuk</button>
-                        </div>
-                        <div>Belum punya akun donatur? <span class="klik"><a href="register.php">Daftar
-                                    disini</a></span></div>
-                    </form>
-                    <!-- END FORM -->
-                </div>
-                <div class="modal-footer">
-                    <div style="width: 100%;">
-                        <h5 class="modal-title">Perpustakaan</h5>
-                    </div>
-                    <div>Masuk perpustakaan <span class="klik"><a href="masukPerpus.php">disini</a></span></div>
-                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="registerPerpus.php">Klik
-                                disini</a></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END Modal -->
     <div id="donasi-container">
-        <h1>Donasi</h1>
-        <form>
-            <div class="form-group mt-3">
+        <h1>Donasi Buku</h1>
+        <form method="POST">
+            <div class="form-group mt-3" >
                 <div class="row">
+                <?php while($data = mysqli_fetch_assoc($result)): ?>
                     <div class="col-md-6">
                         <label style="padding: 7px 0;">Perpustakaan</label>
-                        <select class="form-select">
-                            <option selected disabled value="">Pilih Perpustakaan</option>
-                            <option>Perpustakaan Retro</option>
-                            <option>Suzuran Library</option>
-                            <option>Perpustakaan Peduli Sesama</option>
-                            <option>Perpustakaan Kota Bima</option>
+                        <select class="form-select" name="id_perpus">
+                            <option selected disabled>Pilih Perpustakaan</option>
+                            <option  value="<?php echo $data['id_perpus'] ?>"><?php echo $data['nama_perpus'] ?></option>
                         </select>
                     </div>
+                    <?php endwhile; ?>
                     <div class="col-md-6">
                         <label style="padding: 7px 0;">Jumlah Buku</label>
-                        <input type="number" min="1" class="form-control jumlah-buku"
+                        <input type="number" min="1" class="form-control jumlah-buku" name="jumlah_buku"
                             placeholder="Masukkan Jumlah Buku">
                     </div>
                 </div>
-
                 <div class="button-center">
-                    <button class="btn btn-primary col-12" type="button">Iya</button>
+                    <button class="btn btn-primary col-12" type="submit" name="cari">Cari</button>
                 </div>
             </div>
-
+            </form>
+            <?php if(isset($_POST['cari'])): ?>
             <div class="tambah">
                 <div class="mt-3" style="border-bottom: 1px solid #0f4c75;"></div>
-
                 <div class="form-group mt-3">
                     <div class="row">
                         <div class="col-md-3">
                             <label>Kategori Buku</label>
                         </div>
+                    <?php
+                        $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus`, `perpus_daftar`.`id_kategoriPerpus`, `kategori_kebutuhan`.`jenis_kategori` FROM `perpus_daftar` 
+                        JOIN `kategori_kebutuhan` ON `kategori_kebutuhan`.`id_kategori` = `perpus_daftar`.`id_kategoriPerpus` ";
+                        $result = mysqli_query($conn, $queryPerpus);
+                        $result = mysqli_fetch_assoc($result);
+
+                        $dataKategori = $result['jenis_kategori'];
+                        $dataKategori = explode(',',$dataKategori);
+                        
+                    ?>
                         <div class="col-md-9">
                             <select class="form-select">
                                 <option selected disabled value="">Pilih Kategori Buku</option>
-                                <option>Ensiklopedi</option>
-                                <option>Dongeng</option>
-                                <option>Novel</option>
+                                <?php foreach ($dataKategori as $kategori): ?>
+                                <option  value="<?php $result['id_kategoriPerpus'] ?>"><?php echo $kategori; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
+                        
                     </div>
                 </div>
-
                 <div class="form-group mt-3">
                     <div class="row">
                         <div class="col-md-3">
                             <label>Judul Buku</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Masukkan Judul Buku">
+                            <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan Judul Buku">
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group mt-3">
                     <div class="row">
                         <div class="col-md-3">
                             <label>Nama Penulis</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Masukkan Nama Penulis Buku">
+                            <input type="text" class="form-control" name="nama_penulis" placeholder="Masukkan Nama Penulis Buku">
                         </div>
                     </div>
                 </div>
@@ -209,7 +173,7 @@
                             <label>Nama Penerbit</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Masukkan Nama Penerbit Buku">
+                            <input type="text" class="form-control" name="nama_penerbit" placeholder="Masukkan Nama Penerbit Buku">
                         </div>
                     </div>
                 </div>
@@ -220,7 +184,7 @@
                             <label>Tahun Terbit</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Masukkan Tahun Terbit Buku">
+                            <input type="text" class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku">
                         </div>
                     </div>
                 </div>
@@ -231,16 +195,17 @@
                             <label>Foto Buku</label>
                         </div>
                         <div class="col-md-9">
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" name="foto_buku" id="formFile">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="button-center">
                 <button class="btn btn-primary col-12" onclick="document.location='infoPengiriman.php'"
-                    type="button">Kirim</button>
+                    type="button" name="submit">Kirim</button>
             </div>
         </form>
+    <?php endif; ?>
     </div>
     <footer>
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>

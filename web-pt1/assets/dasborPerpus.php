@@ -100,7 +100,7 @@
     ?>
 
     <div class="dasbor-content">
-        <h1>Dasbor</h1>
+        <h1>Dasbor Perpus</h1>
 
         <div class="content">
             <div class="das" style="width: 30%;">
@@ -163,8 +163,6 @@
     <footer>
     <?php 
     
-    var_dump($result);
-    die;
     ?>
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
         <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>

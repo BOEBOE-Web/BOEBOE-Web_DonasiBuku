@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+    require "../action/config.php";
+
+    $query = "SELECT perpus_daftar.nama_perpus, 
+    perpus_alamat.provinsi, perpus_alamat.kabupaten_kota, perpus_daftar.id_perpus 
+    FROM `perpus_daftar` JOIN `perpus_alamat` ON perpus_alamat.id_alamatPerpusAktif = perpus_daftar.id_alamatPerpus";
+    
+    $result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -83,66 +94,13 @@
     <div class="main-perpus">
         <h1>Perpustakaan</h1>
         <div class="perpus-content">
-            <a class="content" href="detailPerpus.php">
-                <h5>Perpustakaan Retro</h5>
-                <p>Sulawesi Tengah</p>
-                <p>Kota Palu</p>
+        <?php while($data = mysqli_fetch_assoc($result)):?>
+            <a class="content" href="detailPerpus.php?id=<?php echo $data['id_perpus']; ?>">
+                <h5><?php echo $data['nama_perpus']?></h5>
+                <p><?php echo $data['provinsi']?></p>
+                <p><?php echo $data['kabupaten_kota']?></p>
             </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
-            <a class="content" href="#">
-                <h5>Nama Perpustakaan</h5>
-                <p>Provinsi</p>
-                <p>Kota/Kab</p>
-            </a>
+            <?php endwhile; ?>
         </div>
     </div>
     <footer>

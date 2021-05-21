@@ -92,7 +92,7 @@
   ?>
 
   <div class="dasbor-content">
-    <h1>Dasbor</h1>
+    <h1>Dasbor Donatur</h1>
     <div class="content">
       <div class="display-one">
         <div>

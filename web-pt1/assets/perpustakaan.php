@@ -2,8 +2,10 @@
         session_start();
         require "../action/config.php";
 
-        $query = "SELECT perpus_daftar.nama_perpus, perpus_alamat.provinsi, perpus_alamat.kabupaten_kota, perpus_daftar.id_perpus 
-        FROM `perpus_daftar` JOIN `perpus_alamat` ON perpus_alamat.id_alamatPerpusAktif = perpus_daftar.id_perpus";
+        $query = "SELECT perpus_daftar.nama_perpus, 
+        perpus_alamat.provinsi, perpus_alamat.kabupaten_kota, perpus_daftar.id_perpus 
+        FROM `perpus_daftar` JOIN `perpus_alamat` ON perpus_alamat.id_alamatPerpusAktif = perpus_daftar.id_alamatPerpus";
+        
         $result = mysqli_query($conn, $query);
 ?>
 
@@ -47,7 +49,7 @@
                     <img src="../image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                    <li><a href="berandaDonatur.php">Beranda</a></li>
+                    <li><a href="berandaDonatur.php#">Beranda</a></li>
                     <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                     <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="perpustakaan.php">Perpustakaan</a></li>
@@ -70,7 +72,7 @@
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="berandaDonatur.php">Beranda</a></li>
+                <li><a href="berandaDonatur.php#">Beranda</a></li>
                 <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                 <li><a href="donasi.php">Donasi</a></li>
                 <li><a href="perpustakaan.php">Perpustakaan</a></li>
@@ -91,59 +93,6 @@
             </ul>
         </div>
     </header>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Masuk Donatur</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- FORM -->
-                    <form class="row g-3 needs-validation" novalidate>
-                        <div class="col-12">
-                            <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" required>
-                            <div class="invalid-feedback">
-                                Email belum diisi.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" required>
-                            <div class="invalid-feedback">
-                                Password belum diisi
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary col-12">Masuk</button>
-                        </div>
-                        <div>Belum punya akun donatur? <span class="klik"><a href="register.php">Daftar
-                                    disini</a></span></div>
-                    </form>
-                    <!-- END FORM -->
-                </div>
-                <div class="modal-footer">
-                    <div style="width: 100%;">
-                        <h5 class="modal-title">Perpustakaan</h5>
-                    </div>
-                    <div>Masuk perpustakaan <span class="klik"><a href="masukPerpus.php">disini</a></span></div>
-                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="registerPerpus.php">Klik
-                                disini</a></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END Modal -->
     <div class="main-perpus">
         <h1>Perpustakaan</h1>
         <div class="perpus-content">
