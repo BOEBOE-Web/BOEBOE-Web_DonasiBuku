@@ -140,4 +140,8 @@
     opacity: 1;
     transition-delay: 0.5s;
   }
+  .burgermenu input:not(:checked) ~ nav > ul > li > a {
+    pointer-events: none;
+  }
+  
 }

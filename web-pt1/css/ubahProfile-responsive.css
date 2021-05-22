@@ -136,5 +136,8 @@
   .dropdown{
     margin-top: 5px;
   }
+  .burgermenu input:not(:checked) ~ nav > ul > li > a {
+    pointer-events: none;
+  }
 }
   

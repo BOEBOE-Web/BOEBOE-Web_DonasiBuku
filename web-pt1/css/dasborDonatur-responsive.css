@@ -175,4 +175,7 @@ a{
   .dropdown a{
   color: #0f4c75;
 }
+.burgermenu input:not(:checked) ~ nav > ul > li > a {
+  pointer-events: none;
+}
 }

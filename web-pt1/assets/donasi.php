@@ -125,16 +125,15 @@
                         <div class="col-md-3">
                             <label>Kategori Buku</label>
                         </div>
-                    <?php
-                        $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus`, `perpus_daftar`.`id_kategoriPerpus`, `kategori_kebutuhan`.`jenis_kategori` FROM `perpus_daftar` 
-                        JOIN `kategori_kebutuhan` ON `kategori_kebutuhan`.`id_kategori` = `perpus_daftar`.`id_kategoriPerpus` ";
-                        $result = mysqli_query($conn, $queryPerpus);
-                        $result = mysqli_fetch_assoc($result);
-
-                        $dataKategori = $result['jenis_kategori'];
-                        $dataKategori = explode(',',$dataKategori);
-                        
-                    ?>
+                        <?php
+                            $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus`, `perpus_daftar`.`id_kategoriPerpus`, `kategori_kebutuhan`.`jenis_kategori` FROM `perpus_daftar` 
+                            JOIN `kategori_kebutuhan` ON `kategori_kebutuhan`.`id_kategori` = `perpus_daftar`.`id_kategoriPerpus` ";
+                            $result = mysqli_query($conn, $queryPerpus);
+                            $result = mysqli_fetch_assoc($result);
+                            
+                            $dataKategori = $result['jenis_kategori'];
+                            $dataKategori = explode(',',$dataKategori);
+                        ?>
                         <div class="col-md-9">
                             <select class="form-select">
                                 <option selected disabled value="">Pilih Kategori Buku</option>
@@ -166,7 +165,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group mt-3">
                     <div class="row">
                         <div class="col-md-3">
@@ -177,7 +175,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group mt-3">
                     <div class="row">
                         <div class="col-md-3">
@@ -188,7 +185,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group mt-3">
                     <div class="row">
                         <div class="col-md-3">
