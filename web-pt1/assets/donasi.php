@@ -2,10 +2,8 @@
     session_start();
     require "../action/config.php";
 
-    $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus` 
-    FROM `perpus_daftar` ";
+    $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus` FROM `perpus_daftar` ";
     $resultData_perpus = mysqli_query($conn, $queryPerpus);
-
 ?>
 
 <!DOCTYPE html>
@@ -115,13 +113,12 @@
             <?php if(isset($_POST['cari'])):
                 
                 $id_perpus = $_POST['id_perpus'];
-                
                 $queryKategori = "SELECT `kategori_kebutuhan`.`id_kategori`, `kategori_kebutuhan`.`jenis_kategori`, `perpus_daftar`.`id_perpus`, `perpus_daftar`.`nama_perpus` 
                 FROM `kategori_kebutuhan` JOIN `perpus_daftar` ON `perpus_daftar`.`id_kategoriPerpus` = `kategori_kebutuhan`.`id_kategori` WHERE `perpus_daftar`.`id_perpus` = '$id_perpus' ";
                 $resultKategori = mysqli_query($conn, $queryKategori);
                 $resultKategori = mysqli_fetch_assoc($resultKategori);
 
-                //Ambil Data Perpus
+                //Ambil Data SESSION
                 $_SESSION['id_kategori'] = $resultKategori['id_kategori'];
                 $_SESSION['id_perpus'] = $resultKategori['id_perpus'];
                 $_SESSION['nama_perpus'] = $resultKategori['nama_perpus'];
@@ -129,8 +126,6 @@
                 //Memisahkan koma pada data jenis_kategori
                 $dataKategori = $resultKategori['jenis_kategori'];
                 $dataKategori = explode(',',$dataKategori);    
-                
-                
             ?>
             <!-- Form Input User -->
             <form method="POST" enctype="multipart/form-data" validated>
@@ -149,7 +144,6 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        
                     </div>
                 </div>
                 <div class="form-group mt-3">
@@ -159,6 +153,9 @@
                         </div>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan Judul Buku">
+                        </div>
+                        <div class="invalid-feedback">
+                            Harus diisi.
                         </div>
                     </div>
                 </div>
@@ -170,6 +167,9 @@
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="jumlah_buku" placeholder="Masukkan Jumlah Buku">
                         </div>
+                        <div class="invalid-feedback">
+                            Harus diisi.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group mt-3">
@@ -179,6 +179,9 @@
                         </div>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="nama_penulis" placeholder="Masukkan Nama Penulis Buku">
+                        </div>
+                        <div class="invalid-feedback">
+                            Harus diisi.
                         </div>
                     </div>
                 </div>
@@ -190,6 +193,9 @@
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="nama_penerbit" placeholder="Masukkan Nama Penerbit Buku">
                         </div>
+                        <div class="invalid-feedback">
+                            Harus diisi.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group mt-3">
@@ -199,6 +205,9 @@
                         </div>
                         <div class="col-md-9">
                             <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" id="datepicker">
+                        </div>
+                        <div class="invalid-feedback">
+                            Harus diisi.
                         </div>
                     </div>
                 </div>
@@ -221,8 +230,6 @@
             endif; 
 
             if(isset($_POST['kirim'])) {
-
-
                 // Insert Data Donasi
                 $kategori_kebutuhan = $_POST['kategori_kebutuhan'];
                 $judul_buku = $_POST['judul_buku'];
@@ -238,7 +245,6 @@
                 mysqli_query($conn, $queryInsertDonasi);
                 
                 // Insert Foto Buku
-                // For Upload gambar profile
                 $id_donasi = mysqli_insert_id($conn);
                 $cek_ekstensi = array('jpg','png','jpeg');
                 $name = $_FILES['foto_buku']['name'];
@@ -250,14 +256,13 @@
                 if ($size == 0) {
                     // Nothing
                 } else {
-                    // Jalankan Update
+                    // Jalankan Insert Foto
                     if(in_array($extensi, $cek_ekstensi) == true) {
                         if($size < 1000000) {
                             $moveFile = 'image/upload-donasi/bukti-donasi/'. $name;
                             move_uploaded_file($tmpFile, '../'.$moveFile );
                             $query = "UPDATE `donasi_buku` SET `foto_buku` = '$moveFile' WHERE id_donasiBuku = $id_donasi ";
                             
-
                             if(mysqli_query($conn, $query)) {
                                 // echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'dasborPerpus.php';</script>";
                             } else {
@@ -279,15 +284,12 @@
                 $queryPerpus = "SELECT `perpus_daftar`.`id_loginPerpus`, `perpus_daftar`.`namaPengelola_perpus`, `perpus_daftar`.`id_alamatPerpus`, `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`noTelepon_perpus`, `perpus_alamat`.`jalan` FROM `perpus_daftar` JOIN `perpus_alamat` ON `perpus_daftar`.`id_alamatPerpus` = `perpus_alamat`.`id_alamatPerpusAktif` WHERE id_perpus = $id_perpus ";
                 $resultQuery_perpus = mysqli_query($conn, $queryPerpus);
                 $resultQuery_perpus = mysqli_fetch_assoc($resultQuery_perpus);
-                // var_dump($resultQuery_perpus);
-                // die;
 
                 $id_alamatPerpus = $resultQuery_perpus['id_alamatPerpus'];
                 $namaPenerima = $resultQuery_perpus['namaPengelola_perpus'];
                 $nama_perpus =  $resultQuery_perpus['nama_perpus'];
                 $noTelepon_perpus  = $resultQuery_perpus['noTelepon_perpus'];
                 $alamat = $resultQuery_perpus['jalan'];
-
                 
                 // Query Donatur
                 $queryDonatur = "SELECT `donatur_daftar`.`nama_donatur` FROM `donatur_daftar` WHERE id_loginDonatur = '$id_loginDonatur' ";
@@ -297,19 +299,44 @@
                 $namaPengirim = $resultQuery_donatur['nama_donatur'];
 
 
-                $queryInsert = "INSERT INTO `donasi_detail`(`id_detail`, `id_alamatPerpus`, `id_loginDonatur`, `nama_penerima`, `nama_pengirim`, `nama_perpustakaan`, `alamat_penerima`, `noTelepon_penerima`) VALUES (NULL,'$id_alamatPerpus','$id_loginDonatur','$namaPenerima','$namaPengirim','$nama_perpus','$alamat','$noTelepon_perpus')";
-                mysqli_query($conn, $queryInsert);
 
-                var_dump(mysqli_query($conn, $queryInsert));
-                var_dump($queryInsert);
-                echo mysqli_error($conn);
+                $date = time()+60*7*7;
+                $date = date('Ymd', $date);
+
+                $querySelectKonfirm = "SELECT MAX(id_detail) as 'index' FROM `donasi_detail`";
+                $hasilSelect = mysqli_query($conn, $querySelectKonfirm);
+
+                $index;
+
+                if (mysqli_num_rows($hasilSelect) == NULL) {
+                    $index = 1;
+                } else {
+                    $hasilSelect = mysqli_fetch_assoc($hasilSelect);
+                    $kodeSelect = $hasilSelect['index'];
+                    $index = (int) substr($kodeSelect, 14, 4);
+                    $index++;
+
+                    var_dump($kodeSelect);
+                    var_dump($index);
+                    // die;
+                }
+
+                // $resultNumber =  'BOEBOE'.$date. printf("%04s", $index);
+                $resultNumber =  'BOEBOE'.$date. sprintf("%04s", $index);
+                $index = $resultNumber;
+            
+                // Query Insert Detail
+                $queryDetail = "INSERT INTO `donasi_detail`(`id_detail`, `id_alamatPerpus`, `id_loginDonatur`, `nama_penerima`, `nama_pengirim`, `nama_perpustakaan`, `alamat_penerima`, `noTelepon_penerima`) VALUES ('$index','$id_alamatPerpus','$id_loginDonatur','$namaPenerima','$namaPengirim','$nama_perpus','$alamat','$noTelepon_perpus')";
+                mysqli_query($conn, $queryDetail);
+                    
+                // Query Insert Konfirm
+                $queryKonfirm = "INSERT INTO `donasi_konfirmasi`(`id_detail`, `id_konfirmasi`, `id_konfirmasiPerpus`, `bukti_donasi`, `status_donasi`) VALUES ('$index',NULL,'$id_perpus','Upload Bukti Donasi','0')";
+                mysqli_query($conn, $queryKonfirm);
+
+                
                 unset($_SESSION['id_kategori']);
                 unset($_SESSION['nama_perpus']);
             }
-
-        
-
-
             
         ?>
     </div>

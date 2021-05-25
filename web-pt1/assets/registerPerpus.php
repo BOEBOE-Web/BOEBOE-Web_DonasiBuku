@@ -226,7 +226,6 @@
                     Harus diisi.
                 </div>
             </div>
-
             <div class="col-12">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -239,7 +238,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary col-12" ">Daftar</button>
+                <button type="submit" class="btn btn-primary col-12">Daftar</button>
             </div>
         </form>
         <!-- END FORM -->
