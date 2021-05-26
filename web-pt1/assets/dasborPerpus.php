@@ -1,6 +1,8 @@
 <?php 
     session_start();
     require "../action/config.php";
+
+    $id = $_SESSION['id_akunPerpus'];
 ?>
 
 <!DOCTYPE html>

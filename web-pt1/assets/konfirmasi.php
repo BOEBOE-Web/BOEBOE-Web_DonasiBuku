@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    include "../action/config.php";
+
+    $id = $_SESSION['id_akunPerpus'];
+    $query = "SELECT  * FROM `donasi_konfirmasi` WHERE id_konfirmasiPerpus = $id ";
+    $result = mysqli_query($conn, $query);
+
+    var_dump($result);
+    // die;
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -74,29 +85,15 @@
     </header>
     <div class="konfirmasi-content">
         <h1>Konfirmasi Donasi</h1>
+        <?php while($data = mysqli_fetch_assoc($result)):?>
         <div class="grup">
-            <h5>No Donasi : BOEBOE202104140001</h5>
-            <p>Status : Donasi telah diterima</p>
-            <p><i>14 April 2021</i></p>
+            <h5>No Donasi : <?php echo $data['id_detail']; ?></h5>
+            <p>Status : <?php echo $data['status_donasi']; ?></p>
+            <!-- <p><i>14 April 2021</i></p> -->
             <div>
                 <a href="editKonfirmasi.php" class="btn btn-secondary col-md-4">Edit Status Donasi</a>
             </div>
-        </div>
-        <div class="grup">
-            <h5>No Donasi : BOEBOE202105040001</h5>
-            <p>Status : Buku yang didonasikan tidak sesuai</p>
-            <p><i>24 April 2021</i></p>
-            <div>
-                <a href="editKonfirmasi.php" class="btn btn-secondary col-md-4">Edit Status Donasi</a>
-            </div>
-        </div>
-        <div class="grup">
-            <h5>No Donasi : BOEBOE202105040001</h5>
-            <p>Status : Donasi belum sampai</p>
-            <p><i>04 Mei 2021</i></p>
-            <div>
-                <a href="editKonfirmasi.php" class="btn btn-secondary col-md-4">Edit Status Donasi</a>
-            </div>
+            <?php endwhile; ?>
         </div>
     </div>
     <footer>

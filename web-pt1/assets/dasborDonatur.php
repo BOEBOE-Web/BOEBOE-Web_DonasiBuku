@@ -1,6 +1,8 @@
 <?php
     session_start();
     require "../action/config.php";
+
+    $id = $_SESSION['id_loginDonatur']
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +54,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                   <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
                   <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-                  <li><a class="dropdown-item" href="../action/logout.php" onclick="alert('Anda Yakin ?')">Log Out</a></li>
+                  <li><a class="dropdown-item" href="../action/logout.php" onclick="return confirm('Anda Yakin ?')">Log Out</a></li>
                   </ul>
               </div>
           </li>
@@ -73,7 +75,7 @@
             <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
               <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
               <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-              <li><a class="dropdown-item" href="../action/logout.php" onclick="confirm('Anda Yakin ?')">Log Out</a></li>
+              <li><a class="dropdown-item" href="../action/logout.php" onclick="return confirm('Anda Yakin ?')">Log Out</a></li>
             </ul>
           </div>
         </li>

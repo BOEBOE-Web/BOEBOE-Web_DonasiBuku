@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  include "../action/config.php";
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -90,18 +94,24 @@
             </ul>
         </div>
     </header>
+    <?php
+      $id = $_GET['id'];
+      $query = "SELECT * FROM `donasi_detail` WHERE `donasi_detail`.`id_detail` = '$id' ";
+      $result = mysqli_query($conn, $query);
+      $result = mysqli_fetch_assoc($result);
+    ?>
   <div class="main">
     <h1>Informasi Pengiriman</h1>
-    <h5>No Donasi. BOEBOE202104140001</h5>
+    <h5>No Donasi. <?php echo $result['id_detail']; ?></h5>
     <div class="main-content">
       <p>Nama Perpustakaan</p>
-      <h5>Perpustakaan Retro</h5>
+      <h5><?php echo $result['nama_perpustakaan']; ?></h5>
       <p>Nama Penerima</p>
-      <h5>Nona</h5>
+      <h5><?php echo $result['nama_penerima']; ?></h5>
       <p>No Telepon Penerima</p>
-      <h5>081234567890</h5>
+      <h5><?php echo $result['noTelepon_penerima']; ?></h5>
       <p>Alamat Penerima</p>
-      <h5>Jln. Trans Sulawesi, RT 01, RW 01, Kelurahan Panau, Kecamatan Tawaeli, Kota Palu, Provinsi Sulawesi Tengah</h5>
+      <h5><?php echo $result['alamat_penerima']; ?></h5>
       <button class="btn btn-primary col-3" id="btnprint" onclick="print_page()">Print Alamat</button>
     </div>
     <div style="border-bottom: 1px solid #bbe1fa; padding-top: 20px"></div>

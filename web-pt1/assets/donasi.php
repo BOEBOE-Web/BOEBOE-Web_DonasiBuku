@@ -113,14 +113,15 @@
             <?php if(isset($_POST['cari'])):
                 
                 $id_perpus = $_POST['id_perpus'];
-                $queryKategori = "SELECT `kategori_kebutuhan`.`id_kategori`, `kategori_kebutuhan`.`jenis_kategori`, `perpus_daftar`.`id_perpus`, `perpus_daftar`.`nama_perpus` 
-                FROM `kategori_kebutuhan` JOIN `perpus_daftar` ON `perpus_daftar`.`id_kategoriPerpus` = `kategori_kebutuhan`.`id_kategori` WHERE `perpus_daftar`.`id_perpus` = '$id_perpus' ";
+                $queryKategori = "SELECT `kategori_kebutuhan`.`id_kategori`, `kategori_kebutuhan`.`jenis_kategori`, `perpus_daftar`.`id_perpus`, `perpus_daftar`.`nama_perpus`, `perpus_aktif`.`id_akunPerpus` 
+                FROM `kategori_kebutuhan` JOIN `perpus_daftar` ON `perpus_daftar`.`id_kategoriPerpus` = `kategori_kebutuhan`.`id_kategori` JOIN `perpus_aktif` ON `perpus_aktif`.`id_akunPerpus` = `perpus_daftar`.`id_loginPerpus`  WHERE `perpus_daftar`.`id_perpus` = '$id_perpus' ";
                 $resultKategori = mysqli_query($conn, $queryKategori);
                 $resultKategori = mysqli_fetch_assoc($resultKategori);
 
                 //Ambil Data SESSION
                 $_SESSION['id_kategori'] = $resultKategori['id_kategori'];
                 $_SESSION['id_perpus'] = $resultKategori['id_perpus'];
+                $_SESSION['id_akunPerpus'] = $resultKategori['id_akunPerpus'];
                 $_SESSION['nama_perpus'] = $resultKategori['nama_perpus'];
 
                 //Memisahkan koma pada data jenis_kategori
@@ -281,6 +282,8 @@
 
                 // Query Perpus
                 $id_perpus = $_SESSION['id_perpus'];
+                $id_akunPerpus = $_SESSION['id_akunPerpus'];
+
                 $queryPerpus = "SELECT `perpus_daftar`.`id_loginPerpus`, `perpus_daftar`.`namaPengelola_perpus`, `perpus_daftar`.`id_alamatPerpus`, `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`noTelepon_perpus`, `perpus_alamat`.`jalan` FROM `perpus_daftar` JOIN `perpus_alamat` ON `perpus_daftar`.`id_alamatPerpus` = `perpus_alamat`.`id_alamatPerpusAktif` WHERE id_perpus = $id_perpus ";
                 $resultQuery_perpus = mysqli_query($conn, $queryPerpus);
                 $resultQuery_perpus = mysqli_fetch_assoc($resultQuery_perpus);
@@ -298,8 +301,6 @@
                 
                 $namaPengirim = $resultQuery_donatur['nama_donatur'];
 
-
-
                 $date = time()+60*7*7;
                 $date = date('Ymd', $date);
 
@@ -315,12 +316,9 @@
                     $kodeSelect = $hasilSelect['index'];
                     $index = (int) substr($kodeSelect, 14, 4);
                     $index++;
-
-                    var_dump($kodeSelect);
-                    var_dump($index);
-                    // die;
                 }
 
+                
                 // $resultNumber =  'BOEBOE'.$date. printf("%04s", $index);
                 $resultNumber =  'BOEBOE'.$date. sprintf("%04s", $index);
                 $index = $resultNumber;
@@ -330,12 +328,15 @@
                 mysqli_query($conn, $queryDetail);
                     
                 // Query Insert Konfirm
-                $queryKonfirm = "INSERT INTO `donasi_konfirmasi`(`id_detail`, `id_konfirmasi`, `id_konfirmasiPerpus`, `bukti_donasi`, `status_donasi`) VALUES ('$index',NULL,'$id_perpus','Upload Bukti Donasi','0')";
-                mysqli_query($conn, $queryKonfirm);
-
+                $queryKonfirm = "INSERT INTO `donasi_konfirmasi`(`id_detail`, `id_konfirmasi`, `id_konfirmasiPerpus`, `bukti_donasi`, `status_donasi`) VALUES ('$index',NULL,'$id_akunPerpus','Upload Bukti Donasi','Donasi Sedang Dikirim')";
                 
+                if (mysqli_query($conn, $queryKonfirm)) {
+                    echo "<script>alert('Silahkan print dan tempel'); window.location.href='infoPengiriman.php?id=$index'; </script>";
+                }
+
                 unset($_SESSION['id_kategori']);
                 unset($_SESSION['nama_perpus']);
+                unset($_SESSION['id_akunPerpus']);
             }
             
         ?>
