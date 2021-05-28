@@ -91,10 +91,10 @@
             <p>Status : <?php echo $data['status_donasi']; ?></p>
             <!-- <p><i>14 April 2021</i></p> -->
             <div>
-                <a href="editKonfirmasi.php" class="btn btn-secondary col-md-4">Edit Status Donasi</a>
+                <a href="editKonfirmasi.php?id=<?php echo $data['id_detail'];?>" class="btn btn-secondary col-md-4">Edit Status Donasi</a>
             </div>
-            <?php endwhile; ?>
         </div>
+        <?php endwhile; ?>
     </div>
     <footer>
         <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>

@@ -300,7 +300,7 @@
                 $resultQuery_donatur = mysqli_fetch_assoc($resultQuery_donatur);
                 
                 $namaPengirim = $resultQuery_donatur['nama_donatur'];
-
+                
                 $date = time()+60*7*7;
                 $date = date('Ymd', $date);
 
@@ -308,7 +308,7 @@
                 $hasilSelect = mysqli_query($conn, $querySelectKonfirm);
 
                 $index;
-
+                
                 if (mysqli_num_rows($hasilSelect) == NULL) {
                     $index = 1;
                 } else {
@@ -317,12 +317,9 @@
                     $index = (int) substr($kodeSelect, 14, 4);
                     $index++;
                 }
-
-                
-                // $resultNumber =  'BOEBOE'.$date. printf("%04s", $index);
                 $resultNumber =  'BOEBOE'.$date. sprintf("%04s", $index);
                 $index = $resultNumber;
-            
+                
                 // Query Insert Detail
                 $queryDetail = "INSERT INTO `donasi_detail`(`id_detail`, `id_alamatPerpus`, `id_loginDonatur`, `nama_penerima`, `nama_pengirim`, `nama_perpustakaan`, `alamat_penerima`, `noTelepon_penerima`) VALUES ('$index','$id_alamatPerpus','$id_loginDonatur','$namaPenerima','$namaPengirim','$nama_perpus','$alamat','$noTelepon_perpus')";
                 mysqli_query($conn, $queryDetail);
@@ -335,10 +332,9 @@
                 }
 
                 unset($_SESSION['id_kategori']);
-                unset($_SESSION['nama_perpus']);
                 unset($_SESSION['id_akunPerpus']);
+                unset($_SESSION['nama_perpus']);
             }
-            
         ?>
     </div>
     <footer>
