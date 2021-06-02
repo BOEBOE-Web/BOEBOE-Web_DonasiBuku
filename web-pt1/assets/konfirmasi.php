@@ -5,9 +5,6 @@
     $id = $_SESSION['id_akunPerpus'];
     $query = "SELECT  * FROM `donasi_konfirmasi` WHERE id_konfirmasiPerpus = $id ";
     $result = mysqli_query($conn, $query);
-
-    var_dump($result);
-    // die;
 ?>
 <!DOCTYPE html>
 <html lang="id">
