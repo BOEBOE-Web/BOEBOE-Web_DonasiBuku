@@ -123,7 +123,9 @@ header {
   width: 50%;
   padding-left: 50px;
 }
-
+.btn-responsive {
+  display: none;
+}
 footer {
   background-color: #0f4c75;
   color: #bbe1fa;

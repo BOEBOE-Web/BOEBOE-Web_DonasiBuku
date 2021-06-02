@@ -100,15 +100,15 @@
     <form class="row g-3 needs-validation" method="POST" novalidate>
       <div class="col-12">
         <label for="inputNama" class="form-label">Nama</label>
-        <input type="text" class="form-control" name="nama_donatur" id="inputNama" value="<?php echo $result['nama_donatur']; ?>">
+        <input type="text" class="form-control" name="nama_donatur" id="inputNama" value="<?php echo $result['nama_donatur']; ?>" required>
       </div>
       <div class="col-md-6">
         <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-        <input type="number" class="form-control" name="noTelepon_donatur" id="formNomorTelepon"  value="<?php echo $result['noTelepon_donatur']; ?>">
+        <input type="number" class="form-control" name="noTelepon_donatur" id="formNomorTelepon"  value="<?php echo $result['noTelepon_donatur']; ?>"required>
       </div>
       <div class="col-md-6">
         <label for="formDate" class="form-label">Tanggal Lahir</label>
-        <input type="date" class="form-control" name="tglLahir_donatur" id="formDate"  value="<?php echo $result['tglLahir_donatur']; ?>">
+        <input type="date" class="form-control" name="tglLahir_donatur" id="formDate"  value="<?php echo $result['tglLahir_donatur']; ?>"required>
       </div>
       <div class="mb-3" style="margin-bottom: 0px!important;">
         <label for="formAlamat" class="form-label">Alamat</label>
@@ -126,7 +126,7 @@
       </div>
       <div class="col-md-6">
         <label for="formKodePos" class="form-label">Kode Pos</label>
-        <input type="number" class="form-control" name="kodePos" id="formKodePos" value="<?php echo $result['kodePos']; ?>">
+        <input type="number" class="form-control" name="kodePos" id="formKodePos" value="<?php echo $result['kodePos']; ?>"required>
       </div>
       <div class="col-md-6">
         <a class="btn btn-secondary col-12" href="dasborDonatur.php">Batal</a>

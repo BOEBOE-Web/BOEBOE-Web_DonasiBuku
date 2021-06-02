@@ -120,7 +120,7 @@
             <div style="border-bottom: 1px solid #0F4C75;"></div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama Pengelola</label>
-                <input type="text" class="form-control" name="namaPengelola_perpus" id="inputNama" value="<?php echo $result['namaPengelola_perpus']; ?>">
+                <input type="text" class="form-control" name="namaPengelola_perpus" id="inputNama" value="<?php echo $result['namaPengelola_perpus']; ?>"required>
             </div>
             <div class="col-12">
                 <label for="inputNama" class="form-label">Nama Perpustakaan</label>
@@ -128,35 +128,35 @@
             </div>
             <div class="col-md-6">
                 <label for="datepicker" class="form-label">Tahun Berdiri</label>
-                <input type="text" class="form-control" name="tahunBerdiri_perpus" id="datepicker" value="<?php echo $result['tahunBerdiri_perpus']; ?>">
+                <input type="text" class="form-control" name="tahunBerdiri_perpus" id="datepicker" value="<?php echo $result['tahunBerdiri_perpus']; ?>"required>
             </div>
             <div class="col-md-6">
                 <label for="formNoIzin" class="form-label">No. Izin Operasional</label>
-                <input type="text" class="form-control" name="noIzin_perpus" id="formNoIzin" value="<?php echo $result['noIzin_perpus']; ?>">
+                <input type="text" class="form-control" name="noIzin_perpus" id="formNoIzin" value="<?php echo $result['noIzin_perpus']; ?>"required>
             </div>
             <div class="col-md-6">
                 <label for="provinsi" class="form-label">Provinsi</label>
-                <input type="text" class="form-control" name="provinsi" id="provinsi" value="<?php echo $result['provinsi']; ?>">
+                <input type="text" class="form-control" name="provinsi" id="provinsi" value="<?php echo $result['provinsi']; ?>"required>
             </div>
             <div class="col-md-6">
                 <label for="kabkota" class="form-label">Kab/Kota</label>
-                <input type="text" class="form-control" name="kabupaten_kota" id="kabkota" value="<?php echo $result['kabupaten_kota']; ?>">
+                <input type="text" class="form-control" name="kabupaten_kota" id="kabkota" value="<?php echo $result['kabupaten_kota']; ?>"required>
             </div>
             <div class="col-md-4">
                 <label for="kecamatan" class="form-label">Kecamatan</label>
-                <input type="text" class="form-control" name="kecamatan" id="kecamatan" value="<?php echo $result['kecamatan']; ?>">
+                <input type="text" class="form-control" name="kecamatan" id="kecamatan" value="<?php echo $result['kecamatan']; ?>"required>
             </div>
             <div class="col-md-4">
                 <label for="desa-kelurahan" class="form-label">Desa/Kelurahan</label>
-                <input type="text" class="form-control" name="desa_kelurahan" id="desa-kelurahan" value="<?php echo $result['desa_kelurahan']; ?>">
+                <input type="text" class="form-control" name="desa_kelurahan" id="desa-kelurahan" value="<?php echo $result['desa_kelurahan']; ?>"required>
             </div>
             <div class="col-md-2">
                 <label for="form-rt" class="form-label">RT</label>
-                <input type="text" class="form-control" name="rt" id="form-rt" value="<?php echo $result['rt']; ?>">
+                <input type="text" class="form-control" name="rt" id="form-rt" value="<?php echo $result['rt']; ?>"required>
             </div>
             <div class="col-md-2">
                 <label for="form-rw" class="form-label">RW</label>
-                <input type="text" class="form-control" name="rw" id="form-rw" value="<?php echo $result['rw']; ?>">
+                <input type="text" class="form-control" name="rw" id="form-rw" value="<?php echo $result['rw']; ?>"required>
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="form-jalan" class="form-label">Jalan</label>
@@ -164,11 +164,11 @@
             </div>
             <div class="col-md-6">
                 <label for="form-kodepos" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" name="kodePos" id="form-kodepos" value="<?php echo $result['kodePos']; ?>">
+                <input type="text" class="form-control" name="kodePos" id="form-kodepos" value="<?php echo $result['kodePos']; ?>"required>
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" name="noTelepon_perpus" id="formNomorTelepon" value="<?php echo $result['noTelepon_perpus']; ?>">
+                <input type="text" class="form-control" name="noTelepon_perpus" id="formNomorTelepon" value="<?php echo $result['noTelepon_perpus']; ?>"required>
             </div>
             <div class="col-md-6">
                 <a class="btn btn-secondary col-12" onclick="confirm('Ingin kembali tanpa perubahan ?')" href="dasborPerpus.php">Batal</a>

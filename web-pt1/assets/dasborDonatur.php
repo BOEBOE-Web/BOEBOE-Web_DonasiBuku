@@ -131,6 +131,7 @@
           <p><?php echo $result['kodePos']; ?></p>
         </div>
         <div>
+          <a href="ubahProfileDonatur.php?id=<?php echo $result['id_donatur']; ?>" class="btn btn-responsive col-4">Ubah Profile</a>
         </div>
       </div>
     </div>
