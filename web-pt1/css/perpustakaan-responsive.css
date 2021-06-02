@@ -14,6 +14,9 @@
   .burgermenu {
     display: none;
   }
+  .content{
+    width: 44%;
+  }
 }
 
 @media all and (max-width: 670px) {
@@ -21,7 +24,7 @@
   color: #0f4c75;
     margin: 9px;
     padding: 10px;
-    width: 44%;
+    width: 88%;
     border-radius: 10px;
     border: 1px solid #0F4C75;
 }

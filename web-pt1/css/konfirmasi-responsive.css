@@ -14,6 +14,11 @@
     .burgermenu {
       display: none;
     }
+    .konfirmasi-content{
+      padding: 100px 100px;
+      margin-bottom: 0%;
+    }
+
   }
   
 @media all and (max-width: 670px) {
@@ -178,6 +183,9 @@
 }
 .burgermenu input:not(:checked) ~ nav > ul > li > a {
   pointer-events: none;
+}
+.konfirmasi-content{
+  margin-bottom: 0%;
 }
 }
   

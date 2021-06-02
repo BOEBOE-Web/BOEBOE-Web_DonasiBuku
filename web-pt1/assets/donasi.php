@@ -153,7 +153,7 @@
                             <label>Judul Buku</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan Judul Buku">
+                            <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan Judul Buku" required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
@@ -166,7 +166,7 @@
                             <label>Jumlah Buku</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="jumlah_buku" placeholder="Masukkan Jumlah Buku">
+                            <input type="text" class="form-control" name="jumlah_buku" placeholder="Masukkan Jumlah Buku"required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
@@ -179,7 +179,7 @@
                             <label>Nama Penulis</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nama_penulis" placeholder="Masukkan Nama Penulis Buku">
+                            <input type="text" class="form-control" name="nama_penulis" placeholder="Masukkan Nama Penulis Buku"required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
@@ -192,7 +192,7 @@
                             <label>Nama Penerbit</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nama_penerbit" placeholder="Masukkan Nama Penerbit Buku">
+                            <input type="text" class="form-control" name="nama_penerbit" placeholder="Masukkan Nama Penerbit Buku"required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
@@ -205,7 +205,7 @@
                             <label>Tahun Terbit</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" id="datepicker">
+                            <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" id="datepicker"required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
