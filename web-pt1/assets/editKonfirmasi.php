@@ -93,7 +93,7 @@
         <h1>Edit Status Donasi</h1>
         <h5 style="text-align: center;">No Donasi : <?php echo $hasil['id_detail'];?></h5>
         <h5 class="mt-4">Foto Buku</h5>
-        <img style="min-widht: 400px; min-height: 400px;max-widht: 400px; max-height: 400px;" src="http://<?= $_SERVER['SERVER_NAME'].'/BOEBOE-Web.github.io/web-pt1/'.$hasil['foto_buku']?>">
+        <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="http://<?= $_SERVER['SERVER_NAME'].'/BOEBOE-Web.github.io/web-pt1/'.$hasil['foto_buku']?>">
         <form method="POST" enctype="multipart/form-data" validated>
         <div class="form-group mt-3">
             <div class="row">
