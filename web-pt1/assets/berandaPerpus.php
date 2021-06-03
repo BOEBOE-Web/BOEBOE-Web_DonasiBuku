@@ -1,5 +1,10 @@
 <?php  
     session_start();
+    if(!isset($_SESSION['id_akunPerpus'])) {
+        header("Location: ../index.php");
+        exit();
+    }
+
     require "../action/config.php";
 ?>
 
@@ -128,8 +133,8 @@
         </div>
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>

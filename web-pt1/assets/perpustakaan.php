@@ -1,5 +1,9 @@
 <?php 
         session_start();
+        if(!isset($_SESSION['id_loginDonatur'])) {
+            header("Location: ../index.php");
+            exit();
+        }
         require "../action/config.php";
 
         $query = "SELECT perpus_daftar.nama_perpus, 
@@ -106,8 +110,8 @@
         </div>
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
     </footer>
 </body>
 

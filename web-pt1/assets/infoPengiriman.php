@@ -1,5 +1,9 @@
 <?php
   session_start();
+  if(!isset($_SESSION['id_loginDonatur'])) {
+    header("Location: ../index.php");
+    exit();
+  }
   include "../action/config.php";
 ?>
 <!DOCTYPE html>
@@ -85,9 +89,9 @@
                             Profile
                         </a>
                         <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
-                            <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
-                            <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                        <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
+                                <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
+                                <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -118,8 +122,8 @@
     <p style="padding-top: 20px; color: #dc3545">Print / catat informasi pengiriman di atas untuk di tempel pada paket pengiriman</p>
   </div>
   <footer>
-    <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-    <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
   </footer>
 </body>
 

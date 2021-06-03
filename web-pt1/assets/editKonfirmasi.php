@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(!isset($_SESSION['id_akunPerpus'])) {
+        header("Location: ../index.php");
+        exit();
+    }
     require "../action/config.php";
 
     $id = $_GET['id'];
@@ -124,9 +128,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <a class="btn btn-primary col-12" href="konfirmasi.php">Batal</a>
-                </div>
+                </div
+                <?php if(!isset($_FILES['bukti_donasi']) < 0 || ($hasil['bukti_donasi']) == 'Upload Bukti Donasi'): ?>>
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-secondary col-12" name="simpan">Simpan Perubahan</button>
+                    <button  type="submit" class="btn btn-secondary col-12" name="simpan">Simpan Perubahan</button>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -145,7 +151,7 @@
             $extensi = strtolower(end($tmpCek));
             $tmpFile = $_FILES['bukti_donasi']['tmp_name'];
             
-            if ($size == 0) {
+            if ($size > 1000000) {
                 // Nothing
             } else {
                 // Jalankan Update
@@ -157,25 +163,24 @@
                         WHERE id_konfirmasiPerpus = $id_login ";
                         
                         if(mysqli_query($conn, $query)) {
-                            echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'dasborPerpus.php';</script>";
+                            echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
                         } else {
                             var_dump($id_login);
                             die;
-                            echo "<script>alert('Gambar Gagal Upload'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
+                            echo "<script>alert('Gambar Gagal Upload'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
                         }
                     } else {
-                        echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
+                        echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
                     } 
                 }else {
-                        // echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'dasborPerpus.php';</script>";
-                        echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
+                        echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
                 }
             }
         }
     ?>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
     </footer>
 </body>
 

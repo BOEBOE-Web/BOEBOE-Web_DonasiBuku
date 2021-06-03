@@ -244,8 +244,8 @@
         <!-- END FORM -->
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
     </footer>
     <script src="../js/script.js"></script>
 </body>

@@ -1,11 +1,16 @@
 <?php
     session_start();
+        if(!isset($_SESSION['id_loginDonatur'])) {
+      header("Location: ../index.php");
+      exit();
+    }
     include "../action/config.php";
 
     $id = $_SESSION['id_loginDonatur'];
-    $query = "SELECT `donasi_detail`.`id_detail`, `donasi_konfirmasi`.`status_donasi` FROM `donasi_detail` 
+    $query = "SELECT `donasi_detail`.`id_detail`, `donasi_konfirmasi`.`status_donasi`, `donasi_konfirmasi`.`bukti_donasi` FROM `donasi_detail` 
     JOIN `donasi_konfirmasi` ON `donasi_konfirmasi`.`id_detail` = `donasi_detail`.`id_detail` WHERE `donasi_detail`.`id_loginDonatur` = '$id' ";
     $result = mysqli_query($conn, $query);
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -97,16 +102,19 @@
         <h1>Riwayat Donasi</h1>
         <?php while($data = mysqli_fetch_assoc($result)): ?>
         <div class="grup">
-            <h5>No Donasi : <?php echo $data['id_detail']; ?></h5>
+            <h5>No. Donasi : <?php echo $data['id_detail']; ?></h5>
             <p>Status : <?php echo $data['status_donasi']; ?></p>
+            <?php if($data['bukti_donasi'] != 'Upload Bukti Donasi'): ?>
+            <p><br/>Bukti Donasi : </p>
+            <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="http://<?= $_SERVER['SERVER_NAME'].'/BOEBOE-Web.github.io/web-pt1/'.$data['bukti_donasi']?>">
+            <?php endif; ?>
             <p class="hover"><a href="infoPengiriman.php?id=<?php echo  $data['id_detail']; ?>">Detail Informasi Pengiriman</a></p>
-            <!-- <p><i>14 April 2021</i></p> -->
         </div>
         <?php endwhile; ?>
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
     </footer>
 </body>
 

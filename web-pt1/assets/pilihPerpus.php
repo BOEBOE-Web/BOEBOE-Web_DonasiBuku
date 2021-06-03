@@ -141,7 +141,7 @@
                     </div>
                     <div>
                         <h5>Daftar Kebutuhan Buku:</h5>
-                        <p><?php echo $data['daftar_kebutuhan'];?></p>
+                        <p><?php echo $data['jenis_kategori'];?></p>
                     </div>
                     <div>
                         <h5>Tentang Perpustakaan:</h5>
@@ -153,8 +153,8 @@
         </div>
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pencinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
     </footer>
 </body>
 
