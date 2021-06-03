@@ -1,14 +1,6 @@
 <?php  
     session_start();
     require "action/config.php";
-
-    // if (isset($_SESSION['masuk'])) {
-    //     header("Location: alert/salah.php");
-    //     exit;
-    // }
-
-    // $query = "SELECT * FROM otakuboeboe";
-    // $result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
