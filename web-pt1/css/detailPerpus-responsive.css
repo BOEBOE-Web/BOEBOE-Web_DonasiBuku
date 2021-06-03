@@ -1,30 +1,44 @@
 @media all and (max-width: 1024px) {
-    .navi a {
-      padding: 0 12px;
-    }
-  
-    .header img {
-      margin: 10px 0;
-    }
-  
-    .masuk {
-      margin-right: 20px;
-    }
-  
-    .burgermenu {
-      display: none;
-    }
-    
-    .col-10{
-      width: 68.333333%;
-    }
-    .col-2{
-      width: 29.666667%;
-    }
-    .responsive{
-      display: none;
-    }
+  .navi a {
+    padding: 0 12px;
   }
+
+  .header img {
+    margin: 10px 0;
+  }
+
+  .masuk {
+    margin-right: 20px;
+  }
+
+  .burgermenu {
+    display: none;
+  }
+  .col-10 {
+    text-align: center;
+    width: 100%;
+  }
+  .content{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    flex-direction: column;
+  }
+  .content img {
+    width: 250%;
+    margin-left: 42%;
+}
+  .display-one {
+    margin-top: 35px;
+    width: 90%;
+    padding-left: 100px;
+  }
+  .display-two {
+    margin-top: 35px;
+    width: 90%;
+    padding-left: 100px;
+  }
+}
   
 @media all and (max-width: 670px) {
     .header img {
@@ -61,7 +75,7 @@
       padding-left: 0;
     }
     .main-content{
-      padding: 42px;
+      padding: 75px 50px;
     }
     .main-content h1 {
       text-align: center;

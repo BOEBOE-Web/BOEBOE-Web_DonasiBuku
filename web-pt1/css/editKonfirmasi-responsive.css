@@ -14,84 +14,17 @@
     .burgermenu {
       display: none;
     }
-    
-    .col-10{
-      text-align: center;
-      width: 100%;
+    .konfirmasi-content{
+      padding: 100px 100px;
+      margin-bottom: 60px;
     }
-    .col-2{
-      width: 29.666667%;
-    }
-    .responsive{
-      display: none;
-    }
-    .content img {
-      width: 250%;
-      margin-left: 42%;
+
   }
-    .content {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 50px;
-      flex-direction: column;
-  }
-  .display-one {
-    margin-top: 35px;
-    width: 90%;
-    padding-left: 100px;
-  }
-  .display-two {
-    width: 90%;
-    padding-left: 100px;
-  }
-  .col-2 {
-    display: none;
-}
-.responsive{
-  display: block;
-    margin-top: 6%;
-}
-}
   
 @media all and (max-width: 670px) {
     .header img {
       margin: 15px 0;
       height: 2rem;
-    }
-    .col-2{
-      display: none;
-    }
-    .col-10{
-      width: 100%;
-    }
-    .content{
-      flex-direction: column;
-      margin-top: 30px;
-    }
-    .content img {
-      width: 250%;
-      margin-left: 42%;
-    }
-    .responsive{
-      display: inline;;
-      margin-top: 15%;
-    margin-left: 24%;
-    }
-    .display-one {
-      margin-top: 35px;
-      width: 100%;
-      padding-left: 0;
-    }
-    .display-two {
-      margin-top: 35px;
-      width: 100%;
-      padding-left: 0;
-    }
-    .main-content{
-      padding: 75px 50px;
-    }
-    .main-content h1 {
-      text-align: center;
     }
     .navi {
       display: none;
@@ -177,18 +110,56 @@
       margin-right: 0;
     }
     .burgermenu input:checked ~ nav {
-      height: 300px;
+      height: 250px;
       transition-delay: 0s;
     }
     .burgermenu input:checked ~ nav > ul > li {
       opacity: 1;
       transition-delay: 0.5s;
     }
+    .dasbor-content{
+      padding: 42px 40px;
+    }
+    .content{
+      display: block;
+    }
+    .content img{
+      width: 250%;
+      margin-left: 42%;
+      margin-left: -15%;
+    }
+    .content h5{
+      width: 210%;
+      
+    }
+    .dasbor-content h1{
+      margin-bottom: 30px;
+    }
+    .das{
+      margin-left: 19%;
+    }
+    .das h5{
+      margin-left: 5px;
+    }
+    .btn-primary{
+        width: 21pc;
+      margin-bottom: 30px;
+    }
+    .display-one{
+      margin-top: 35px;
+    width: 100%;
+    padding-left: 0;
+    }
+    .display-two{
+      margin-top: 35px;
+    width: 100%;
+    padding-left: 0;
+    }
     ul.dropdown-menu.show[style]{
       display: block !important;
       flex-wrap: unset !important;
       position: fixed !important;
-      transform: translate3d(-1px, 285px, 0px) !important;
+      transform: translate3d(-1px, 228px, 0px) !important;
       inset: 0px auto auto 0px !important;
     margin: 0px !important;
     background-color: #bbe1fa !important;
@@ -199,17 +170,20 @@
     border-radius: 0 0 16px 16px !important;
   }
   a{
-    color:#0d6efd;
+    color:#0f4c75;
   }
   .dropdown{
     margin-top: 5px;
   }
+  .konfirmasi-content{
+    padding: 100px 40px;
+  }
   .dropdown a{
-    color: #0f4c75;
-  }
-  .burgermenu input:not(:checked) ~ nav > ul > li > a {
-    pointer-events: none;
-  }
-  
+  color: #0f4c75;
+}
+.burgermenu input:not(:checked) ~ nav > ul > li > a {
+  pointer-events: none;
+}
+
 }
   

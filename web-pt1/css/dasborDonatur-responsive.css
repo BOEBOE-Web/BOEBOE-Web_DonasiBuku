@@ -14,6 +14,10 @@
   .burgermenu {
     display: none;
   }
+  .dasbor-content{
+    padding-bottom: 54%;
+  }
+  
 }
 
 @media all and (max-width: 670px) {

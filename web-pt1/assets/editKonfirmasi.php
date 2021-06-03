@@ -32,7 +32,7 @@
 
 <style>
     <?php include "../css/konfirmasi.css"?>
-    <?php include "../css/konfirmasi-responsive.css"?>
+    <?php include "../css/editKonfirmasi-responsive.css"?>
 </style>
 
 <body>

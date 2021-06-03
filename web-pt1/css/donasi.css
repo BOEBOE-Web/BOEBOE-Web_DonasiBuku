@@ -115,10 +115,11 @@ header {
 
 #donasi-container {
   margin-top: 3rem;
-  padding: 100px 300px;
+  padding: 120px 300px;
   width: 100%;
   background-color: #F3F3F3;
   color: #0F4C75;
+  padding-bottom: 150px;
 }
 
 #donasi-container h1 {
