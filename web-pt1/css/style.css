@@ -72,8 +72,8 @@ header {
 }
 
 .navi a {
+  padding: 0 15px !important;
   line-height: 4rem;
-  padding: 0 15px;
   display: block;
   float: left;
   color: #0f4c75;
@@ -221,10 +221,16 @@ header {
   padding-top: 25px;
   text-align: justify;
 }
-
+  
 footer {
   background-color: #0f4c75;
   color: #bbe1fa;
+  padding: 25px;
+  display: flex;
+}
+footer p {
   text-align: center;
-  padding: 25px 0;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
 }
