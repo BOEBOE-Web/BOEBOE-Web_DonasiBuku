@@ -153,8 +153,8 @@
         </div>
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU</p>
+        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU<br>(Orang-orang pecinTA buKU)</p>
     </footer>
 </body>
 

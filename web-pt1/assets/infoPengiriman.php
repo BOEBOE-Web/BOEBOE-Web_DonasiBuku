@@ -122,8 +122,8 @@
     <p style="padding-top: 20px; color: #dc3545">Print / catat informasi pengiriman di atas untuk di tempel pada paket pengiriman</p>
   </div>
   <footer>
-        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU</p>
+    <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
+    <p>Made by OTAKU<br>(Orang-orang pecinTA buKU)</p>
   </footer>
 </body>
 
