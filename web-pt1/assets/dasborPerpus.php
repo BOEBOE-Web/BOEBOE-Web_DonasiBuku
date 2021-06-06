@@ -110,7 +110,7 @@
 
         <div class="content">
             <div class="das" style="width: 30%;">
-                <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="http://<?= $_SERVER['SERVER_NAME'].'/BOEBOE-Web.github.io/web-pt1/'.$result['gambar_perpus']?>"
+                <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="../<?php echo $result['gambar_perpus']?>"
                     alt="gambar erpustakaan">
                 <h5 style="margin: 15px 0; text-align: center;"><?php echo $result['nama_perpus']; ?></h5>
                 <a href="ubahProfilePerpus.php?id=<?php echo $result['id_perpus']; ?>" class="btn btn-primary col-12">Ubah Profile</a>

@@ -8,7 +8,7 @@
 
     $id = $_GET['id'];
     $id_login = $_SESSION['id_akunPerpus'];
-    $query = "SELECT `donasi_konfirmasi`.`id_detail`, `donasi_konfirmasi`.`bukti_donasi`, `donasi_konfirmasi`.`status_donasi`, `donasi_detail`.`id_detail`, `donasi_detail`.`id_loginDonatur`, `donasi_buku`.`id_loginDonatur`, `donasi_buku`.`foto_buku` FROM `donasi_konfirmasi` JOIN `donasi_detail` ON `donasi_detail`.`id_detail` = `donasi_konfirmasi`.`id_detail` JOIN `donasi_buku` ON `donasi_buku`.`id_loginDonatur` = `donasi_detail`.`id_loginDonatur` WHERE `donasi_konfirmasi`.`id_detail` = '$id' ";
+    $query = "SELECT `donasi_konfirmasi`.`id_detail`, `donasi_konfirmasi`.`id_konfirmasi`, `donasi_konfirmasi`.`bukti_donasi`, `donasi_konfirmasi`.`status_donasi`, `donasi_detail`.`id_detail`, `donasi_detail`.`id_loginDonatur`, `donasi_buku`.`id_loginDonatur`, `donasi_buku`.`foto_buku` FROM `donasi_konfirmasi` JOIN `donasi_detail` ON `donasi_detail`.`id_detail` = `donasi_konfirmasi`.`id_detail` JOIN `donasi_buku` ON `donasi_buku`.`id_loginDonatur` = `donasi_detail`.`id_loginDonatur` WHERE `donasi_konfirmasi`.`id_detail` = '$id' ";
     $result = mysqli_query($conn, $query);
     $hasil = mysqli_fetch_assoc($result)
 ?>
@@ -140,7 +140,7 @@
     </div>
     <?php
         if(isset($_POST['simpan'])) {
-
+	    $idKonfirmasi = $hasil['id_konfirmasi'];
             $status_donasi = $_POST['status_donasi'];
 
             // For Upload gambar profile
@@ -160,20 +160,18 @@
                         $moveFile = 'image/upload-donasi/bukti-donasi/'. $name;
                         move_uploaded_file($tmpFile, '../'.$moveFile );
                         $query = "UPDATE `donasi_konfirmasi` SET `bukti_donasi` = '$moveFile', `status_donasi` = '$status_donasi' 
-                        WHERE id_konfirmasiPerpus = $id_login ";
+                        WHERE id_konfirmasi = $idKonfirmasi ";
                         
                         if(mysqli_query($conn, $query)) {
-                            echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
+                            echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'konfirmasi.php';</script>";
                         } else {
-                            var_dump($id_login);
-                            die;
-                            echo "<script>alert('Gambar Gagal Upload'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
+                            echo "<script>alert('Gambar Gagal Upload'); window.location.href = 'konfirmasi.php';</script>";
                         }
                     } else {
-                        echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
+                        echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'konfirmasi.php';</script>";
                     } 
                 }else {
-                        echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'ediKonfirmasi.php?id= $id';</script>";
+                        echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'konfirmasi.php';</script>";
                 }
             }
         }
