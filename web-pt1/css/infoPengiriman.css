@@ -135,7 +135,12 @@ header {
 }
 
 .main-content {
-    margin-top: 50px;
+  margin-top: 50px;
+  display: flex;
+}
+
+.main-group {
+  width: 50%;
 }
 
 .main-content p {
@@ -153,6 +158,14 @@ header {
     align-items: center;
     display: block;
     margin: 0 auto;
+}
+
+.button-center {
+  margin: 0 35%;;
+}
+
+.detail-buku {
+  padding-bottom: 10px !important;
 }
   
 footer {

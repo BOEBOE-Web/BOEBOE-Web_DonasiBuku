@@ -31,6 +31,18 @@
     .navi {
       display: none;
     }
+
+    .main-content {
+      display: block;
+    }
+
+    .main-group {
+      width: 100%;
+    }    
+
+    .button-center {
+      margin: 20px 0;
+    }
   
     .burgermenu {
       display: block;

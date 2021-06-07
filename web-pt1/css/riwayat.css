@@ -105,6 +105,11 @@ header {
   font-weight: bold;
 }
 
+.img-riwayatDonasi {
+  height: 25%;
+  width: 25%;
+}
+
 .grup {
     padding: 30px 0 15px 0;
     border-bottom: 2px solid #bbe1fa;

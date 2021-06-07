@@ -111,22 +111,28 @@
     <h1>Informasi Pengiriman</h1>
     <h5>No Donasi. <?php echo $result['id_detail']; ?></h5>
     <div class="main-content">
-      <p>Nama Perpustakaan</p>
-      <h5><?php echo $result['nama_perpustakaan']; ?></h5>
-      <p>Nama Penerima</p>
-      <h5><?php echo $result['nama_penerima']; ?></h5>
-      <p>No Telepon Penerima</p>
-      <h5><?php echo $result['noTelepon_penerima']; ?></h5>
-      <p>Alamat Penerima</p>
-      <h5><?php echo $result['alamat_penerima']; ?></h5>
-      <h5 class="mt-4">Detail Buku</h5>
-            <p>Jumlah Buku      : <?php echo $result['jumlah_buku']; ?></p>
-            <p>Judul Buku       : <?php echo $result['judul_buku']; ?></p>
-            <p>Kategori Buku    : <?php echo $result['kategori_buku']; ?></p>
-            <p>Nama Penulis     : <?php echo $result['nama_penulis']; ?></p>
-            <p>Nama Penerbit    : <?php echo $result['nama_penerbit']; ?></p>
-            <p>Tahun Terbit     : <?php echo $result['tahun_terbit']; ?></p>
-      <button class="btn btn-primary col-3" id="btnprint" onclick="print_page()">Print Alamat</button>
+      <div class="main-group">
+        <p>Nama Perpustakaan</p>
+        <h5><?php echo $result['nama_perpustakaan']; ?></h5>
+        <p>Nama Penerima</p>
+        <h5><?php echo $result['nama_penerima']; ?></h5>
+        <p>No Telepon Penerima</p>
+        <h5><?php echo $result['noTelepon_penerima']; ?></h5>
+        <p>Alamat Penerima</p>
+        <h5><?php echo $result['alamat_penerima']; ?></h5>
+        </div>
+      <div class="main-group">
+        <h5 class="detail-buku">Detail Buku</h5>
+        <p>Jumlah Buku      : <?php echo $result['jumlah_buku']; ?></p>
+        <p>Judul Buku       : <?php echo $result['judul_buku']; ?></p>
+        <p>Kategori Buku    : <?php echo $result['kategori_buku']; ?></p>
+        <p>Nama Penulis     : <?php echo $result['nama_penulis']; ?></p>
+        <p>Nama Penerbit    : <?php echo $result['nama_penerbit']; ?></p>
+        <p>Tahun Terbit     : <?php echo $result['tahun_terbit']; ?></p>
+      </div>
+    </div>
+    <div class="button-center">
+      <button class="btn btn-primary col-12" id="btnprint" onclick="print_page()">Print Alamat</button>
     </div>
     <div style="border-bottom: 1px solid #bbe1fa; padding-top: 20px"></div>
     <p style="padding-top: 20px; color: #dc3545">Print / catat informasi pengiriman di atas untuk di tempel pada paket pengiriman</p>

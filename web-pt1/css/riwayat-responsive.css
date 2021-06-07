@@ -53,6 +53,12 @@
     .navi {
       display: none;
     }
+
+    .img-riwayatDonasi {
+      height: 100%;
+      width: 100%;
+    }
+
     .riwayat-content{
         padding: 100px 40px;
 
@@ -175,4 +181,13 @@
       pointer-events: none;
     }
     
+  }
+
+  footer {
+    display: block;
+  }
+  footer p {
+    text-align: left;
+    width: 100%;
+    padding: 10px 0;
   }

@@ -109,7 +109,7 @@
             <p>Status : <?php echo $data['status_donasi']; ?></p>
             <?php if($data['bukti_donasi'] != 'Upload Bukti Donasi'): ?>
             <p><br/>Bukti Donasi : </p>
-            <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="../<?php echo $data['bukti_donasi']?>">
+            <img class="img-riwayatDonasi" src="../<?php echo $data['bukti_donasi']?>">
             <?php endif; ?>
             <p class="hover"><a href="infoPengiriman.php?id=<?php echo  $data['id_detail']; ?>">Detail Informasi Pengiriman</a></p>
         </div>
