@@ -26,8 +26,20 @@
   <?php include "../css/infoPengiriman-responsive.css" ?>
 
   @media print {
+    header {
+      display: none;
+    }
+    body {
+      margin: -160px 10px;
+    }
+    body .main-grup {
+      margin-top: 20px;
+    }
     footer {
       display: none;
+    }
+    @page {
+      size: A4;
     }
   }
 </style>
@@ -39,7 +51,7 @@
         alert('Silahkan ditempelkan pada paket anda, Terimakasih.. !');
         window.print();
     }
-  </script>
+</script>
 
 <body>
 <header>
