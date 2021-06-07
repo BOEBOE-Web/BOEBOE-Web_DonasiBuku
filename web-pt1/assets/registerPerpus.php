@@ -214,14 +214,16 @@
             </div>
             <div class="col-md-6">
                 <label for="form-kodepos" class="form-label">Kode Pos</label>
-                <input type="number" class="form-control" name="kodePos_perpus" id="form-kodepos" required>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5" 
+                class="form-control" name="kodePos_perpus" id="form-kodepos" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="number" class="form-control" name="noTelepon_perpus" id="formNomorTelepon" required>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15"
+                class="form-control" name="noTelepon_perpus" id="formNomorTelepon" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>

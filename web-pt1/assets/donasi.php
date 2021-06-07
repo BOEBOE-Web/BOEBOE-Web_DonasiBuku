@@ -177,7 +177,7 @@
                             <label>Jumlah Buku</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="jumlah_buku" placeholder="Masukkan Jumlah Buku"required>
+                            <input type="number" class="form-control" name="jumlah_buku" placeholder="Masukkan Jumlah Buku" required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
@@ -216,7 +216,8 @@
                             <label for="datepicker">Tahun Terbit</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" id="datepicker" required>
+                            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" 
+                            class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" id="datepicker" required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.

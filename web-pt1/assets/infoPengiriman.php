@@ -100,7 +100,10 @@
     </header>
     <?php
       $id = $_GET['id'];
-      $query = "SELECT * FROM `donasi_detail` WHERE `donasi_detail`.`id_detail` = '$id' ";
+      $query = "SELECT `donasi_detail`.`id_detail`, `donasi_detail`.`nama_penerima`, `donasi_detail`.`nama_perpustakaan`, `donasi_detail`.`noTelepon_penerima`, `donasi_detail`.`alamat_penerima`, `donasi_buku`.`id_loginDonatur`, `donasi_buku`.`jumlah_buku`, `donasi_buku`.`judul_buku`, `donasi_buku`.`nama_penulis`, `donasi_buku`.`nama_penerbit`, `donasi_buku`.`kategori_buku`, `donasi_buku`.`tahun_terbit`
+      FROM `donasi_detail`
+      JOIN `donasi_buku` ON `donasi_buku`.`id_loginDonatur` = `donasi_detail`.`id_loginDonatur`
+      WHERE `donasi_detail`.`id_detail` = '$id' ";
       $result = mysqli_query($conn, $query);
       $result = mysqli_fetch_assoc($result);
     ?>
@@ -116,6 +119,13 @@
       <h5><?php echo $result['noTelepon_penerima']; ?></h5>
       <p>Alamat Penerima</p>
       <h5><?php echo $result['alamat_penerima']; ?></h5>
+      <h5 class="mt-4">Detail Buku</h5>
+            <p>Jumlah Buku      : <?php echo $result['jumlah_buku']; ?></p>
+            <p>Judul Buku       : <?php echo $result['judul_buku']; ?></p>
+            <p>Kategori Buku    : <?php echo $result['kategori_buku']; ?></p>
+            <p>Nama Penulis     : <?php echo $result['nama_penulis']; ?></p>
+            <p>Nama Penerbit    : <?php echo $result['nama_penerbit']; ?></p>
+            <p>Tahun Terbit     : <?php echo $result['tahun_terbit']; ?></p>
       <button class="btn btn-primary col-3" id="btnprint" onclick="print_page()">Print Alamat</button>
     </div>
     <div style="border-bottom: 1px solid #bbe1fa; padding-top: 20px"></div>

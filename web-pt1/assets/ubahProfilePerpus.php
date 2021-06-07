@@ -132,11 +132,12 @@
             </div>
             <div class="col-md-6">
                 <label for="datepicker" class="form-label">Tahun Berdiri</label>
-                <input type="text" class="form-control" name="tahunBerdiri_perpus" id="datepicker" value="<?php echo $result['tahunBerdiri_perpus']; ?>"required>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4"
+                class="form-control" name="tahunBerdiri_perpus" id="datepicker" value="<?php echo $result['tahunBerdiri_perpus']; ?>"required>
             </div>
             <div class="col-md-6">
                 <label for="formNoIzin" class="form-label">No. Izin Operasional</label>
-                <input type="text" class="form-control" name="noIzin_perpus" id="formNoIzin" value="<?php echo $result['noIzin_perpus']; ?>"required>
+                <input type="number" class="form-control" name="noIzin_perpus" id="formNoIzin" value="<?php echo $result['noIzin_perpus']; ?>"required>
             </div>
             <div class="col-md-6">
                 <label for="provinsi" class="form-label">Provinsi</label>
@@ -156,11 +157,11 @@
             </div>
             <div class="col-md-2">
                 <label for="form-rt" class="form-label">RT</label>
-                <input type="text" class="form-control" name="rt" id="form-rt" value="<?php echo $result['rt']; ?>"required>
+                <input type="number" class="form-control" name="rt" id="form-rt" value="<?php echo $result['rt']; ?>"required>
             </div>
             <div class="col-md-2">
                 <label for="form-rw" class="form-label">RW</label>
-                <input type="text" class="form-control" name="rw" id="form-rw" value="<?php echo $result['rw']; ?>"required>
+                <input type="number" class="form-control" name="rw" id="form-rw" value="<?php echo $result['rw']; ?>"required>
             </div>
             <div class="mb-3" style="margin-bottom: 0px!important;">
                 <label for="form-jalan" class="form-label">Jalan</label>
@@ -168,11 +169,13 @@
             </div>
             <div class="col-md-6">
                 <label for="form-kodepos" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" name="kodePos" id="form-kodepos" value="<?php echo $result['kodePos']; ?>"required>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5"
+                class="form-control" name="kodePos" id="form-kodepos" value="<?php echo $result['kodePos']; ?>"required>
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" name="noTelepon_perpus" id="formNomorTelepon" value="<?php echo $result['noTelepon_perpus']; ?>"required>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15"
+                class="form-control" name="noTelepon_perpus" id="formNomorTelepon" value="<?php echo $result['noTelepon_perpus']; ?>"required>
             </div>
             <div class="col-md-6">
                 <a class="btn btn-secondary col-12" onclick="confirm('Ingin kembali tanpa perubahan ?')" href="dasborPerpus.php">Batal</a>
@@ -196,7 +199,7 @@
                 $tmpFile = $_FILES['gambar_perpus']['tmp_name'];
                 
                 if ($size == 0) {
-                    // Nothing
+                    // Do Nothing
                 } else {
                     // Jalankan Update
                     if(in_array($extensi, $cek_ekstensi) == true) {
@@ -214,8 +217,7 @@
                             echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
                         } 
                     }else {
-                            // echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'dasborPerpus.php';</script>";
-                            // echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
+                            echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
                     }
                 }
 

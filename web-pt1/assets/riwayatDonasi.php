@@ -1,17 +1,20 @@
 <?php
     session_start();
         if(!isset($_SESSION['id_loginDonatur'])) {
-      header("Location: ../index.php");
-      exit();
+        header("Location: ../index.php");
+        exit();
     }
     include "../action/config.php";
 
     $id = $_SESSION['id_loginDonatur'];
-    $query = "SELECT `donasi_detail`.`id_detail`, `donasi_konfirmasi`.`status_donasi`, `donasi_konfirmasi`.`bukti_donasi` FROM `donasi_detail` 
-    JOIN `donasi_konfirmasi` ON `donasi_konfirmasi`.`id_detail` = `donasi_detail`.`id_detail` WHERE `donasi_detail`.`id_loginDonatur` = '$id' ";
+    $query = "SELECT `donasi_detail`.`id_detail`, `donasi_konfirmasi`.`status_donasi`, `donasi_konfirmasi`.`bukti_donasi`
+    FROM `donasi_detail` 
+    JOIN `donasi_konfirmasi` ON `donasi_konfirmasi`.`id_detail` = `donasi_detail`.`id_detail`
+    JOIN `donasi_buku` ON `donasi_buku`.`id_loginDonatur` = `donasi_detail`.`id_loginDonatur`
+    WHERE `donasi_detail`.`id_loginDonatur` = '$id' ";
     $result = mysqli_query($conn, $query);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 

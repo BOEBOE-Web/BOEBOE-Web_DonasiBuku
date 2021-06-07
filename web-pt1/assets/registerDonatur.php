@@ -140,7 +140,8 @@
             </div>
             <div class="col-md-6">
                 <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-                <input type="number" class="form-control" id="formNomorTelepon" name="noTelepon_donatur" required>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15"
+                class="form-control" id="formNomorTelepon" name="noTelepon_donatur" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
@@ -161,8 +162,9 @@
             </div>
 
             <div class="col-md-6">
-                <label for="formNomorTelepon" class="form-label">Kode Pos</label>
-                <input type="text" class="form-control" id="formNomorTelepon" name="kodePos_donatur" required>
+                <label for="formKodePos" class="form-label">Kode Pos</label>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5" 
+                class="form-control" id="formKodePos" name="kodePos_donatur" required>
                 <div class="invalid-feedback">
                     Harus diisi.
                 </div>
