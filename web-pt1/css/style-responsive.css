@@ -197,8 +197,6 @@ a{
   pointer-events: none;
 }
 
-}
-
   footer {
     display: block;
   }
@@ -207,3 +205,4 @@ a{
     width: 100%;
     padding: 10px 0;
   }
+}

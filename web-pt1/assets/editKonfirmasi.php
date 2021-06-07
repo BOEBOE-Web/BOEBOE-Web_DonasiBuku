@@ -101,7 +101,7 @@
         <h1>Edit Status Donasi</h1>
         <h5 style="text-align: center;">No Donasi : <?php echo $hasil['id_detail'];?></h5>
         <h5 class="mt-4">Foto Buku</h5>
-        <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="http://<?= $_SERVER['SERVER_NAME'].'/BOEBOE-Web.github.io/web-pt1/'.$hasil['foto_buku']?>">
+        <img class="img-editKonfirmasi" src="http://<?= $_SERVER['SERVER_NAME'].'/BOEBOE-Web.github.io/web-pt1/'.$hasil['foto_buku']?>">
         <h5 class="mt-4">Detail Buku</h5>
         <p>Jumlah Buku      : <?php echo $hasil['jumlah_buku']; ?></p>
         <p>Judul Buku       : <?php echo $hasil['judul_buku']; ?></p>
