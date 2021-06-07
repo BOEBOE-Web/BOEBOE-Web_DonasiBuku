@@ -132,7 +132,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary col-12">Daftar</button>
+                <button type="submit" class="btn btn-primary col-12">Masuk</button>
             </div>
         </form>
         <!-- END FORM -->
