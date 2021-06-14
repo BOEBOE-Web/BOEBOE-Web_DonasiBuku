@@ -7,11 +7,12 @@
     include "../action/config.php";
 
     $id = $_SESSION['id_loginDonatur'];
-    $query = "SELECT `donasi_detail`.`id_detail`, `donasi_konfirmasi`.`status_donasi`, `donasi_konfirmasi`.`bukti_donasi`
-    FROM `donasi_detail` 
-    JOIN `donasi_konfirmasi` ON `donasi_konfirmasi`.`id_detail` = `donasi_detail`.`id_detail`
-    JOIN `donasi_buku` ON `donasi_buku`.`id_loginDonatur` = `donasi_detail`.`id_loginDonatur`
-    WHERE `donasi_detail`.`id_loginDonatur` = '$id' ";
+    $query = "SELECT `donasi_konfirmasi`.`id_detail`, `donasi_konfirmasi`.`id_konfirmasi`,  `donasi_konfirmasi`.`bukti_donasi`, `donasi_konfirmasi`.`status_donasi`, `donasi_detail`.`id_detail`, `donasi_detail`.`id_donasiBuku`, `donatur_daftar`.`id_loginDonatur`
+    FROM `donasi_konfirmasi`
+    JOIN `donasi_detail` ON `donasi_detail`.`id_detail` = `donasi_konfirmasi`.`id_detail`
+    JOIN `donasi_buku` ON `donasi_buku`.`id_donasiBuku` = `donasi_detail`.`id_donasiBuku`
+    JOIN `donatur_daftar` ON `donatur_daftar`.`id_loginDonatur` = `donasi_buku`.`id_loginDonatur`
+    WHERE `donatur_daftar`.`id_loginDonatur` = '$id'";
     $result = mysqli_query($conn, $query);
 ?>
 
@@ -77,8 +78,8 @@
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="../index.php">Beranda</a></li>
-                <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="berandaDonatur.php">Beranda</a></li>
+                <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                 <li><a href="donasi.php">Donasi</a></li>
                 <li><a href="perpustakaan.php">Perpustakaan</a></li>
                 <li>

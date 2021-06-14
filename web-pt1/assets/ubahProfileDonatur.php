@@ -7,7 +7,8 @@
   require "../action/config.php";
 
   $id = $_GET['id'];
-  $query = "SELECT * FROM `donatur_daftar` JOIN `donatur_alamat` ON id_donatur = '$id' ";
+  $query = "SELECT `donatur_daftar`.`id_donatur`, `donatur_daftar`.`nama_donatur`, `donatur_daftar`.`noTelepon_donatur`, `donatur_daftar`.`tglLahir_donatur`, `donatur_daftar`.`instansi_donatur`, `donatur_alamat`.`id_alamatDonaturAktif`, `donatur_alamat`.`alamat`, `donatur_alamat`.`kodePos`
+FROM `donatur_daftar` JOIN `donatur_alamat` ON `donatur_alamat`.`id_alamatDonaturAktif` = `donatur_daftar`.`id_alamatDonatur` WHERE id_donatur = '$id' ";
   $result = mysqli_query($conn, $query);
   $result = mysqli_fetch_assoc($result);
 ?>

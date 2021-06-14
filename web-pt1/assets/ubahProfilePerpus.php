@@ -8,8 +8,10 @@
 
     $id = $_GET['id'];
     $id_login = $_SESSION['id_akunPerpus'];
-    $querySelect = "SELECT * FROM `perpus_daftar` JOIN `perpus_alamat` ON `perpus_daftar`.id_alamatPerpus= `perpus_alamat`.`id_alamatPerpusAktif` 
-    JOIN `kategori_kebutuhan` ON `perpus_daftar`.`id_kategoriPerpus` = `kategori_kebutuhan`.id_kategori WHERE id_loginPerpus = '$id_login' ";
+    $querySelect = "SELECT `perpus_daftar`.`gambar_perpus`, `perpus_daftar`.`tentang_perpus`, `perpus_daftar`.`noTelepon_perpus`, `perpus_daftar`.`id_kategoriPerpus`, `perpus_daftar`.`id_alamatPerpus`, `perpus_daftar`.`noIzin_perpus`, `perpus_daftar`.`tahunBerdiri_perpus`, `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`namaPengelola_perpus`, `perpus_daftar`.`id_loginPerpus`, `perpus_alamat`.`kodePos`, `perpus_alamat`.`jalan`, `perpus_alamat`.`rw`, `perpus_alamat`.`rt`, `perpus_alamat`.`desa_kelurahan`, `perpus_alamat`.`kecamatan`, `perpus_alamat`.`kabupaten_kota`, `perpus_alamat`.`provinsi`, `perpus_alamat`.`id_alamatPerpusAktif`, `kategori_kebutuhan`.`jenis_kategori`, `kategori_kebutuhan`.`id_kategori` FROM `perpus_daftar` 
+    JOIN `perpus_alamat` ON `perpus_daftar`.id_alamatPerpus= `perpus_alamat`.`id_alamatPerpusAktif` 
+    JOIN `kategori_kebutuhan` ON `perpus_daftar`.`id_kategoriPerpus` = `kategori_kebutuhan`.id_kategori 
+    WHERE `perpus_daftar`.`id_loginPerpus` = '$id_login' ";
     
     $result = mysqli_query($conn, $querySelect);
     $result = mysqli_fetch_assoc($result);
@@ -248,13 +250,20 @@
                 $kodePos = $_POST['kodePos'];
                 $noTelepon = $_POST['noTelepon_perpus'];
 
-                $queryUpdate = "UPDATE `perpus_daftar`, `perpus_alamat`
-                SET `nama_perpus` = '$nama_perpus', `tentang_perpus` = '$tentang_perpus', `namaPengelola_perpus` = '$namaPengelola_perpus', `noTelepon_perpus` = '$noTelepon',  `tahunBerdiri_perpus` = '$tahunBerdiri_perpus', `noIzin_perpus` = '$noIzin_perpus',
-                `provinsi` = '$provinsi', `kabupaten_kota` = '$kabupaten_kota', `kecamatan` = '$kecamatan', `desa_kelurahan` = '$desa_kelurahan', rt = '$rt', `rw` ='$rw', `jalan` = '$jalan', `kodePos` = '$kodePos'  
-                WHERE `id_perpus` = '$id_perpus' AND `id_alamatPerpus` = '$id_alamatPerpus' ";
-                mysqli_query($conn, $queryUpdate);
+                $queryUpdatePerpusDaftar = "UPDATE `perpus_daftar`
+                SET `nama_perpus` = '$nama_perpus', `tentang_perpus` = '$tentang_perpus', `namaPengelola_perpus` = '$namaPengelola_perpus', `noTelepon_perpus` = '$noTelepon',  `tahunBerdiri_perpus` = '$tahunBerdiri_perpus', `noIzin_perpus` = '$noIzin_perpus'
+                WHERE `id_perpus` = '$id_perpus' ";
+                mysqli_query($conn, $queryUpdatePerpusDaftar);
+                
+                $queryUpdatePerpusAlamat = "UPDATE `perpus_alamat`
+                SET `provinsi` = '$provinsi', `kabupaten_kota` = '$kabupaten_kota', `kecamatan` = '$kecamatan', `desa_kelurahan` = '$desa_kelurahan', rt = '$rt', `rw` ='$rw', `jalan` = '$jalan', `kodePos` = '$kodePos'  
+                WHERE `id_alamatPerpusAktif` = '$id_alamatPerpus' ";
+                // var_dump($queryUpdatePerpusAlamat);
+                // die;
+                if (mysqli_query($conn, $queryUpdatePerpusAlamat)) {
+                    echo "<script>alert('Data Berhasil Diubah'); window.location.href = 'dasborPerpus.php';</script>";
+                }
 
-                echo "<script>alert('Data Berhasil Diubah'); window.location.href = 'dasborPerpus.php';</script>";
             }
         ?>
     </div>

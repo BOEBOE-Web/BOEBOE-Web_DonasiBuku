@@ -8,10 +8,9 @@
 
     $id = $_GET['id'];
     $id_login = $_SESSION['id_akunPerpus'];
-    $query = "SELECT `donasi_konfirmasi`.`id_detail`, `donasi_konfirmasi`.`id_konfirmasi`, `donasi_konfirmasi`.`bukti_donasi`, `donasi_konfirmasi`.`status_donasi`, `donasi_detail`.`id_detail`, `donasi_detail`.`id_loginDonatur`, `donasi_buku`.`id_loginDonatur`, `donasi_buku`.`jumlah_buku`, `donasi_buku`.`judul_buku`, `donasi_buku`.`nama_penulis`, `donasi_buku`.`nama_penerbit`, `donasi_buku`.`kategori_buku`, `donasi_buku`.`tahun_terbit`, `donasi_buku`.`foto_buku` 
-    FROM `donasi_konfirmasi` 
+    $query = "SELECT `donasi_konfirmasi`.`id_detail`, `donasi_konfirmasi`.`id_konfirmasi`, `donasi_konfirmasi`.`bukti_donasi`, `donasi_konfirmasi`.`status_donasi`, `donasi_detail`.`id_detail`, `donasi_detail`.`id_donasiBuku`, `donasi_buku`.`id_donasiBuku`, `donasi_buku`.`jumlah_buku`, `donasi_buku`.`judul_buku`, `donasi_buku`.`nama_penulis`, `donasi_buku`.`nama_penerbit`, `donasi_buku`.`kategori_buku`, `donasi_buku`.`tahun_terbit`, `donasi_buku`.`foto_buku` FROM `donasi_konfirmasi` 
     JOIN `donasi_detail` ON `donasi_detail`.`id_detail` = `donasi_konfirmasi`.`id_detail` 
-    JOIN `donasi_buku` ON `donasi_buku`.`id_loginDonatur` = `donasi_detail`.`id_loginDonatur` 
+    JOIN `donasi_buku` ON `donasi_buku`.`id_donasiBuku` = `donasi_detail`.`id_donasiBuku` 
     WHERE `donasi_konfirmasi`.`id_detail` = '$id' ";
     $result = mysqli_query($conn, $query);
     $hasil = mysqli_fetch_assoc($result)
@@ -101,7 +100,7 @@
         <h1>Edit Status Donasi</h1>
         <h5 style="text-align: center;">No Donasi : <?php echo $hasil['id_detail'];?></h5>
         <h5 class="mt-4">Foto Buku</h5>
-        <img class="img-editKonfirmasi" src="http://<?= $_SERVER['SERVER_NAME'].'/BOEBOE-Web.github.io/web-pt1/'.$hasil['foto_buku']?>">
+        <img class="img-editKonfirmasi" src="../<?php echo $hasil['foto_buku'];?>">
         <h5 class="mt-4">Detail Buku</h5>
         <p>Jumlah Buku      : <?php echo $hasil['jumlah_buku']; ?></p>
         <p>Judul Buku       : <?php echo $hasil['judul_buku']; ?></p>

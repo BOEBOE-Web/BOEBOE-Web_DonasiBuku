@@ -177,7 +177,7 @@
                             <label>Jumlah Buku</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="number" class="form-control" name="jumlah_buku" placeholder="Masukkan Jumlah Buku" required>
+                            <input type="text" class="form-control" name="jumlah_buku" placeholder="Masukkan Jumlah Buku"required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
@@ -216,8 +216,7 @@
                             <label for="datepicker">Tahun Terbit</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" 
-                            class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" id="datepicker" required>
+                            <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" id="datepicker" required>
                         </div>
                         <div class="invalid-feedback">
                             Harus diisi.
@@ -263,7 +262,7 @@
                     $tmpCek = explode('.', $name);
                     $extensi = strtolower(end($tmpCek));
                     $tmpFile = $_FILES['foto_buku']['tmp_name'];
-
+                    $id_donasiBuku = '';
                     if ($size > 1000000) {
                         // Tidak lakukan apapun
                     } else {
@@ -278,6 +277,7 @@
                                 mysqli_query($conn, $queryInsertDonasi);
 
                                 $id_donasi = mysqli_insert_id($conn);
+                                $id_donasiBuku = $id_donasi;
                                 $query = "UPDATE `donasi_buku` SET `foto_buku` = '$moveFile' WHERE id_donasiBuku = $id_donasi ";
                                 if(mysqli_query($conn, $query)) {
                                     // Tidak lakukan apapun
@@ -302,6 +302,7 @@
                                     WHERE id_perpus = $id_perpus ";
                     $resultQuery_perpus = mysqli_query($conn, $queryPerpus);
                     $resultQuery_perpus = mysqli_fetch_assoc($resultQuery_perpus);
+                    
 
                     $id_alamatPerpus = $resultQuery_perpus['id_alamatPerpus'];
                     $namaPenerima = $resultQuery_perpus['namaPengelola_perpus'];
@@ -321,9 +322,11 @@
                     $hasilSelect = mysqli_query($conn, $querySelectKonfirm);
 
                     $index;
-                    if (mysqli_num_rows($hasilSelect) == NULL) {
+                    if (mysqli_fetch_lengths($hasilSelect) == NULL) {
+                        echo "kosong";
                         $index = 1;
                     } else {
+                        echo "ada";
                         $hasilSelect = mysqli_fetch_assoc($hasilSelect);
                         $kodeSelect = $hasilSelect['index'];
                         $index = (int) substr($kodeSelect, 14, 4);
@@ -333,9 +336,13 @@
                     $index = $resultNumber;
                     
                     // Query Insert Detail
-                    $queryDetail = "INSERT INTO `donasi_detail`(`id_detail`, `id_alamatPerpus`, `id_loginDonatur`, `nama_penerima`, `nama_pengirim`, `nama_perpustakaan`, `alamat_penerima`, `noTelepon_penerima`) VALUES ('$index','$id_alamatPerpus','$id_loginDonatur','$namaPenerima','$namaPengirim','$nama_perpus','$alamat','$noTelepon_perpus')";
+                    $queryDetail = "INSERT INTO `donasi_detail`(`id_detail`, `id_alamatPerpus`, `id_donasiBuku`, `nama_penerima`, `nama_pengirim`, `nama_perpustakaan`, `alamat_penerima`, `noTelepon_penerima`) VALUES ('$index','$id_alamatPerpus','$id_donasiBuku','$namaPenerima','$namaPengirim','$nama_perpus','$alamat','$noTelepon_perpus')";
+                    // var_dump($queryDetail);
+                    // var_dump(mysqli_query($conn, $queryDetail));
+                    // var_dump($id_donasiBuku);
+                    // die;
                     mysqli_query($conn, $queryDetail);
-                        
+                    
                     // Query Insert Konfirm
                     $queryKonfirm = "INSERT INTO `donasi_konfirmasi`(`id_detail`, `id_konfirmasi`, `id_konfirmasiPerpus`, `bukti_donasi`, `status_donasi`) VALUES ('$index',NULL,'$id_akunPerpus','Upload Bukti Donasi','Donasi Sedang Dikirim')";
                     
@@ -350,8 +357,8 @@
         ?>
     </div>
     <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pecinTA buKU)</p>
+        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
+        <p>Made by OTAKU</p>
     </footer>
     <script src="../js/script.js"></script>
 </body>

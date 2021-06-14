@@ -1,0 +1,140 @@
+/** riwayat donasi css **/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+html, body, ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+p, a, button, label, button, input,
+optgroup, select, textarea, div {
+  font-family: "Poppins", sans-serif !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.navi ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  height: 4rem;
+  width: 100%;
+  background-color: #bbe1fa;
+  color: #0f4c75;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  border-radius: 0 0 16px 16px;
+}
+
+.header img {
+  margin: 10px 0 10px 25px;
+  padding: 0 25px;
+  display: block;
+  float: left;
+  height: 2.5rem;
+}
+
+.navi {
+  float: right;
+}
+
+.navi a {
+  padding: 0 15px !important;
+  line-height: 4rem;
+  display: block;
+  float: left;
+  color: #0f4c75;
+  transition: all 0.5s;
+}
+
+.navi a:hover {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+}
+
+.masuk {
+  margin-right: 35px;
+}
+
+.burgermenu {
+  display: none;
+}
+
+.riwayat-content {
+  padding: 100px 200px;
+  margin-top: 3rem;
+  margin-bottom: 300px;
+  background-color: #f3f3f3;
+  color: #0f4c75;
+  height: 100%;
+}
+
+.riwayat-content h1 {
+  font-family: "Pacifico", cursive;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.riwayat-content h5 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.img-riwayatDonasi {
+  height: 25%;
+  width: 25%;
+}
+
+.grup {
+    padding: 30px 0 15px 0;
+    border-bottom: 2px solid #bbe1fa;
+}
+
+.hover:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-primary {
+  color: #bbe1fa !important;
+  background-color: #0f4c75 !important;
+  border-color: #0f4c75 !important;
+}
+  
+footer {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+  padding: 25px;
+  display: flex;
+}
+footer p {
+  text-align: center;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}

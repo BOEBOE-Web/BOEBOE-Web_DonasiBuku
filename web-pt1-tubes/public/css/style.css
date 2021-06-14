@@ -1,0 +1,236 @@
+/** main index css **/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+p, a, button, label, button, input, optgroup, select, textarea, div {
+  font-family: "Poppins", sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Pacifico", cursive;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.navi ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mobs {
+  display: none;
+}
+
+.burgermenu {
+  display: none;
+}
+
+header {
+  height: 4rem;
+  width: 100%;
+  background-color: #bbe1fa;
+  color: #0f4c75;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  border-radius: 0 0 16px 16px;
+}
+
+.header img {
+  margin: 10px 0 10px 25px;
+  padding: 0 25px;
+  display: block;
+  float: left;
+  height: 2.5rem;
+}
+
+.navi {
+  float: right;
+}
+
+.navi a {
+  padding: 0 15px !important;
+  line-height: 4rem;
+  display: block;
+  float: left;
+  color: #0f4c75;
+  transition: all 0.5s;
+}
+
+.navi a:hover {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+}
+
+.masuk {
+  margin-right: 35px;
+}
+
+.modal-open, .show {
+  padding-right: 0px !important;
+}
+
+.modal, .modal-footer a, .modal-body a {
+  color: #0f4c75 !important;
+}
+
+.modal-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: bold !important;
+}
+
+.modal-footer{
+  justify-content: flex-start !important;
+}
+
+.btn-primary {
+  color: #bbe1fa !important;
+  background-color: #0f4c75 !important;
+  border-color: #0f4c75 !important;
+}
+
+.btn-secondary {
+  color: #bbe1fa !important;
+}
+
+.klik {
+  text-decoration: underline;
+}
+
+.form-check-input:checked {
+  background-color: #0f4c75 !important;
+  border-color: #0f4c75 !important;
+}
+
+#home {
+  margin-top: 3rem;
+  padding: 200px 0;
+  width: 100%;
+  height: 620px;
+  background-image: url(../image/image-background.jpg);
+  background-size: cover;
+  color: #f3f3f3;
+  text-align: center;
+}
+
+#home img {
+  opacity: 0.8;
+  width: 273px;
+  padding-bottom: 30px;
+}
+
+#home p {
+  opacity: 0.8;
+  padding-bottom: 30px;
+}
+
+#home a {
+  opacity: 0.8;
+  background-color: #bbe1fa;
+  padding: 12px 24px;
+  color: #3282b8;
+  font-weight: bolder;
+  display: inline-block;
+  border-radius: 24px;
+  text-align: center;
+  letter-spacing: 2.5px;
+}
+
+#home a:hover {
+  opacity: 1;
+}
+
+#main-container {
+  width: 100%;
+  height: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f3f3f3;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #bbe1fa;
+}
+
+#main-container h1 {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.main-flex {
+  height: 350px;
+  width: 480px;
+  margin: 0 50px;
+  border-radius: 12px;
+  box-shadow: 15px 15px #3282b8;
+}
+
+.display1 {
+  background-image: url(../image/book1.jpg);
+  background-size: cover;
+}
+
+.display2 {
+  background-image: url(../image/book2.jpg);
+  background-size: cover;
+}
+
+.main-flex ul {
+  padding: 50px 50px 0 50px;
+  font-size: 20px;
+}
+
+#tentang-kami {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 620px;
+  width: 100%;
+  color: #0f4c75;
+  background-color: #f3f3f3;
+}
+
+.teks-tentang {
+  width: 50%;
+  margin-right: 100px;
+}
+
+#tentang-kami p {
+  padding-top: 25px;
+  text-align: justify;
+}
+  
+footer {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+  padding: 25px;
+  display: flex;
+}
+footer p {
+  text-align: center;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}

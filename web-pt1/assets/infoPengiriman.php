@@ -114,7 +114,7 @@
       $id = $_GET['id'];
       $query = "SELECT `donasi_detail`.`id_detail`, `donasi_detail`.`nama_penerima`, `donasi_detail`.`nama_perpustakaan`, `donasi_detail`.`noTelepon_penerima`, `donasi_detail`.`alamat_penerima`, `donasi_buku`.`id_loginDonatur`, `donasi_buku`.`jumlah_buku`, `donasi_buku`.`judul_buku`, `donasi_buku`.`nama_penulis`, `donasi_buku`.`nama_penerbit`, `donasi_buku`.`kategori_buku`, `donasi_buku`.`tahun_terbit`
       FROM `donasi_detail`
-      JOIN `donasi_buku` ON `donasi_buku`.`id_loginDonatur` = `donasi_detail`.`id_loginDonatur`
+      JOIN `donasi_buku` ON `donasi_buku`.`id_donasiBuku` = `donasi_detail`.`id_donasiBuku`
       WHERE `donasi_detail`.`id_detail` = '$id' ";
       $result = mysqli_query($conn, $query);
       $result = mysqli_fetch_assoc($result);
