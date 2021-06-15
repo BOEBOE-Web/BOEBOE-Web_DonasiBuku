@@ -1,11 +1,10 @@
 <?php
       session_start();
 
-      require "config.php";
+      require "../config.php";
 
 	$email_donatur = $_POST["email_donatur"];
 	$password_donatur = $_POST["password_donatur"];
-
 	$cekuser = mysqli_query($conn, "SELECT * FROM donatur_aktif WHERE email_donatur = '$email_donatur' ");
 	
 	if (mysqli_num_rows($cekuser) === 1) {
@@ -23,11 +22,11 @@
 				// echo "Cookie belum ada";
 			}
 				
-			echo "<script>alert('Anda Berhasil Login!'); window.location.href='../assets/dasborDonatur.php';</script>";
+			echo "<script>alert('Anda Berhasil Login!'); window.location.href='../../view/donatur-app/dasborDonatur.php';</script>";
 			} else {
-				echo "<script>alert('Anda Gagal Login!'); document.location=('../index.php')</script>";
+				echo "<script>alert('Anda Gagal Login!'); document.location=('../../index.php')</script>";
 			}
 		} else {
-			echo "<script>alert('Email atau Password Anda Salah!'); document.location=('../index.php')</script>";
+			echo "<script>alert('Email atau Password Anda Salah!'); document.location=('../../index.php')</script>";
 		}
 ?>

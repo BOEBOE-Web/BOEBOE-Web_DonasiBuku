@@ -1,6 +1,6 @@
 <?php 
       session_start();
-      require "config.php";
+      require "../config.php";
       
       //Cek data perpus
       $email_perpus = htmlspecialchars($_POST['email_perpus']);
@@ -59,12 +59,12 @@
 
             $queryPerpus = 
             "INSERT INTO `perpus_daftar`(`id_perpus`, `id_loginPerpus`, `namaPengelola_perpus`, `nama_perpus`, `tahunBerdiri_perpus`, `noIzin_perpus`, `id_alamatPerpus`, `id_kategoriPerpus`, `noTelepon_perpus`, `tentang_perpus`, `gambar_perpus`)
-            VALUES (NULL, '$id_akunPerpus', '$namaPengelola_perpus', '$namaPerpus', '$tahunBerdiri_perpus', '$noIzin_perpus', '$id_alamatPerpus', '$id_kategori','$noTelepon_perpus', 'Silahkan Update', 'image/profile-perpus/gambar.png')";
+            VALUES (NULL, '$id_akunPerpus', '$namaPengelola_perpus', '$namaPerpus', '$tahunBerdiri_perpus', '$noIzin_perpus', '$id_alamatPerpus', '$id_kategori','$noTelepon_perpus', 'Silahkan Update', 'public/image/profile-perpus/gambar.png')";
             
             if (mysqli_query($conn, $queryPerpus)) {
-                  echo "<script>document.location.href='../index.php';alert('Silahkan Masuk 😊');</script>";
+                  echo "<script>document.location.href='../../index.php';alert('Silahkan Masuk 😊');</script>";
             } else {
-                  echo "<script>alert('Data Gagal Ditambahkan');document.location.href='../index.php';</script>";
+                  echo "<script>alert('Data Gagal Ditambahkan');document.location.href='../../index.php';</script>";
             }
       }
 ?>

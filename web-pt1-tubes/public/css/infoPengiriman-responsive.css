@@ -22,7 +22,7 @@
       padding-bottom: 40px;
     }
   }
-  
+
   @media all and (max-width: 670px) {
     .header img {
       margin: 15px 0;
@@ -172,4 +172,4 @@
     width: 100%;
     padding: 10px 0;
   }
-  }
+}

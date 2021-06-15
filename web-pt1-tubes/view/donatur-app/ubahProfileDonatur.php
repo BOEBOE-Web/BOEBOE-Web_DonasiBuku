@@ -1,49 +1,21 @@
 <?php
-//   session_start();
-//   if(!isset($_SESSION['id_loginDonatur'])) {
-//     header("Location: ../index.php");
-//     exit();
-//   }
-//   require "../action/config.php";
+  session_start();
+  require '../../action/config.php';
+  include '../../helper/function.php';
+  $id = $_SESSION['id_loginDonatur'];
+  
+  //Seleksi Data Yang Dibutuhkan
+  $id = $_GET['id'];
+  $result = ubahProfileDonatur($conn, $id);
 
-//   $id = $_GET['id'];
-//   $query = "SELECT `donatur_daftar`.`id_donatur`, `donatur_daftar`.`nama_donatur`, `donatur_daftar`.`noTelepon_donatur`, `donatur_daftar`.`tglLahir_donatur`, `donatur_daftar`.`instansi_donatur`, `donatur_alamat`.`id_alamatDonaturAktif`, `donatur_alamat`.`alamat`, `donatur_alamat`.`kodePos`
-// FROM `donatur_daftar` JOIN `donatur_alamat` ON `donatur_alamat`.`id_alamatDonaturAktif` = `donatur_daftar`.`id_alamatDonatur` WHERE id_donatur = '$id' ";
-//   $result = mysqli_query($conn, $query);
-//   $result = mysqli_fetch_assoc($result);
+  //Menaggil Header
+  $style = array("../../public/css/ubahProfile.css", "../../public/css/ubahProfile-responsive.css");
+  headerHTML($style); 
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BoeBoe - Web Donasi Buku Bekas</title>
-  <link rel="icon" href="../image/icon-b.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"
-    rel="stylesheet" />
-</head>
-
-<style>
-  <?php include "../css/ubahProfile.css"?>
-  <?php include "../css/ubahProfile-responsive.css"?>
-</style>
-
 <body>
   <header>
     <div class="header">
-      <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+      <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
     </div>
     <nav class="burgermenu">
       <input id="burger" type="checkbox" />
@@ -54,7 +26,7 @@
       </label>
       <nav>
         <div class="header">
-          <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+          <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <ul style="padding: 0px !important;">
           <li><a href="berandaDonatur.php">Beranda</a></li>
@@ -109,7 +81,7 @@
       </div>
       <div class="col-md-6">
         <label for="formNomorTelepon" class="form-label">Nomor Telepon</label>
-        <input type="number" class="form-control" name="noTelepon_donatur" id="formNomorTelepon"  value="<?php echo $result['noTelepon_donatur']; ?>"required>
+        <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" class="form-control" name="noTelepon_donatur" id="formNomorTelepon"  value="<?php echo $result['noTelepon_donatur']; ?>"required>
       </div>
       <div class="col-md-6">
         <label for="formDate" class="form-label">Tanggal Lahir</label>
@@ -131,7 +103,7 @@
       </div>
       <div class="col-md-6">
         <label for="formKodePos" class="form-label">Kode Pos</label>
-        <input type="number" class="form-control" name="kodePos" id="formKodePos" value="<?php echo $result['kodePos']; ?>"required>
+        <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5" class="form-control" name="kodePos" id="formKodePos" value="<?php echo $result['kodePos']; ?>"required>
       </div>
       <div class="col-md-6">
         <a class="btn btn-secondary col-12" href="dasborDonatur.php">Batal</a>
@@ -141,10 +113,10 @@
       </div>
     </form>
     <!-- END FORM -->
-    
     <?php
           if(isset($_POST['simpan'])) {
 
+            //Mengambil input data dari form
             $id_donatur = $id;
             $id_alamatDonatur = $result['id_alamatDonatur'];
             $nama_donatur = $_POST['nama_donatur'];
@@ -158,16 +130,16 @@
             SET nama_donatur = '$nama_donatur', noTelepon_donatur = '$nomorTelepon',  tglLahir_donatur = '$tglLahir', alamat = '$alamat', instansi_donatur = '$instansi', kodePos = '$kodePos' 
             WHERE id_donatur = '$id_donatur' AND id_alamatDonatur = '$id_alamatDonatur' ";
 
-            mysqli_query($conn, $queryUpdate);
-
-            echo "<script>alert('Data Berhasil Diubah'); window.location.href = 'dasborDonatur.php';	</script>";
+            if (mysqli_query($conn, $queryUpdate)){
+              echo "<script>alert('Data Berhasil Diubah'); 
+                    window.location.href = 'dasborDonatur.php';	
+                    </script>";
+            }
           }
       ?>
-
   </div>
-
-  <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pecinTA buKU)</p>
-  </footer>
-  <script src=" ../js/script.js"> </script> </body> </html>
+  <?php 
+        //Memanggil Footer
+        $script = '<script src="../../js/script.js"></script>';
+        footerHTML($script); 
+  ?>

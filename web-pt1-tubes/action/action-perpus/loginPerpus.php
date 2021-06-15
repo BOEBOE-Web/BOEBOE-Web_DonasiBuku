@@ -1,7 +1,7 @@
 <?php
       session_start();
 
-      require "config.php";    
+      require "../config.php";    
 
       $email_perpus = $_POST["email_perpus"];
       $password_perpus = $_POST["password_perpus"];
@@ -21,12 +21,12 @@
                   } else {
                         // echo "Cookie belum ada";
                   }
-                  echo "<script>alert('Anda Berhasil Login!'); window.location.href = '../assets/dasborPerpus.php';</script>";
+                        echo "<script>alert('Anda Berhasil Login!'); window.location.href = '../../view/perpus-app/dasborPerpus.php';</script>";
 			} else {
-				echo "<script>alert('Anda Gagal Login!'); document.location=('../index.php')</script>";
+				echo "<script>alert('Anda Gagal Login!'); document.location=('../../index.php')</script>";
 			}
             } else {
-                  echo "<script>alert('Email atau Password Anda Salah!'); document.location=('../index.php')</script>";
+                  echo "<script>alert('Email atau Password Anda Salah!'); document.location=('../../index.php')</script>";
             }
 
 ?>

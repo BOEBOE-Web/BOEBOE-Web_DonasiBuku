@@ -1,9 +1,12 @@
 <?php
+      //000Webhost
       //$DB_HOST = "localhost";
       //$DB_USER = "id16953195_admin";
       //$DB_PASS = "pi+~M6vAMaK-FRU$";
       //$DB_Otaku = "id16953195_otakuboeboe";
       //$DB_PORT = "3306";
+
+      //localhost
       $DB_HOST = "localhost";
       $DB_USER = "root";
       $DB_PASS = "";

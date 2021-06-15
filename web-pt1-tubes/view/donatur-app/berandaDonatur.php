@@ -1,19 +1,21 @@
 <?php  
-    // session_start();
-    // require "../action/config.php";
-
-    // $query = "SELECT * FROM otakuboeboe";
-    // $result = mysqli_query($conn, $query);
+    session_start();
+    
+    // Cek Sesi Login
+    // if(!isset($_SESSION['id_loginDonatur'])) {
+    //   header("Location: ../../index.php");
+    //   exit();
+    // }
 
     //Memanggil Header
-    include '../helper/function.php';
-    $style = array("../public/css/beranda.css", "../public/css/style-responsive.css");
+    include '../../helper/function.php';
+    $style = array("../../public/css/beranda.css", "../../public/css/style-responsive.css");
     headerHTML($style); 
 ?>
-
+<body>
     <header>
         <div class="header">
-            <img src="../public/image/logo-boeboe.png" alt="logo-boeboe">
+            <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -24,7 +26,7 @@
             </label>
             <nav>
                 <div class="header">
-                    <img src="../public/image/logo-boeboe.png" alt="logo-boeboe">
+                    <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
                     <li><a href="#home">Beranda</a></li>
@@ -40,7 +42,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
                                 <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-                                <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                                <li><a class="dropdown-item" href="../../action/logout.php">Log Out</a></li>
                             </ul>
                         </div>
                     </li>
@@ -63,7 +65,7 @@
                             aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
                             <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-                            <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                            <li><a class="dropdown-item" href="../../action/logout.php">Log Out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -71,7 +73,7 @@
         </div>
     </header>
     <div id="home">
-        <img src="../public/image/boeboe.png" alt="boeboe">
+        <img src="../../public/image/boeboe.png" alt="boeboe">
         <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
         <a href="donasi.php">DONASI BUKU</a>
     </div>
@@ -106,7 +108,7 @@
         <div class="teks-tentang">
             <h1 data-aos="fade-right" data-aos-delay="200">Tentang Kami</h1>
             <div>
-                <img class="mobs" src="../public/image/Web-development-_Two-Color.png" alt="Web development">
+                <img class="mobs" src="../../public/image/Web-development-_Two-Color.png" alt="Web development">
             </div>
             <p>BoeBoe adalah sebuah web yang berperan penting sebagai sarana untuk mendonasikan berbagai macam buku yang
                 sudah tidak terpakai untuk dialokasikan kepada perpustakaan yang lebih membutuhkan.</p>
@@ -116,7 +118,7 @@
                 dengan BoeBoe.</p>
         </div>
         <div>
-            <img class="deskipad" src="../public/image/Web-development-_Two-Color.png" alt="Web development">
+            <img class="deskipad" src="../../public/image/Web-development-_Two-Color.png" alt="Web development">
         </div>
     </div>
     <?php 

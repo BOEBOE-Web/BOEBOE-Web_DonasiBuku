@@ -1,41 +1,26 @@
 <?php 
-    // session_start();
+    session_start();
+    require '../../action/config.php';
+    include '../../helper/function.php';
+
+    //Cek sesi login
     // if(!isset($_SESSION['id_akunPerpus'])) {
-    //     header("Location: ../index.php");
+    //     header("Location: ../../index.php");
     //     exit();
     // }
+    
+    //Seleksi data
+    $id = $_SESSION['id_akunPerpus'];
+    $result = profilePerpustakaan($conn, $id);
 
-    // require "../action/config.php";
-    // $id = $_SESSION['id_akunPerpus'];
+    //Memanggil Header
+    $style = array("../../public/css/dasborPerpus.css", "../../public/css/dasborPerpus-responsive.css");
+    headerHTML($style); 
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dasbor Perpustakaan</title>
-    <link rel="icon" href="../image/icon-b.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-    </script>
-</head>
-
-<style>
-    <?php include "../css/dasborPerpus.css"?>
-    <?php include "../css/dasborPerpus-responsive.css"?>
-</style>
-
 <body>
     <header>
         <div class="header">
-            <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+            <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -46,7 +31,7 @@
             </label>
             <nav>
                 <div class="header">
-                    <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+                    <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
                     <li><a href="berandaPerpus.php#">Beranda</a></li>
@@ -62,7 +47,7 @@
                                 aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
                                 <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
-                                <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                                <li><a class="dropdown-item" href="../../action/logout.php" onclick="return confirm('Anda Yakin ?')">Log Out</a></li>
                             </ul>
                         </div>
                     </li>
@@ -84,33 +69,19 @@
                             aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
                             <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
-                            <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                            <li><a class="dropdown-item" href="../../action/logout.php" onclick="return confirm('Anda Yakin ?')">Log Out</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </div>
     </header>
-
-    <?php
-        $id_akun = $_SESSION['id_akunPerpus'];
-        $query = 
-        "SELECT * FROM `perpus_daftar` 
-        JOIN `perpus_alamat` ON `perpus_alamat`.`id_alamatPerpusAktif` = `perpus_daftar`.id_alamatPerpus 
-        JOIN `perpus_aktif` ON `perpus_aktif`.id_akunPerpus = `perpus_daftar`.id_loginPerpus
-        JOIN `kategori_kebutuhan` ON `kategori_kebutuhan`.id_kategori = `perpus_daftar`.id_kategoriPerpus
-        WHERE `perpus_daftar`.id_loginPerpus = $id_akun ";
-
-        $result = mysqli_query($conn, $query);
-        $result = mysqli_fetch_assoc($result);
-    ?>
-
     <div class="dasbor-content">
         <h1>Dasbor Perpus</h1>
 
         <div class="content">
             <div class="das" style="width: 30%;">
-                <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="../<?php echo $result['gambar_perpus']?>"
+                <img style="min-widht: 165px; min-height: 248px;max-widht: 165px; max-height: 248px;" src="../../<?php echo $result['gambar_perpus']?>"
                     alt="gambar erpustakaan">
                 <h5 style="margin: 15px 0; text-align: center;"><?php echo $result['nama_perpus']; ?></h5>
                 <a href="ubahProfilePerpus.php?id=<?php echo $result['id_perpus']; ?>" class="btn btn-primary col-12">Ubah Profile</a>
@@ -166,13 +137,4 @@
             </div>
         </div>
     </div>
-    <footer>
-    <?php 
-    
-    ?>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pecinTA buKU)</p>
-    </footer>
-</body>
-
-</html>
+    <?php footerHTML(); ?>

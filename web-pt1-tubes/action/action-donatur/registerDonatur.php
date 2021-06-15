@@ -1,6 +1,6 @@
 <?php 
       session_start();
-      require_once "config.php";
+      require "../config.php";
       
       //Cek data donatur
       $email_donatur = htmlspecialchars($_POST['email_donatur']);

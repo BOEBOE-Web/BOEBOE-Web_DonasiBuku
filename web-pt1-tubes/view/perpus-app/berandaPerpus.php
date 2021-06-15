@@ -1,38 +1,21 @@
 <?php  
-    // session_start();
+    session_start();
+    include '../../helper/function.php';
+
+    // Cek sesi login
     // if(!isset($_SESSION['id_akunPerpus'])) {
-    //     header("Location: ../index.php");
-    //     exit();
+    //   header("Location: ../../index.php");
+    //   exit();
     // }
-
-    // require "../action/config.php";
+    
+    //Memanggil Header
+    $style = array("../../public/css/beranda.css", "../../public/css/berandaPerpus-responsive.css");
+    headerHTML($style); 
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoeBoe - Web Donasi Buku Bekas</title>
-    <link rel="icon" href="image/icon-b.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-</head>
-
-<style>
-    <?php include "../css/beranda.css" ?>
-    <?php include "../css/berandaPerpus-responsive.css" ?>
-</style>
-
 <body>
     <header>
         <div class="header">
-            <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+            <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -43,7 +26,7 @@
             </label>
             <nav>
                 <div class="header">
-                    <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+                    <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
                 <li><a href="berandaPerpus.php#">Beranda</a></li>
@@ -57,7 +40,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
                                 <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
-                                <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                                <li><a class="dropdown-item" href="../../action/logout.php">Log Out</a></li>
                             </ul>
                         </div>
                     </li>
@@ -77,7 +60,7 @@
                         <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
                             <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
-                            <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                            <li><a class="dropdown-item" href="../../action/logout.php">Log Out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -85,7 +68,7 @@
         </div>
     </header>
     <div id="home">
-        <img src="../image/boeboe.png" alt="boeboe">
+        <img src="../../public/image/boeboe.png" alt="boeboe">
         <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
     </div>
     <div id="main-container">
@@ -119,7 +102,7 @@
         <div class="teks-tentang">
             <h1 data-aos="fade-right" data-aos-delay="200">Tentang Kami</h1>
             <div>
-                <img class="mobs" src="../image/Web-development-_Two-Color.png" alt="Web development">
+                <img class="mobs" src="../../public/image/Web-development-_Two-Color.png" alt="Web development">
             </div>
             <p>BoeBoe adalah sebuah web yang berperan penting sebagai sarana untuk mendonasikan berbagai macam buku yang
                 sudah tidak terpakai untuk dialokasikan kepada perpustakaan yang lebih membutuhkan.</p>
@@ -129,13 +112,13 @@
                 dengan BoeBoe.</p>
         </div>
         <div>
-            <img class="deskipad" src="../image/Web-development-_Two-Color.png" alt="Web development">
+            <img class="deskipad" src="../../public/image/Web-development-_Two-Color.png" alt="Web development">
         </div>
     </div>
     <?php 
     //Memanggil Footer
     $script = '<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                <script src="public/js/script.js"></script>
+                <script src="../../public/js/script.js"></script>
                 <script> AOS.init();</script>';
     footerHTML($script); 
     ?>

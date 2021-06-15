@@ -1,42 +1,20 @@
 <?php
-    // session_start();
-    // if(!isset($_SESSION['id_loginDonatur'])) {
-    //     header("Location: ../index.php");
-    //     exit();
-    // }
-    // require "../action/config.php";
+    session_start();
+    require "../../action/config.php";
+    include '../../helper/function.php';
 
-    // $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus` FROM `perpus_daftar` ";
-    // $resultData_perpus = mysqli_query($conn, $queryPerpus);
+    $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus` 
+    FROM `perpus_daftar` ";
+    $resultData_perpus = mysqli_query($conn, $queryPerpus);
+    
+    //Memanggil Header
+    $style = array("../../public/css/donasi.css", "../../public/css/donasi-responsive.css");
+    headerHTML($style); 
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoeBoe - Web Donasi Buku Bekas</title>
-    <link rel="icon" href="../image/icon-b.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-</head>
-
-<style>
-    <?php include "../css/donasi.css"?>
-    <?php include "../css/donasi-responsive.css"?>
-</style>
-
 <body>
     <header>
         <div class="header">
-            <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+            <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -47,7 +25,7 @@
             </label>
             <nav>
                 <div class="header">
-                    <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+                    <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
                     <li><a href="berandaDonatur.php">Beranda</a></li>
@@ -63,7 +41,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
                                 <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-                                <li><a class="dropdown-item" href="../action/logout.php"
+                                <li><a class="dropdown-item" href="../../action/logout.php"
                                         onclick="alert('Anda Yakin ?')">Log Out</a></li>
                             </ul>
                         </div>
@@ -87,7 +65,7 @@
                             aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
                             <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
-                            <li><a class="dropdown-item" href="../action/logout.php">Log Out</a></li>
+                            <li><a class="dropdown-item" href="../../action/logout.php">Log Out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -122,8 +100,8 @@
                                             JOIN `perpus_daftar` ON `perpus_daftar`.`id_kategoriPerpus` = `kategori_kebutuhan`.`id_kategori` 
                                             JOIN `perpus_aktif` ON `perpus_aktif`.`id_akunPerpus` = `perpus_daftar`.`id_loginPerpus`  
                                             WHERE `perpus_daftar`.`id_perpus` = '$id_perpus' ";
-                    $resultKategori = mysqli_query($conn, $queryKategori);
-                    $resultKategori = mysqli_fetch_assoc($resultKategori);
+                        $resultKategori = mysqli_query($conn, $queryKategori);
+                        $resultKategori = mysqli_fetch_assoc($resultKategori);
                     
                     //Ambil Data SESSION
                     $_SESSION['id_kategori'] = $resultKategori['id_kategori'];
@@ -269,7 +247,7 @@
                         // Jalankan Insert Foto
                         if(in_array($extensi, $cek_ekstensi) == true) {
                             if($size < 1000000) {
-                                $moveFile = 'image/upload-donasi/bukti-donasi/'. $name;
+                                $moveFile = 'public/image/upload-donasi/bukti-donasi/'. $name;
                                 move_uploaded_file($tmpFile, '../'.$moveFile );
                                 
                                 $queryInsertDonasi = "INSERT INTO `donasi_buku`(`id_donasiBuku`, `id_loginDonatur`, `id_kategoriKebutuhan`, `nama_perpus`, `jumlah_buku`, `judul_buku`, `kategori_buku`, `nama_penulis`, `nama_penerbit`, `tahun_terbit`, `foto_buku`) 
@@ -320,9 +298,9 @@
                     $date = date('Ymd', $date);
                     $querySelectKonfirm = "SELECT MAX(id_detail) as 'index' FROM `donasi_detail`";
                     $hasilSelect = mysqli_query($conn, $querySelectKonfirm);
-
+                    
                     $index;
-                    if (mysqli_fetch_lengths($hasilSelect) == NULL) {
+                    if (mysqli_num_rows($hasilSelect) == 0) {
                         echo "kosong";
                         $index = 1;
                     } else {
@@ -332,18 +310,15 @@
                         $index = (int) substr($kodeSelect, 14, 4);
                         $index++;
                     }
+                    // var_dump($index);
+                    // var_dump($hasilSelect);
+                    // die;
                     $resultNumber =  'BOEBOE'.$date. sprintf("%04s", $index);
                     $index = $resultNumber;
                     
-                    // Query Insert Detail
                     $queryDetail = "INSERT INTO `donasi_detail`(`id_detail`, `id_alamatPerpus`, `id_donasiBuku`, `nama_penerima`, `nama_pengirim`, `nama_perpustakaan`, `alamat_penerima`, `noTelepon_penerima`) VALUES ('$index','$id_alamatPerpus','$id_donasiBuku','$namaPenerima','$namaPengirim','$nama_perpus','$alamat','$noTelepon_perpus')";
-                    // var_dump($queryDetail);
-                    // var_dump(mysqli_query($conn, $queryDetail));
-                    // var_dump($id_donasiBuku);
-                    // die;
                     mysqli_query($conn, $queryDetail);
                     
-                    // Query Insert Konfirm
                     $queryKonfirm = "INSERT INTO `donasi_konfirmasi`(`id_detail`, `id_konfirmasi`, `id_konfirmasiPerpus`, `bukti_donasi`, `status_donasi`) VALUES ('$index',NULL,'$id_akunPerpus','Upload Bukti Donasi','Donasi Sedang Dikirim')";
                     
                     if (mysqli_query($conn, $queryKonfirm)) {
@@ -356,11 +331,9 @@
                 }
         ?>
     </div>
-    <footer>
-        <p>Copyright &#169 2021 BoeBoe - Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU</p>
-    </footer>
-    <script src="../js/script.js"></script>
-</body>
+    <?php
 
-</html>
+        //Memanggil Footer
+        $script = '<script src="../../public/js/script.js"></script>';
+        footerHTML($script); 
+    ?>

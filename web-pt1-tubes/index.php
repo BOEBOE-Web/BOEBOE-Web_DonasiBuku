@@ -1,13 +1,13 @@
 <?php  
-    // session_start();
-    // require "action/config.php";
+    session_start();
+    include 'helper/function.php';
 
     //Memanggil Header
-    include 'helper/function.php';
     $style = array("public/css/style.css", "public/css/style-responsive.css");
     headerHTML($style); 
 ?>
 
+<body>
     <header>
         <div class="header">
             <img src="public/image/logo-boeboe.png" alt="logo-boeboe">
@@ -50,8 +50,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- FORM -->
-                    <form class="row g-3 needs-validation" method="POST" action="action/logDonatur.php" novalidate>
+                    <!-- FORM LOGIN -->
+                    <form class="row g-3 needs-validation" method="POST" action="action/action-donatur/loginDonatur.php" novalidate>
                         <div class="col-12">
                             <label for="inputEmail4" class="form-label">Email</label>
                             <input type="email" class="form-control" name="email_donatur" id="inputEmail4" required>
@@ -77,14 +77,14 @@
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary col-12">Masuk</button>
                         </div>
-                        <div>Belum punya akun donatur? <span class="klik"><a href="assets/registerDonatur.php">Daftar disini</a></span></div>
+                        <div>Belum punya akun donatur? <span class="klik"><a href="view/donatur-app/registerDonatur.php">Daftar disini</a></span></div>
                     </form>
-                    <!-- END FORM -->
+                    <!-- END FORM LOGIN -->
                 </div>
                 <div class="modal-footer">
                     <div style="width: 100%;"><h5 class="modal-title">Perpustakaan</h5></div>
-                    <div>Masuk perpustakaan <span class="klik"><a href="assets/masukPerpus.php">disini</a></span></div>
-                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="assets/registerPerpus.php">Klik disini</a></span></div>
+                    <div>Masuk perpustakaan <span class="klik"><a href="view/perpus-app/masukPerpus.php">disini</a></span></div>
+                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="view/perpus-app/registerPerpus.php">Klik disini</a></span></div>
                 </div>
             </div>
         </div>

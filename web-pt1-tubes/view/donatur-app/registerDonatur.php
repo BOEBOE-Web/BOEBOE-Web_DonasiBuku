@@ -1,30 +1,15 @@
 <?php 
 	// session_start();
+
+    include '../../helper/function.php';
+    $style = array("../../public/css/register.css", "../../public/css/register-responsive.css");
+    headerHTML($style); 
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoeBoe - Web Donasi Buku Bekas</title>
-    <link rel="icon" href="../image/icon-b.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-</head>
-
-<style>
-    <?php include "../css/register.css" ?><?php include "../css/register-responsive.css" ?>
-</style>
 
 <body>
     <header>
         <div class="header">
-            <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+            <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
         </div>
         <nav class="burgermenu">
             <input id="burger" type="checkbox" />
@@ -35,21 +20,21 @@
             </label>
             <nav>
                 <div class="header">
-                    <img src="../image/logo-boeboe.png" alt="logo-boeboe">
+                    <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                    <li><a href="../index.php">Beranda</a></li>
-                    <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="../welcome/daftarPerpustakaan.php">Perpustakaan</a></li>
+                    <li><a href="../../index.php">Beranda</a></li>
+                    <li><a href="../../index.php#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="../../welcome/daftarPerpustakaan.php">Perpustakaan</a></li>
                     <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
                 </ul>
             </nav>
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="../index.php">Beranda</a></li>
-                <li><a href="../index.php#tentang-kami">Tentang Kami</a></li>
-                <li><a href="../welcome/daftarPerpustakaan.php">Perpustakaan</a></li>
+                <li><a href="../../index.php">Beranda</a></li>
+                <li><a href="../../index.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="../../welcome/daftarPerpustakaan.php">Perpustakaan</a></li>
                 <li><a href="#" class="masuk" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Masuk</a></li>
             </ul>
         </div>
@@ -64,8 +49,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- FORM -->
-                    <form class="row g-3 needs-validation" method="POST" action="../action/logDonatur.php" novalidate>
+                    <!-- FORM LOGIN -->
+                    <form class="row g-3 needs-validation" method="POST" action="../../action/action-donatur/loginDonatur.php" novalidate>
                         <div class="col-12">
                             <label for="inputEmail4" class="form-label">Email</label>
                             <input type="email" class="form-control" name="email_donatur" id="inputEmail4" required>
@@ -92,12 +77,12 @@
                             <button type="submit" class="btn btn-primary col-12">Masuk</button>
                         </div>
                     </form>
-                    <!-- END FORM -->
+                    <!-- END FORM LOGIN -->
                 </div>
                 <div class="modal-footer">
                     <div style="width: 100%;"><h5 class="modal-title">Perpustakaan</h5></div>
-                    <div>Masuk perpustakaan <span class="klik"><a href="masukPerpus.php">disini</a></span></div>
-                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="registerPerpus.php">Klik disini</a></span></div>
+                    <div>Masuk perpustakaan <span class="klik"><a href="../perpus-app/masukPerpus.php">disini</a></span></div>
+                    <div>Mendaftar Sebagai Perpustakaan? <span class="klik"><a href="../perpus-app/registerPerpus.php">Klik disini</a></span></div>
                 </div>
             </div>
         </div>
@@ -106,7 +91,7 @@
     <div class="main">
         <h1>Daftar Sebagai Donatur</h1>
         <!-- FORM -->
-        <form class="row g-3 needs-validation" novalidate action="../action/regDonatur.php" method="POST">
+        <form class="row g-3 needs-validation" novalidate action="../../action/action-donatur/registerDonatur.php" method="POST">
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
                 <input type="email" class="form-control" id="inputEmail4" name="email_donatur" required>
@@ -201,13 +186,8 @@
             </div>
         </form>
         <!-- END FORM -->
-
     </div>
-    <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pecinTA buKU)</p>
-    </footer>
-    <script src="../js/script.js"></script>
-</body>
-
-</html>
+    <?php 
+        $script = '<script src="../../js/script.js"></script>';
+        footerHTML($script); 
+    ?>
