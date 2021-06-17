@@ -20,6 +20,7 @@
     }
     .main-content h5 {
       padding-bottom: 40px;
+      line-break: anywhere;
     }
   }
 
