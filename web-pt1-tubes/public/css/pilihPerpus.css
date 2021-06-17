@@ -142,6 +142,7 @@ header {
 
 .main-content p {
   margin-bottom: 15px !important;
+  line-break: anywhere;
 }
 
 .content {
