@@ -41,7 +41,8 @@
      function konfirmasiDonasi($conn, $id) {
           $query = "SELECT  `donasi_konfirmasi`.`id_detail`, `donasi_konfirmasi`.`status_donasi` 
           FROM `donasi_konfirmasi`
-          WHERE id_konfirmasiPerpus = $id ";
+          JOIN `perpus_aktif` ON `perpus_aktif`.`id_akunPerpus` = `donasi_konfirmasi`.`id_konfirmasiPerpus`
+          WHERE `perpus_aktif`.`id_akunPerpus` = $id ";
           $result = mysqli_query($conn, $query);
 
           return $result;

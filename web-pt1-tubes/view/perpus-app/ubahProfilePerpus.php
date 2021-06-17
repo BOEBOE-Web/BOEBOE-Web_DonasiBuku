@@ -18,6 +18,7 @@
     $style = array("../../public/css/ubahProfile.css", "../../public/css/ubahProfilePerpus-responsive.css");
     $pavicon = "../../public/image/icon-b.png";
     headerHTML($pavicon, $style);  
+
 ?>
 <body>
     <header>
@@ -181,7 +182,7 @@
                     if(in_array($extensi, $cek_ekstensi) == true) {
                         if($size < 1000000) {
                             $moveFile = 'public/image/profile-perpus/upload-user/'. $name;
-                            move_uploaded_file($tmpFile, '../'.$moveFile );
+                            move_uploaded_file($tmpFile, '../../'.$moveFile );
                             $query = "UPDATE `perpus_daftar` SET `gambar_perpus` = '$moveFile' WHERE id_loginPerpus = $id_login ";
                             
                             if(mysqli_query($conn, $query)) {
