@@ -27,7 +27,7 @@
                 </label>
                 <nav>
                     <div class="header">
-                        <img src="..../public//image/logo-boeboe.png" alt="logo-boeboe">
+                        <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                     </div>
                     <ul style="padding: 0px !important;">
                     <li><a href="berandaPerpus.php#">Beranda</a></li>
