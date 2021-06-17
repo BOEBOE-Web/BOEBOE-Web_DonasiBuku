@@ -81,8 +81,8 @@
           </nav>
           <div class="navi">
               <ul>
-                  <li><a href="#">Beranda</a></li>
-                  <li><a href="#tentang-kami">Tentang Kami</a></li>
+                  <li><a href="berandaDonatur.php#">Beranda</a></li>
+                  <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                   <li><a href="donasi.php">Donasi</a></li>
                   <li><a href="perpustakaan.php">Perpustakaan</a></li>
                   <li>

@@ -124,7 +124,7 @@
                 <div class="col-md-6">
                     <a class="btn btn-primary col-12" href="konfirmasi.php">Batal</a>
                 </div
-                <?php if(isset($result['status_donasi']) == 'Donasi telah diterima' || ($result['status_donasi']) == 'Buku yang didonasikan tidak sesuai'): ?>>
+                <?php if(!isset($_FILES['bukti_donasi']) < 0 || ($result['bukti_donasi']) == 'Upload Bukti Donasi'): ?>>
                 <div class="col-md-6">
                     <button  type="submit" class="btn btn-secondary col-12" name="simpan">Simpan Perubahan</button>
                 <?php endif; ?>
