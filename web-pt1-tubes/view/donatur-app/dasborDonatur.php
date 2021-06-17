@@ -1,8 +1,8 @@
 <?php
     session_start();
     require '../../action/config.php';
-    include '../../helper/function.php';
-    $id = $_SESSION['id_loginDonatur'];
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-donatur-app/functionDonatur.php';
     
     // Seleksi Data Yang Dibutuhkan
     $email_donatur = $_SESSION['email_donatur'];
@@ -10,7 +10,8 @@
 
     //Memanggil Header
     $style = array("../../public/css/dasborDonatur.css", "../../public/css/dasborDonatur-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 <body>
   <header>

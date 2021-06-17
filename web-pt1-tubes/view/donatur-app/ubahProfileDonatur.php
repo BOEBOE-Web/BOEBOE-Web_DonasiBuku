@@ -1,16 +1,18 @@
 <?php
   session_start();
   require '../../action/config.php';
-  include '../../helper/function.php';
-  $id = $_SESSION['id_loginDonatur'];
+  include '../../model/helper-public/functionPublic.php';
+  include '../../model/helper-donatur-app/functionDonatur.php';
   
   //Seleksi Data Yang Dibutuhkan
   $id = $_GET['id'];
+  $id = $_SESSION['id_loginDonatur'];
   $result = ubahProfileDonatur($conn, $id);
 
   //Menaggil Header
   $style = array("../../public/css/ubahProfile.css", "../../public/css/ubahProfile-responsive.css");
-  headerHTML($style); 
+  $pavicon = "../../public/image/icon-b.png";
+  headerHTML($pavicon, $style);  
 ?>
 <body>
   <header>
@@ -115,16 +117,15 @@
     <!-- END FORM -->
     <?php
           if(isset($_POST['simpan'])) {
-
             //Mengambil input data dari form
             $id_donatur = $id;
             $id_alamatDonatur = $result['id_alamatDonatur'];
-            $nama_donatur = $_POST['nama_donatur'];
-            $nomorTelepon = $_POST['noTelepon_donatur'];
-            $tglLahir = $_POST['tglLahir_donatur'];
-            $alamat = $_POST['alamat_donatur'];
-            $instansi = $_POST['instansi_donatur'];
-            $kodePos = $_POST['kodePos'];
+            $nama_donatur = htmlspecialchars($_POST['nama_donatur']);
+            $nomorTelepon = htmlspecialchars($_POST['noTelepon_donatur']);
+            $tglLahir = htmlspecialchars($_POST['tglLahir_donatur']);
+            $alamat = htmlspecialchars($_POST['alamat_donatur']);
+            $instansi = htmlspecialchars($_POST['instansi_donatur']);
+            $kodePos = htmlspecialchars($_POST['kodePos']);
             
             $queryUpdate = "UPDATE `donatur_daftar`, `donatur_alamat`
             SET nama_donatur = '$nama_donatur', noTelepon_donatur = '$nomorTelepon',  tglLahir_donatur = '$tglLahir', alamat = '$alamat', instansi_donatur = '$instansi', kodePos = '$kodePos' 

@@ -1,7 +1,8 @@
 <?php
     session_start();
     require "../../action/config.php";  
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
     
     //Seleksi data
     $id = $_GET['id'];
@@ -9,7 +10,8 @@
 
     //Memanggil Header
     $style = array("../../public/css/pilihPerpus.css", "../../public/css/detailPerpus-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style); 
 ?>
 <body>
     <header>

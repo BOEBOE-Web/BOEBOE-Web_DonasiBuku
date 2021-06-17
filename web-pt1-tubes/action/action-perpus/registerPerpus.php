@@ -2,21 +2,24 @@
       session_start();
       require "../config.php";
       
-      //Cek data perpus
+      //Cek duplikasi data perpus
       $email_perpus = htmlspecialchars($_POST['email_perpus']);
-      $queryCekUser = "SELECT * FROM `perpus_aktif` WHERE email_perpus = '$email_perpus'";
+      $queryCekUser = "SELECT `perpus_aktif`.`email_perpus` 
+      FROM `perpus_aktif` WHERE `perpus_aktif`.`email_perpus` = '$email_perpus'";
       $cekUser = mysqli_num_rows(mysqli_query($conn, $queryCekUser));
       
       $namaPerpus = htmlspecialchars($_POST['namaPerpus']);
-      $queryCeknamaPerpus = "SELECT * FROM `perpus_daftar` WHERE nama_perpus = '$namaPerpus' ";
+      $queryCeknamaPerpus = "SELECT `perpus_daftar`.`nama_perpus` 
+      FROM `perpus_daftar` WHERE `perpus_daftar`.`nama_perpus` = '$namaPerpus' ";
       $ceknamaPerpus = mysqli_num_rows(mysqli_query($conn, $queryCeknamaPerpus));
       
       $namaPengelola_perpus = htmlspecialchars($_POST['namaPengelola_perpus']);
-      $queryCeknamaPengelola_perpus = "SELECT * FROM `perpus_daftar` WHERE namaPengelola_perpus = '$namaPengelola_perpus' ";
+      $queryCeknamaPengelola_perpus = "SELECT `perpus_daftar`.`namaPengelola_perpus` 
+      FROM `perpus_daftar` WHERE `perpus_daftar`.`namaPengelola_perpus` = '$namaPengelola_perpus' ";
       $ceknamaPengelola_perpus = mysqli_num_rows(mysqli_query($conn, $queryCeknamaPengelola_perpus));
 
       if ($cekUser > 0 OR $ceknamaPerpus AND $ceknamaPengelola_perpus > 0) {
-            echo "<script>alert('Harap cek kembali data anda, karena ada data yang sudah ada');document.location.href='../index.php';</script>";
+            echo "<script>alert('Harap cek kembali data anda, karena ada data yang sudah ada');document.location.href='../../index.php';</script>";
       } else {
             //Insert alamat perpus
             $provinsi = htmlspecialchars($_POST['provinsi_perpus']);
@@ -43,7 +46,7 @@
             $queryAkun = "INSERT INTO `perpus_aktif`(`id_akunPerpus`, `email_perpus`, `password_perpus`) 
             VALUES (NULL,'$email_perpus','$password_perpus')";
             mysqli_query($conn, $queryAkun);
-            
+
             $id_akunPerpus = mysqli_insert_id($conn);
             
             //Insert Kategori
@@ -62,7 +65,7 @@
             VALUES (NULL, '$id_akunPerpus', '$namaPengelola_perpus', '$namaPerpus', '$tahunBerdiri_perpus', '$noIzin_perpus', '$id_alamatPerpus', '$id_kategori','$noTelepon_perpus', 'Silahkan Update', 'public/image/profile-perpus/gambar.png')";
             
             if (mysqli_query($conn, $queryPerpus)) {
-                  echo "<script>document.location.href='../../index.php';alert('Silahkan Masuk 😊');</script>";
+                  echo "<script>document.location.href='../../view/perpus-app/masukPerpus.php';alert('Anda berhasil mendaftar, silahkan masuk! 😊');</script>";
             } else {
                   echo "<script>alert('Data Gagal Ditambahkan');document.location.href='../../index.php';</script>";
             }

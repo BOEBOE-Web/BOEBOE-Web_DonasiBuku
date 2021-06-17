@@ -1,10 +1,11 @@
 <?php  
     session_start();
-    include 'helper/function.php';
+    include 'model/helper-public/functionPublic.php';
 
     //Memanggil Header
     $style = array("public/css/style.css", "public/css/style-responsive.css");
-    headerHTML($style); 
+    $pavicon = "public/image/icon-b.png";
+    headerHTML($pavicon, $style); 
 ?>
 
 <body>

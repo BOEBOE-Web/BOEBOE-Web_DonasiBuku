@@ -1,21 +1,17 @@
 <?php 
     session_start();
     require '../../action/config.php';
-    include '../../helper/function.php';
-
-    //Cek sesi login
-    // if(!isset($_SESSION['id_akunPerpus'])) {
-    //     header("Location: ../../index.php");
-    //     exit();
-    // }
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
     
     //Seleksi data
-    $id = $_SESSION['id_akunPerpus'];
-    $result = profilePerpustakaan($conn, $id);
+    $email_perpus = $_SESSION['email_perpus'];
+    $result = profilePerpustakaan($conn, $email_perpus);
 
     //Memanggil Header
     $style = array("../../public/css/dasborPerpus.css", "../../public/css/dasborPerpus-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style); 
 ?>
 <body>
     <header>

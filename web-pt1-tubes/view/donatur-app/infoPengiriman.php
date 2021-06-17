@@ -1,7 +1,8 @@
 <?php
   session_start();
   include "../../action/config.php";
-  include '../../helper/function.php';
+  include '../../model/helper-public/functionPublic.php';
+  include '../../model/helper-donatur-app/functionDonatur.php';
 
   //Seleksi data
   $id = $_GET['id'];
@@ -9,25 +10,27 @@
 
   //Memanggil Header
   $style = array("../../public/css/infoPengiriman.css", "../../public/css/infoPengiriman-responsive.css");
-  headerHTML($style); 
+  $pavicon = "../../public/image/icon-b.png";
+  headerHTML($pavicon, $style);  
 ?>
 
 <style>
-@media print {
-  header {
-    display: none;
-  }
-  body {
-    margin: -160px 10px;
-  }
-  body .main-grup {
-    margin-top: 20px;
-  }
-  footer {
-    display: none;
-  }
-  @page {
-    size: A4;
+  @media print {
+    header {
+      display: none;
+    }
+    body {
+      margin: -160px 10px;
+    }
+    body .main-grup {
+      margin-top: 20px;
+    }
+    footer {
+      display: none;
+    }
+    @page {
+      size: A4;
+    }
   }
 </style>
 
@@ -125,6 +128,6 @@
         <button class="btn btn-primary col-12" id="btnprint" onclick="print_page()">Print Alamat</button>
       </div>
       <div style="border-bottom: 1px solid #bbe1fa; padding-top: 20px"></div>
-      <p style="padding-top: 20px; color: #dc3545">Print / catat informasi pengiriman di atas untuk di tempel pada paket pengiriman</p>
+      <p style="padding-top: 20px; color: #dc3545">Print atau catat informasi pengiriman di atas untuk di tempel pada paket pengiriman*</p>
     </div>
     <?php footerHTML(); ?>

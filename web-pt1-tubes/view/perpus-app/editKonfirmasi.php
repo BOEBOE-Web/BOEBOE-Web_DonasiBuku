@@ -1,7 +1,8 @@
 <?php
     session_start();
     require "../../action/config.php";
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
 
     //Seleksi data
     $id = $_GET['id'];
@@ -10,7 +11,9 @@
 
     //Memanggil Header
     $style = array("../../public/css/konfirmasi.css", "../../public/css/editKonfirmasi-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style); 
+    $options = array('Donasi telah diterima', 'Donasi belum sampai', 'Buku yang didonasikan tidak sesuai');
 ?>
 <body>
     <header>
@@ -91,10 +94,16 @@
                 </div>
                 <div class="col-md-9">
                     <select class="form-select" name="status_donasi">
-                        <option selected disabled value=""><?php echo $result['status_donasi'];?></option>
-                        <option>Donasi telah diterima</option>
-                        <option>Donasi belum sampai</option>
-                        <option>Buku yang didonasikan tidak sesuai</option>
+                                <option selected disabled value=""><?php echo $result['status_donasi'];?></option>
+                        <?php if ($result['status_donasi'] == 'Donasi telah diterima' || $result['status_donasi'] == 'Buku yang didonasikan tidak sesuai'):?>
+                                <?php foreach($options as $o): ?>
+                                    <option disabled><?= $o ?></option>
+                        <?php endforeach; 
+                            else: 
+                                foreach($options as $o): ?>
+                                    <option ><?= $o ?></option>
+                        <?php endforeach;
+                            endif;?>
                     </select>
                 </div>
             </div>
@@ -109,12 +118,13 @@
                 </div>
             </div>
         </div>
+        <p style="padding-top: 20px; color: #dc3545">Konfirmasi donasi hanya dapat dilakukan 1x saja*</p>
         <div class="form-group mt-5">
             <div class="row">
                 <div class="col-md-6">
                     <a class="btn btn-primary col-12" href="konfirmasi.php">Batal</a>
                 </div
-                <?php if(!isset($_FILES['bukti_donasi']) < 0 || ($result['bukti_donasi']) == 'Upload Bukti Donasi'): ?>>
+                <?php if(isset($result['status_donasi']) == 'Donasi telah diterima' || ($result['status_donasi']) == 'Buku yang didonasikan tidak sesuai'): ?>>
                 <div class="col-md-6">
                     <button  type="submit" class="btn btn-secondary col-12" name="simpan">Simpan Perubahan</button>
                 <?php endif; ?>
@@ -125,7 +135,7 @@
     </div>
     <?php
         if(isset($_POST['simpan'])) {
-	    $idKonfirmasi = $result['id_konfirmasi'];
+	        $idKonfirmasi = $result['id_konfirmasi'];
             $status_donasi = $_POST['status_donasi'];
 
             // For Upload gambar profile
@@ -143,14 +153,14 @@
                 if(in_array($extensi, $cek_ekstensi) == true) {
                     if($size < 1000000) {
                         $moveFile = 'public/image/upload-donasi/bukti-donasi/'. $name;
-                        move_uploaded_file($tmpFile, '../'.$moveFile );
+                        move_uploaded_file($tmpFile, '../../'.$moveFile );
                         $query = "UPDATE `donasi_konfirmasi` SET `bukti_donasi` = '$moveFile', `status_donasi` = '$status_donasi' 
                         WHERE id_konfirmasi = $idKonfirmasi ";
                         
                         if(mysqli_query($conn, $query)) {
-                            echo "<script>alert('Gambar Berresult Upload'); window.location.href = 'konfirmasi.php';</script>";
+                            echo "<script>alert('Bukti Donasi Telah Di Upload'); window.location.href = 'konfirmasi.php';</script>";
                         } else {
-                            echo "<script>alert('Gambar Gagal Upload'); window.location.href = 'konfirmasi.php';</script>";
+                            echo "<script>alert('Bukti Donasi Gagal Upload'); window.location.href = 'konfirmasi.php';</script>";
                         }
                     } else {
                         echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'konfirmasi.php';</script>";
@@ -160,11 +170,5 @@
                 }
             }
         }
+        footerHTML();
     ?>
-    <footer>
-        <p>Copyright &#169 2021 BoeBoe<br>Web Donasi Buku Bekas</p>
-        <p>Made by OTAKU<br>(Orang-orang pecinTA buKU)</p>
-    </footer>
-</body>
-
-</html>

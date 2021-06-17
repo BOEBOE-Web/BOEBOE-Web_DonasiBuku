@@ -1,16 +1,12 @@
 <?php  
     session_start();
-    
-    // Cek Sesi Login
-    // if(!isset($_SESSION['id_loginDonatur'])) {
-    //   header("Location: ../../index.php");
-    //   exit();
-    // }
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-donatur-app/functionDonatur.php';
 
     //Memanggil Header
-    include '../../helper/function.php';
     $style = array("../../public/css/beranda.css", "../../public/css/style-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 <body>
     <header>

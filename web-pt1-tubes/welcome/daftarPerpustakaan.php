@@ -1,14 +1,15 @@
 <?php  
     // session_start();
     require "../action/config.php";
-    include '../helper/function.php';
+    include '../model/helper-public/functionPublic.php';
 
     //Seleksi data yang dibutuhkan
     $result = daftarPerpustakaan($conn);
 
     //Memanggil Header
     $style = array("../public/css/perpustakaan.css", "../public/css/perpustakaan-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../public/image/icon-b.png";
+    headerHTML($pavicon, $style); 
 ?>
 
 <body>
@@ -56,7 +57,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- FORM LOGIN -->
-                    <form class="row g-3 needs-validation" method="POST" action="../action/action-donatur//loginDonatur.php" novalidate>
+                    <form class="row g-3 needs-validation" method="POST" action="../action/action-donatur/loginDonatur.php" novalidate>
                         <div class="col-12">
                             <label for="inputEmail4" class="form-label">Email</label>
                             <input type="email" class="form-control" name="email_donatur" id="inputEmail4" required>

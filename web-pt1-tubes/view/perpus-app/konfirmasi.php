@@ -1,15 +1,17 @@
 <?php
     session_start();
     include "../../action/config.php";
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
 
+    //Seleksi data
     $id = $_SESSION['id_akunPerpus'];
-    $query = "SELECT  `donasi_konfirmasi`.`id_detail`, `donasi_konfirmasi`.`status_donasi` FROM `donasi_konfirmasi` WHERE id_konfirmasiPerpus = $id ";
-    $result = mysqli_query($conn, $query);
+    $result = konfirmasiDonasi($conn, $id);
 
     //Memanggil Header
     $style = array("../../public/css/konfirmasi.css", "../../public/css/konfirmasi-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style); 
 ?>
 <body>
     <header>

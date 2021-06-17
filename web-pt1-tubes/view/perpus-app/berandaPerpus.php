@@ -1,16 +1,12 @@
 <?php  
     session_start();
-    include '../../helper/function.php';
-
-    // Cek sesi login
-    // if(!isset($_SESSION['id_akunPerpus'])) {
-    //   header("Location: ../../index.php");
-    //   exit();
-    // }
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
     
     //Memanggil Header
     $style = array("../../public/css/beranda.css", "../../public/css/berandaPerpus-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style); 
 ?>
 <body>
     <header>

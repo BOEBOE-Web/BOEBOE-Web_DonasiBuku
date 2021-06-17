@@ -1,10 +1,12 @@
 <?php
     session_start();
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
     
     //Memanggil Header
     $style = array("../../public/css/register.css", "../../public/css/register-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 <body>
     <header>
@@ -49,8 +51,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- FORM -->
-                    <form class="row g-3 needs-validation" method="POST" action="../../action/action-donatur//loginDonatur.php" novalidate>
+                    <!-- FORM Login -->
+                    <form class="row g-3 needs-validation" method="POST" action="../../action/action-donatur/loginDonatur.php" novalidate>
                         <div class="col-12">
                             <label for="inputEmail4" class="form-label">Email</label>
                             <input type="email" class="form-control" name="email_donatur" id="inputEmail4" required>
@@ -78,7 +80,7 @@
                         </div>
                         <div>Belum punya akun donatur? <span class="klik"><a href="../donatur-app/registerDonatur.php">Daftar disini</a></span></div>
                     </form>
-                    <!-- END FORM -->
+                    <!-- END FORM Login -->
                 </div>
                 <div class="modal-footer">
                     <div style="width: 100%;"><h5 class="modal-title">Perpustakaan</h5></div>
@@ -90,7 +92,7 @@
     <!-- END Modal -->
     <div class="main">
         <h1>Daftar Sebagai Perpustakaan</h1>
-        <!-- FORM -->
+        <!-- FORM Register -->
         <form class="row g-3 needs-validation" action="../../action/action-perpus/registerPerpus.php" method="POST" novalidate>
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
@@ -224,7 +226,7 @@
                 <button type="submit" class="btn btn-primary col-12">Daftar</button>
             </div>
         </form>
-        <!-- END FORM -->
+        <!-- END FORM Register-->
     </div>
     <?php 
         //Memanggil Footer

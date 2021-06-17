@@ -1,7 +1,8 @@
 <?php
     session_start();
     require "../../action/config.php";
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-donatur-app/functionDonatur.php';
 
     $queryPerpus = "SELECT `perpus_daftar`.`nama_perpus`, `perpus_daftar`.`id_perpus` 
     FROM `perpus_daftar` ";
@@ -9,7 +10,8 @@
     
     //Memanggil Header
     $style = array("../../public/css/donasi.css", "../../public/css/donasi-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 <body>
     <header>
@@ -212,6 +214,7 @@
                     </div>
                 </div>
             </div>
+            <p style="padding-top: 20px; color: #dc3545">Pastikan data yang anda masukkan sudah benar, sebelum menekan tombol kirim*</p>
             <div class="button-center">
                 <button class="btn btn-primary col-12" type="submit" name="kirim">Kirim</button>
             </div>
@@ -223,12 +226,12 @@
 
                 if(isset($_POST['kirim'])) {
                     // Insert Data Donasi
-                    $kategori_kebutuhan = $_POST['kategori_kebutuhan'];
-                    $judul_buku = $_POST['judul_buku'];
-                    $jumlah_buku = $_POST['jumlah_buku'];
-                    $nama_penulis = $_POST['nama_penulis'];
-                    $nama_penerbit = $_POST['nama_penerbit'];
-                    $tahun_terbit = $_POST['tahun_terbit'];
+                    $kategori_kebutuhan = htmlspecialchars($_POST['kategori_kebutuhan']);
+                    $judul_buku = htmlspecialchars($_POST['judul_buku']);
+                    $jumlah_buku = htmlspecialchars($_POST['jumlah_buku']);
+                    $nama_penulis = htmlspecialchars($_POST['nama_penulis']);
+                    $nama_penerbit = htmlspecialchars($_POST['nama_penerbit']);
+                    $tahun_terbit = htmlspecialchars($_POST['tahun_terbit']);
                     $id_kategori = $_SESSION['id_kategori'];
                     $id_loginDonatur = $_SESSION['id_loginDonatur'];
                     $nama_perpus =  $_SESSION['nama_perpus'];
@@ -247,12 +250,15 @@
                         // Jalankan Insert Foto
                         if(in_array($extensi, $cek_ekstensi) == true) {
                             if($size < 1000000) {
-                                $moveFile = 'public/image/upload-donasi/bukti-donasi/'. $name;
-                                move_uploaded_file($tmpFile, '../'.$moveFile );
+                                $moveFile = 'public/image/upload-donasi/donasi-buku/'. $name;
+                                move_uploaded_file($tmpFile, '../../'.$moveFile );
                                 
                                 $queryInsertDonasi = "INSERT INTO `donasi_buku`(`id_donasiBuku`, `id_loginDonatur`, `id_kategoriKebutuhan`, `nama_perpus`, `jumlah_buku`, `judul_buku`, `kategori_buku`, `nama_penulis`, `nama_penerbit`, `tahun_terbit`, `foto_buku`) 
                                                         VALUES (NULL,'$id_loginDonatur','$id_kategori','$nama_perpus','$jumlah_buku','$judul_buku','$kategori_kebutuhan','$nama_penulis','$nama_penerbit','$tahun_terbit','')";
                                 mysqli_query($conn, $queryInsertDonasi);
+
+                                var_dump($queryInsertDonasi);
+                                var_dump(mysqli_query($conn, $queryInsertDonasi));
 
                                 $id_donasi = mysqli_insert_id($conn);
                                 $id_donasiBuku = $id_donasi;
@@ -304,15 +310,12 @@
                         echo "kosong";
                         $index = 1;
                     } else {
-                        echo "ada";
-                        $hasilSelect = mysqli_fetch_assoc($hasilSelect);
-                        $kodeSelect = $hasilSelect['index'];
-                        $index = (int) substr($kodeSelect, 14, 4);
-                        $index++;
+                            echo "ada";
+                            $hasilSelect = mysqli_fetch_assoc($hasilSelect);
+                            $kodeSelect = $hasilSelect['index'];
+                            $index = (int) substr($kodeSelect, 14, 4);
+                            $index++;
                     }
-                    // var_dump($index);
-                    // var_dump($hasilSelect);
-                    // die;
                     $resultNumber =  'BOEBOE'.$date. sprintf("%04s", $index);
                     $index = $resultNumber;
                     
@@ -332,7 +335,6 @@
         ?>
     </div>
     <?php
-
         //Memanggil Footer
         $script = '<script src="../../public/js/script.js"></script>';
         footerHTML($script); 

@@ -44,13 +44,13 @@
             VALUES (NULL, '$id_loginDonatur', '$email_donatur', '$nama_donatur', '$noTelepon_donatur', '$tglLahir_donatur', '$id_alamatDonatur', '$instansi_donatur' )";
 
             if (mysqli_query($conn, $queryDonatur)) {
-                  echo "<script>document.location.href='../index.php';alert('Anda berhasil mendaftar, silahkan masuk!');</script>";
+                  echo "<script>document.location.href='../../index.php';alert('Anda berhasil mendaftar, silahkan masuk! 😊');</script>";
             } else {
                   echo mysqli_error($conn);
                   // var_dump($queryDonatur);
                   var_dump(mysqli_query($conn, $queryDonatur));
                   die;
-                  echo "<script>document.location.href='../index.php';alert('Data anda gagal ditambahkan');</script>";
+                  echo "<script>document.location.href='../../index.php';alert('Data anda gagal ditambahkan');</script>";
             }
       }
 

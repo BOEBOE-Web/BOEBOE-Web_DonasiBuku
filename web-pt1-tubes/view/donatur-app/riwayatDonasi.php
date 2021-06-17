@@ -1,14 +1,16 @@
 <?php
     session_start();
     require "../../action/config.php";
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-donatur-app/functionDonatur.php';
 
     $id = $_SESSION['id_loginDonatur'];
     $result = riwayatDonasi($conn, $id);
 
     //Memanggil Header
     $style = array("../../public/css/riwayat.css", "../../public/css/riwayat-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 <body>
     <header>

@@ -1,9 +1,11 @@
 <?php 
-	// session_start();
+	session_start();
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-donatur-app/functionDonatur.php';
 
-    include '../../helper/function.php';
     $style = array("../../public/css/register.css", "../../public/css/register-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 
 <body>
@@ -90,8 +92,8 @@
     <!-- END Modal -->
     <div class="main">
         <h1>Daftar Sebagai Donatur</h1>
-        <!-- FORM -->
-        <form class="row g-3 needs-validation" novalidate action="../../action/action-donatur/registerDonatur.php" method="POST">
+        <!-- FORM Register -->
+        <form class="row g-3 needs-validation" action="../../action/action-donatur/registerDonatur.php" method="POST" novalidate>
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
                 <input type="email" class="form-control" id="inputEmail4" name="email_donatur" required>
@@ -145,7 +147,6 @@
                     Harus diisi.
                 </div>
             </div>
-
             <div class="col-md-6">
                 <label for="formKodePos" class="form-label">Kode Pos</label>
                 <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5" 
@@ -154,7 +155,6 @@
                     Harus diisi.
                 </div>
             </div>
-
             <div class="col-6">
                 <label for="inputInstansi" class="form-label">Instansi</label>
                 <select class="form-select" id="inputInstansi" name="instansi_donatur" required>
@@ -168,7 +168,6 @@
                     Harus dipilih.
                 </div>
             </div>
-
             <div class="col-12">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -182,10 +181,9 @@
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary col-12" name="daftar">Daftar</button>
-
             </div>
         </form>
-        <!-- END FORM -->
+        <!-- END FORM Register -->
     </div>
     <?php 
         $script = '<script src="../../js/script.js"></script>';

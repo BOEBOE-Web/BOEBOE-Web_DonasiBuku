@@ -1,25 +1,23 @@
 <?php 
     session_start();
     require "../../action/config.php";
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
 
-    // if(!isset($_SESSION['id_akunPerpus'])) {
-    //     header("Location: ../index.php");
-    //     exit();
-    // }
-
+    //Seleksi data
     $id = $_GET['id'];
     $id_login = $_SESSION['id_akunPerpus'];
     $result = ubahProfilePerpustakaan($conn, $id_login);
     
-    // For Input Data Kategori
+    // For Array, input data ke kategori
     $arrKategori = ["Pendidikan", "Anak-anak", "Komputer & Teknologi", "Novel", "Kamus", "Kedokteran", "Sejarah", "UTBK"];
     $dataKategori = $result['jenis_kategori'];
     $dataKategori = explode(',',$dataKategori);
 
     //Memanggil Header
     $style = array("../../public/css/ubahProfile.css", "../../public/css/ubahProfilePerpus-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 <body>
     <header>
@@ -182,20 +180,20 @@
                     // Jalankan Update
                     if(in_array($extensi, $cek_ekstensi) == true) {
                         if($size < 1000000) {
-                            $moveFile = 'image/profile-perpus/upload-user/'. $name;
+                            $moveFile = 'public/image/profile-perpus/upload-user/'. $name;
                             move_uploaded_file($tmpFile, '../'.$moveFile );
                             $query = "UPDATE `perpus_daftar` SET `gambar_perpus` = '$moveFile' WHERE id_loginPerpus = $id_login ";
                             
                             if(mysqli_query($conn, $query)) {
                                 echo "<script>alert('Gambar Berhasil Upload'); window.location.href = 'dasborPerpus.php';</script>";
                             } else {
-                                echo "<script>alert('Gambar Gagal Upload'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
+                                echo "<script>alert('Gambar Gagal Upload'); window.location.href = 'ubahProfilePerpus.php?id='.echo $id_perpus.'';</script>";
                             }
                         } else {
-                            echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
+                            echo "<script>alert('Ukuran Gambar Terlalu Besar'); window.location.href = 'ubahProfilePerpus.php?id='.echo $id_perpus.'';</script>";
                         } 
                     }else {
-                            echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'ubahProfilePerpus.php?id=';</script>";
+                            echo "<script>alert('Ekstensi Tidak Mendukung'); window.location.href = 'ubahProfilePerpus.php?id='.echo $id_perpus.';</script>";
                     }
                 }
 
@@ -211,20 +209,20 @@
 
                 // For Update `perpus_daftar` & `perpus_alamat`
                 $id_alamatPerpus = $result['id_alamatPerpus'];
-                $nama_perpus = $_POST['nama_perpus'];
-                $namaPengelola_perpus = $_POST['namaPengelola_perpus'];
-                $tentang_perpus = $_POST['tentang_perpus'];
-                $tahunBerdiri_perpus = $_POST['tahunBerdiri_perpus'];
-                $noIzin_perpus = $_POST['noIzin_perpus'];
-                $provinsi = $_POST['provinsi'];
-                $kabupaten_kota = $_POST['kabupaten_kota'];
-                $kecamatan = $_POST['kecamatan'];
-                $desa_kelurahan = $_POST['desa_kelurahan'];
-                $rt = $_POST['rt'];
-                $rw = $_POST['rw'];
-                $jalan = $_POST['jalan'];
-                $kodePos = $_POST['kodePos'];
-                $noTelepon = $_POST['noTelepon_perpus'];
+                $nama_perpus = htmlspecialchars($_POST['nama_perpus']);
+                $namaPengelola_perpus = htmlspecialchars($_POST['namaPengelola_perpus']);
+                $tentang_perpus = htmlspecialchars($_POST['tentang_perpus']);
+                $tahunBerdiri_perpus = htmlspecialchars($_POST['tahunBerdiri_perpus']);
+                $noIzin_perpus = htmlspecialchars($_POST['noIzin_perpus']);
+                $provinsi = htmlspecialchars($_POST['provinsi']);
+                $kabupaten_kota = htmlspecialchars($_POST['kabupaten_kota']);
+                $kecamatan = htmlspecialchars($_POST['kecamatan']);
+                $desa_kelurahan = htmlspecialchars($_POST['desa_kelurahan']);
+                $rt = htmlspecialchars($_POST['rt']);
+                $rw = htmlspecialchars($_POST['rw']);
+                $jalan = htmlspecialchars($_POST['jalan']);
+                $kodePos = htmlspecialchars($_POST['kodePos']);
+                $noTelepon = htmlspecialchars($_POST['noTelepon_perpus']);
 
                 $queryUpdatePerpusDaftar = "UPDATE `perpus_daftar`
                 SET `nama_perpus` = '$nama_perpus', `tentang_perpus` = '$tentang_perpus', `namaPengelola_perpus` = '$namaPengelola_perpus', `noTelepon_perpus` = '$noTelepon',  `tahunBerdiri_perpus` = '$tahunBerdiri_perpus', `noIzin_perpus` = '$noIzin_perpus'
@@ -234,8 +232,6 @@
                 $queryUpdatePerpusAlamat = "UPDATE `perpus_alamat`
                 SET `provinsi` = '$provinsi', `kabupaten_kota` = '$kabupaten_kota', `kecamatan` = '$kecamatan', `desa_kelurahan` = '$desa_kelurahan', rt = '$rt', `rw` ='$rw', `jalan` = '$jalan', `kodePos` = '$kodePos'  
                 WHERE `id_alamatPerpusAktif` = '$id_alamatPerpus' ";
-                // var_dump($queryUpdatePerpusAlamat);
-                // die;
                 if (mysqli_query($conn, $queryUpdatePerpusAlamat)) {
                     echo "<script>alert('Data Berhasil Diubah'); window.location.href = 'dasborPerpus.php';</script>";
                 }

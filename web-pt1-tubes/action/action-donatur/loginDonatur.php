@@ -3,9 +3,12 @@
 
       require "../config.php";
 
-	$email_donatur = $_POST["email_donatur"];
-	$password_donatur = $_POST["password_donatur"];
-	$cekuser = mysqli_query($conn, "SELECT * FROM donatur_aktif WHERE email_donatur = '$email_donatur' ");
+	$email_donatur = htmlspecialchars($_POST["email_donatur"]);
+	$password_donatur = htmlspecialchars($_POST["password_donatur"]);
+	$query = "SELECT `donatur_aktif`.`id_akunDonaturAktif`, `donatur_aktif`.`email_donatur`, `donatur_aktif`.`password_donatur` 
+	FROM `donatur_aktif` 
+	WHERE `donatur_aktif`.`email_donatur` = '$email_donatur' ";
+	$cekuser = mysqli_query($conn, $query);
 	
 	if (mysqli_num_rows($cekuser) === 1) {
 		
@@ -19,7 +22,7 @@
 			if (isset($_POST["rememberme"])) {
 				setcookie("login", "tetap_ingat", time()+30);
 			} else {
-				// echo "Cookie belum ada";
+				// Cek jika, Cookie belum ada
 			}
 				
 			echo "<script>alert('Anda Berhasil Login!'); window.location.href='../../view/donatur-app/dasborDonatur.php';</script>";

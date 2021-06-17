@@ -1,13 +1,15 @@
 <?php 
     session_start();
     require "../../action/config.php";
-    include '../../helper/function.php';
+    include '../../model/helper-public/functionPublic.php';
+    include '../../model/helper-donatur-app/functionDonatur.php';
     
     $result = daftarPerpustakaan($conn);
     
     //Memanggil Header
     $style = array("../../public/css/perpustakaan.css", "../../public/css/perpustakaan-responsive.css");
-    headerHTML($style); 
+    $pavicon = "../../public/image/icon-b.png";
+    headerHTML($pavicon, $style);  
 ?>
 <body>
     <header>
