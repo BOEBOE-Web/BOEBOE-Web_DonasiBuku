@@ -101,6 +101,7 @@ header {
 
 .dasbor-content p {
   margin-bottom: 15px !important;
+  line-break: anywhere;
 }
 
 .content {
