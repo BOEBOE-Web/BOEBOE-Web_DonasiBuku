@@ -1,13 +1,18 @@
 <?php  
     session_start();
-
     include '../../model/helper-public/functionPublic.php';
-    include '../../model/helper-donatur-app/functionDonatur.php';
+    include '../../model/helper-perpus-app/functionPerpus.php';
+    
+    // Cek Login
+	if(!isset($_SESSION['id_akunPerpus'])){
+        header("Location: ../../index.php");
+        exit();
+    }
 
     //Memanggil Header
-    $style = array("../../public/css/beranda.css", "../../public/css/style-responsive.css");
+    $style = array("../../public/css/beranda.css", "../../public/css/berandaPerpus-responsive.css");
     $pavicon = "../../public/image/icon-b.png";
-    headerHTML($pavicon, $style);  
+    headerHTML($pavicon, $style); 
 ?>
 <body>
     <header>
@@ -26,19 +31,17 @@
                     <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#tentang-kami">Tentang Kami</a></li>
-                    <li><a href="donasi.php">Donasi</a></li>
-                    <li><a href="perpustakaan.php">Perpustakaan</a></li>
+                <li><a href="berandaPerpus.php#">Beranda</a></li>
+                <li><a href="berandaPerpus.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="listPerpustakaan.php">Perpustakaan</a></li>
                     <li>
-                        <div class="dropdown">
-                            <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="dropdown">
+                            <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Profile
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
-                                <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
+                                <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
+                                <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
                                 <li><a class="dropdown-item" href="../../action/logout.php">Log Out</a></li>
                             </ul>
                         </div>
@@ -48,20 +51,17 @@
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#tentang-kami">Tentang Kami</a></li>
-                <li><a href="donasi.php">Donasi</a></li>
-                <li><a href="perpustakaan.php">Perpustakaan</a></li>
+                <li><a href="berandaPerpus.php#">Beranda</a></li>
+                <li><a href="berandaPerpus.php#tentang-kami">Tentang Kami</a></li>
+                <li><a href="listPerpustakaan.php">Perpustakaan</a></li>
                 <li>
-                    <div class="dropdown">
-                        <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="dropdown">
+                        <a class="masuk dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
-                        <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu"
-                            aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="dasborDonatur.php">Dasbor</a></li>
-                            <li><a class="dropdown-item" href="riwayatDonasi.php">Riwayat Donasi</a></li>
+                        <ul style="display:unset; flex-wrap: unset;" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="dasborPerpus.php">Dasbor</a></li>
+                            <li><a class="dropdown-item" href="konfirmasi.php">Konfirmasi Donasi</a></li>
                             <li><a class="dropdown-item" href="../../action/logout.php">Log Out</a></li>
                         </ul>
                     </div>
@@ -72,7 +72,6 @@
     <div id="home">
         <img src="../../public/image/boeboe.png" alt="boeboe">
         <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
-        <a href="donasi.php">DONASI BUKU</a>
     </div>
     <div id="main-container">
         <div class="main-flex display1">
@@ -121,7 +120,7 @@
     <?php 
     //Memanggil Footer
     $script = '<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                <script src="public/js/script.js"></script>
+                <script src="../../public/js/script.js"></script>
                 <script> AOS.init();</script>';
     footerHTML($script); 
     ?>

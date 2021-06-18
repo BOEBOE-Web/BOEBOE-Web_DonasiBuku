@@ -1,11 +1,19 @@
-<?php  
+<?php
     session_start();
-
+    require "../../action/config.php";
     include '../../model/helper-public/functionPublic.php';
     include '../../model/helper-donatur-app/functionDonatur.php';
 
+    // Cek Login
+    if(!isset($_SESSION['email_donatur'])) {
+        header('Location: ../../index.php');
+    }
+
+    $id = $_SESSION['id_loginDonatur'];
+    $result = riwayatDonasi($conn, $id);
+
     //Memanggil Header
-    $style = array("../../public/css/beranda.css", "../../public/css/style-responsive.css");
+    $style = array("../../public/css/riwayat.css", "../../public/css/riwayat-responsive.css");
     $pavicon = "../../public/image/icon-b.png";
     headerHTML($pavicon, $style);  
 ?>
@@ -26,8 +34,8 @@
                     <img src="../../public/image/logo-boeboe.png" alt="logo-boeboe">
                 </div>
                 <ul style="padding: 0px !important;">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="berandaDonatur.php">Beranda</a></li>
+                    <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                     <li><a href="donasi.php">Donasi</a></li>
                     <li><a href="perpustakaan.php">Perpustakaan</a></li>
                     <li>
@@ -48,8 +56,8 @@
         </nav>
         <div class="navi">
             <ul>
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#tentang-kami">Tentang Kami</a></li>
+                <li><a href="berandaDonatur.php">Beranda</a></li>
+                <li><a href="berandaDonatur.php#tentang-kami">Tentang Kami</a></li>
                 <li><a href="donasi.php">Donasi</a></li>
                 <li><a href="perpustakaan.php">Perpustakaan</a></li>
                 <li>
@@ -69,59 +77,21 @@
             </ul>
         </div>
     </header>
-    <div id="home">
-        <img src="../../public/image/boeboe.png" alt="boeboe">
-        <p>"Perjalanan hidup yang indah adalah ketika mampu berbagi, bukan menikmati sendiri"</p>
-        <a href="donasi.php">DONASI BUKU</a>
-    </div>
-    <div id="main-container">
-        <div class="main-flex display1">
-            <h1 data-aos="fade-right" data-aos-delay="200">What You Do ?</h1>
-            <ul>
-                <li>
-                    <p>Mengisi form donasi</p>
-                </li>
-                <li>
-                    <p>Menyediakan buku kemudian dikemas</p>
-                </li>
-                <li>
-                    <p>Mengirim buku ke alamat tujuan</p>
-                </li>
-            </ul>
-        </div>
-        <div class="main-flex display2">
-            <h1 data-aos="fade-right" data-aos-delay="400">What We Do ?</h1>
-            <ul>
-                <li>
-                    <p>BoeBoe menyediakan website untuk mendonasikan buku</p>
-                </li>
-                <li>
-                    <p>BoeBoe menjalin kerjasama dengan perpustakaan yang membutuhkan buku</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="tentang-kami">
-        <div class="teks-tentang">
-            <h1 data-aos="fade-right" data-aos-delay="200">Tentang Kami</h1>
-            <div>
-                <img class="mobs" src="../../public/image/Web-development-_Two-Color.png" alt="Web development">
-            </div>
-            <p>BoeBoe adalah sebuah web yang berperan penting sebagai sarana untuk mendonasikan berbagai macam buku yang
-                sudah tidak terpakai untuk dialokasikan kepada perpustakaan yang lebih membutuhkan.</p>
-            <p>BoeBoe menyediakan program donasi buku bekas berbasis web, serta akses mendapatkan buku dengan lebih
-                mudah kepada mereka yang tinggal di daerah terpencil. Dalam web ini terdapat berbagai macam fitur
-                seperti kategori buku yang dibutuhkan perpustakaan dan daftar perpustakaan yang menjalin kerjasama
-                dengan BoeBoe.</p>
-        </div>
-        <div>
-            <img class="deskipad" src="../../public/image/Web-development-_Two-Color.png" alt="Web development">
-        </div>
-    </div>
-    <?php 
-    //Memanggil Footer
-    $script = '<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                <script src="public/js/script.js"></script>
-                <script> AOS.init();</script>';
-    footerHTML($script); 
+    <?php
+
     ?>
+    <div class="riwayat-content">
+        <h1>Riwayat Donasi</h1>
+        <?php while($data = mysqli_fetch_assoc($result)): ?>
+        <div class="grup">
+            <h5>No. Donasi : <?php echo $data['id_detail']; ?></h5>
+            <p>Status : <?php echo $data['status_donasi']; ?></p>
+            <?php if($data['bukti_donasi'] != 'Upload Bukti Donasi'): ?>
+            <p><br/>Bukti Donasi : </p>
+            <img class="img-riwayatDonasi" src="../../<?php echo $data['bukti_donasi']?>">
+            <?php endif; ?>
+            <p class="hover"><a href="infoPengiriman.php?id=<?php echo  $data['id_detail']; ?>">Detail Informasi Pengiriman</a></p>
+        </div>
+        <?php endwhile; ?>
+    </div>
+    <?php footerHTML(); ?>

@@ -1,8 +1,12 @@
 <?php  
     session_start();
-
     include '../../model/helper-public/functionPublic.php';
     include '../../model/helper-donatur-app/functionDonatur.php';
+
+    // Cek Login
+    if(!isset($_SESSION['email_donatur'])) {
+        header('Location: ../../index.php');
+    }
 
     //Memanggil Header
     $style = array("../../public/css/beranda.css", "../../public/css/style-responsive.css");
