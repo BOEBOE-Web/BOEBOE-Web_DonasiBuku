@@ -20,7 +20,7 @@
 
           function profileDonaturAPI($email_donatur) {
                     global $conn;
-                    $query = "SELECT `donatur_daftar`.`id_donatur`, `donatur_daftar`.`email_donatur`, `donatur_daftar`.`nama_donatur`, `donatur_daftar`.`noTelepon_donatur`, `donatur_daftar`.`tglLahir_donatur`, `donatur_daftar`.`instansi_donatur`, `donatur_daftar`.`id_alamatDonatur`, `donatur_alamat`.`id_alamatDonaturAktif`, `donatur_alamat`.`alamat`, `donatur_alamat`.`kodePos`
+                    $query = "SELECT `donatur_daftar`.`email_donatur`, `donatur_daftar`.`nama_donatur`, `donatur_daftar`.`noTelepon_donatur`, `donatur_daftar`.`tglLahir_donatur`, `donatur_daftar`.`instansi_donatur`, `donatur_alamat`.`alamat`, `donatur_alamat`.`kodePos`
                     FROM `donatur_daftar`
                     JOIN `donatur_alamat` ON `donatur_alamat`.`id_alamatDonaturAktif` = `donatur_daftar`.`id_alamatDonatur`
                     WHERE email_donatur = '$email_donatur' ";
